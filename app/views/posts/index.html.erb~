@@ -49,12 +49,10 @@
 <% 1.upto(5).each do|i|%>
   <tr>
 <% (d..d.end_of_week(:sunday)).each do|c|%>
-    <th width="10" height="50"><a href=""><%= (c.strftime('%m') == month)? c.st\
-rftime('%d'): "  "%></a>
+    <th width="10" height="50"><a href=""><%= (c.strftime('%m') == month)? c.strftime('%d'): "  "%></a>
     <br><font size="1">
     <% @events.each do |e| %>
-    <%= ( (c.strftime('%m') == e.month) && (c.strftime('%d') == e.date) )? e.ti\
-tle : "  "%>
+    <%= ( (c.strftime('%m') == e.month) && (c.strftime('%d') == e.date) )? e.title : "  "%>
     <% end %>
     </br></font></th>
 <% end %>
