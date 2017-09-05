@@ -1,0 +1,32 @@
+<div class = "contents">
+  <section class = "column">
+    <h2>
+      <h1>
+        <li>
+          <%= link_to 'LOGOUT', destroy_user_session_path, method: :delete %>
+        </li>
+        イベント・お知らせ
+      </h1>
+    <ul>
+      <% @posts.each do |post| %>
+      <li>
+        <%= link_to post.title, post_path(post) %>
+        <%= link_to '[Edit]', edit_post_path(post), class: 'command' %>
+        <%= link_to '[x]',
+        post_path(post),
+        method: :delete,
+        class: 'command',
+        data: { confirm: 'Sure?' } %>
+      </li>
+      <% end %>
+    </ul>
+    <%= link_to 'Add New', new_post_path%>
+   </h2>
+ </section>
+ <div class = "profile">
+   <h1>
+     prifile
+   </h1>
+   <%= link_to image_tag('apio', class: 'apio') %>
+ </div>
+</div>
