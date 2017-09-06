@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'events/index'
+  get 'events/new' => 'events#new'
+  get 'events/show/:e_id' => 'events#show'
+
   get 'home/index'
 
   get 'home/authentication'
@@ -10,6 +14,6 @@ resources :posts do
   resources :comments, only: [:create, :destroy]
 end
 
-# root 'posts#index'
+ root 'posts#index'
 
 end
