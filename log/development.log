@@ -6783,3 +6783,395 @@ Processing by PostsController#index as HTML
 Completed 200 OK in 40ms (Views: 36.6ms | ActiveRecord: 0.4ms)
 
 
+Started GET "/" for 127.0.0.1 at 2017-09-06 10:02:00 +0900
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PostsController#index as HTML
+Completed 401 Unauthorized in 15ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2017-09-06 10:02:00 +0900
+Processing by Devise::SessionsController#new as HTML
+  Rendering users/sessions/new.html.erb within layouts/application
+  Rendered users/shared/_links.html.erb (1.0ms)
+  Rendered users/sessions/new.html.erb within layouts/application (45.1ms)
+Completed 200 OK in 412ms (Views: 399.7ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2017-09-06 10:02:03 +0900
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering users/registrations/new.html.erb within layouts/application
+  Rendered users/shared/_links.html.erb (0.7ms)
+  Rendered users/registrations/new.html.erb within layouts/application (4.1ms)
+Completed 200 OK in 34ms (Views: 32.9ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2017-09-06 10:02:19 +0900
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"h2YxQKYzYoraJRNWz/4NvqlV8O4geVL3WWMcVhJS2yezwix3F5L9bW5ig7SHgoAZORITE3o7kXU2rJguUz7TXA==", "user"=>{"email"=>"doishu624@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "doishu624@gmail.com"], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  Rendering users/registrations/new.html.erb within layouts/application
+  Rendered users/shared/_links.html.erb (0.7ms)
+  Rendered users/registrations/new.html.erb within layouts/application (4.1ms)
+Completed 200 OK in 220ms (Views: 27.7ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2017-09-06 10:02:23 +0900
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"A1TpjMAWA8B9Sw0amxvz1hMV0e9ny02IBMGllKsMsuiGwiL8aqjcTBs5opMfKIQi1WsB01VUOkSx2MVl+PeOJQ==", "user"=>{"email"=>"doishu624@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "doishu624@gmail.com"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  Rendering users/registrations/new.html.erb within layouts/application
+  Rendered users/shared/_links.html.erb (15.3ms)
+  Rendered users/registrations/new.html.erb within layouts/application (19.2ms)
+Completed 200 OK in 55ms (Views: 42.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2017-09-06 10:02:26 +0900
+Processing by Devise::SessionsController#new as HTML
+  Rendering users/sessions/new.html.erb within layouts/application
+  Rendered users/shared/_links.html.erb (0.7ms)
+  Rendered users/sessions/new.html.erb within layouts/application (3.9ms)
+Completed 200 OK in 33ms (Views: 31.7ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2017-09-06 10:02:37 +0900
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"qy7+bJy2NKjKRnrckI6RqmaZey91z1UOhSIiJVUgfa3RBopd6uSVwIwjh42wxx4Iv578CnfKPdOIUwZIh7inZg==", "user"=>{"email"=>"doishu624@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "doishu624@gmail.com"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[33mUPDATE "users" SET "current_sign_in_at" = ?, "last_sign_in_at" = ?, "sign_in_count" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["current_sign_in_at", "2017-09-06 01:02:38.057549"], ["last_sign_in_at", "2017-09-05 08:42:28.667487"], ["sign_in_count", 4], ["updated_at", "2017-09-06 01:02:38.058331"], ["id", 2]]
+  [1m[35m (1.3ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 152ms (ActiveRecord: 1.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-09-06 10:02:38 +0900
+Processing by PostsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY "posts"."created_at" DESC[0m
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT "events".* FROM "events"[0m
+  Rendered posts/index.html.erb within layouts/application (18.6ms)
+Completed 200 OK in 63ms (Views: 40.6ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-09-06 10:07:21 +0900
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PostsController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY "posts"."created_at" DESC[0m
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events"[0m
+  Rendered posts/index.html.erb within layouts/application (198.1ms)
+Completed 200 OK in 272ms (Views: 240.2ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-09-06 10:10:04 +0900
+Processing by PostsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY "posts"."created_at" DESC[0m
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT "events".* FROM "events"[0m
+  Rendered posts/index.html.erb within layouts/application (4.2ms)
+Completed 200 OK in 29ms (Views: 25.5ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-09-06 10:11:37 +0900
+Processing by PostsController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY "posts"."created_at" DESC[0m
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT "events".* FROM "events"[0m
+  Rendered posts/index.html.erb within layouts/application (4.9ms)
+Completed 200 OK in 30ms (Views: 25.7ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/test/%E4%B8%AD%E9%96%93%E7%99%BA%E8%A1%A8" for 127.0.0.1 at 2017-09-06 10:12:00 +0900
+  
+ActionController::RoutingError (No route matches [GET] "/test/%E4%B8%AD%E9%96%93%E7%99%BA%E8%A1%A8"):
+  
+actionpack (5.1.3) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+web-console (3.5.1) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.5.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.3) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.3) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.3) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.3) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.3) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.3) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.3) lib/rack/method_override.rb:22:in `call'
+rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.3) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.3) lib/rails/engine.rb:522:in `call'
+puma (3.10.0) lib/puma/configuration.rb:225:in `call'
+puma (3.10.0) lib/puma/server.rb:605:in `handle_request'
+puma (3.10.0) lib/puma/server.rb:437:in `process_client'
+puma (3.10.0) lib/puma/server.rb:301:in `block in run'
+puma (3.10.0) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/" for 127.0.0.1 at 2017-09-06 10:12:18 +0900
+Processing by PostsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY "posts"."created_at" DESC[0m
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events"[0m
+  Rendered posts/index.html.erb within layouts/application (6.7ms)
+Completed 200 OK in 32ms (Views: 28.1ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-09-06 10:12:19 +0900
+Processing by PostsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY "posts"."created_at" DESC[0m
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT "events".* FROM "events"[0m
+  Rendered posts/index.html.erb within layouts/application (5.3ms)
+Completed 200 OK in 30ms (Views: 25.5ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/test/'%E4%B8%AD%E9%96%93%E7%99%BA%E8%A1%A8'" for 127.0.0.1 at 2017-09-06 10:12:21 +0900
+  
+ActionController::RoutingError (No route matches [GET] "/test/'%E4%B8%AD%E9%96%93%E7%99%BA%E8%A1%A8'"):
+  
+actionpack (5.1.3) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+web-console (3.5.1) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.5.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.3) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.3) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.3) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.3) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.3) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.3) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.3) lib/rack/method_override.rb:22:in `call'
+rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.3) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.3) lib/rails/engine.rb:522:in `call'
+puma (3.10.0) lib/puma/configuration.rb:225:in `call'
+puma (3.10.0) lib/puma/server.rb:605:in `handle_request'
+puma (3.10.0) lib/puma/server.rb:437:in `process_client'
+puma (3.10.0) lib/puma/server.rb:301:in `block in run'
+puma (3.10.0) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/" for 127.0.0.1 at 2017-09-06 10:12:59 +0900
+Processing by PostsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY "posts"."created_at" DESC[0m
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT "events".* FROM "events"[0m
+  Rendered posts/index.html.erb within layouts/application (6.5ms)
+Completed 200 OK in 32ms (Views: 29.1ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-09-06 10:13:01 +0900
+Processing by PostsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY "posts"."created_at" DESC[0m
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT "events".* FROM "events"[0m
+  Rendered posts/index.html.erb within layouts/application (6.2ms)
+Completed 200 OK in 37ms (Views: 32.7ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/test&id=1" for 127.0.0.1 at 2017-09-06 10:13:02 +0900
+  
+ActionController::RoutingError (No route matches [GET] "/test&id=1"):
+  
+actionpack (5.1.3) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+web-console (3.5.1) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.5.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.3) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.3) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.3) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.3) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.3) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.3) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.3) lib/rack/method_override.rb:22:in `call'
+rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.3) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.3) lib/rails/engine.rb:522:in `call'
+puma (3.10.0) lib/puma/configuration.rb:225:in `call'
+puma (3.10.0) lib/puma/server.rb:605:in `handle_request'
+puma (3.10.0) lib/puma/server.rb:437:in `process_client'
+puma (3.10.0) lib/puma/server.rb:301:in `block in run'
+puma (3.10.0) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/" for 127.0.0.1 at 2017-09-06 10:13:06 +0900
+Processing by PostsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY "posts"."created_at" DESC[0m
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT "events".* FROM "events"[0m
+  Rendered posts/index.html.erb within layouts/application (5.4ms)
+Completed 200 OK in 30ms (Views: 26.1ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/test&id=2" for 127.0.0.1 at 2017-09-06 10:13:07 +0900
+  
+ActionController::RoutingError (No route matches [GET] "/test&id=2"):
+  
+actionpack (5.1.3) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+web-console (3.5.1) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.5.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.3) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.3) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.3) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.3) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.3) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.3) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.3) lib/rack/method_override.rb:22:in `call'
+rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.3) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.3) lib/rails/engine.rb:522:in `call'
+puma (3.10.0) lib/puma/configuration.rb:225:in `call'
+puma (3.10.0) lib/puma/server.rb:605:in `handle_request'
+puma (3.10.0) lib/puma/server.rb:437:in `process_client'
+puma (3.10.0) lib/puma/server.rb:301:in `block in run'
+puma (3.10.0) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/" for 127.0.0.1 at 2017-09-06 10:13:10 +0900
+Processing by PostsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY "posts"."created_at" DESC[0m
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT "events".* FROM "events"[0m
+  Rendered posts/index.html.erb within layouts/application (6.8ms)
+Completed 200 OK in 31ms (Views: 27.2ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-09-06 10:15:20 +0900
+Processing by PostsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering posts/index.html.erb within layouts/application
+  Rendered posts/index.html.erb within layouts/application (1.2ms)
+Completed 500 Internal Server Error in 9ms (ActiveRecord: 0.2ms)
+
+
+  
+SyntaxError (/Users/appirits_1010376/Desktop/gitlub/blog/app/views/posts/index.html.erb:59: syntax error, unexpected keyword_end
+     end 
+        ^
+/Users/appirits_1010376/Desktop/gitlub/blog/app/views/posts/index.html.erb:68: syntax error, unexpected keyword_ensure, expecting keyword_end
+          ensure
+                ^
+/Users/appirits_1010376/Desktop/gitlub/blog/app/views/posts/index.html.erb:70: syntax error, unexpected end-of-input, expecting keyword_end):
+  
+app/views/posts/index.html.erb:59: syntax error, unexpected keyword_end
+app/views/posts/index.html.erb:68: syntax error, unexpected keyword_ensure, expecting keyword_end
+app/views/posts/index.html.erb:70: syntax error, unexpected end-of-input, expecting keyword_end
+Started GET "/" for 127.0.0.1 at 2017-09-06 10:15:36 +0900
+Processing by PostsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering posts/index.html.erb within layouts/application
+  Rendered posts/index.html.erb within layouts/application (1.2ms)
+Completed 500 Internal Server Error in 10ms (ActiveRecord: 0.2ms)
+
+
+  
+SyntaxError (/Users/appirits_1010376/Desktop/gitlub/blog/app/views/posts/index.html.erb:59: syntax error, unexpected keyword_end
+     end 
+        ^
+/Users/appirits_1010376/Desktop/gitlub/blog/app/views/posts/index.html.erb:69: syntax error, unexpected keyword_ensure, expecting keyword_end
+          ensure
+                ^
+/Users/appirits_1010376/Desktop/gitlub/blog/app/views/posts/index.html.erb:71: syntax error, unexpected end-of-input, expecting keyword_end):
+  
+app/views/posts/index.html.erb:59: syntax error, unexpected keyword_end
+app/views/posts/index.html.erb:69: syntax error, unexpected keyword_ensure, expecting keyword_end
+app/views/posts/index.html.erb:71: syntax error, unexpected end-of-input, expecting keyword_end
+Started GET "/" for 127.0.0.1 at 2017-09-06 10:17:47 +0900
+Processing by PostsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY "posts"."created_at" DESC[0m
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events"[0m
+  Rendered posts/index.html.erb within layouts/application (5.3ms)
+Completed 200 OK in 31ms (Views: 27.5ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/test&id=1" for 127.0.0.1 at 2017-09-06 10:17:51 +0900
+  
+ActionController::RoutingError (No route matches [GET] "/test&id=1"):
+  
+actionpack (5.1.3) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+web-console (3.5.1) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.5.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.3) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.3) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.3) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.3) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.3) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.3) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.3) lib/rack/method_override.rb:22:in `call'
+rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.3) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.3) lib/rails/engine.rb:522:in `call'
+puma (3.10.0) lib/puma/configuration.rb:225:in `call'
+puma (3.10.0) lib/puma/server.rb:605:in `handle_request'
+puma (3.10.0) lib/puma/server.rb:437:in `process_client'
+puma (3.10.0) lib/puma/server.rb:301:in `block in run'
+puma (3.10.0) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/" for 127.0.0.1 at 2017-09-06 10:17:54 +0900
+Processing by PostsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY "posts"."created_at" DESC[0m
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT "events".* FROM "events"[0m
+  Rendered posts/index.html.erb within layouts/application (4.3ms)
+Completed 200 OK in 30ms (Views: 25.9ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/posts/3" for 127.0.0.1 at 2017-09-06 10:19:33 +0900
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering posts/show.html.erb within layouts/application
+  [1m[36mComment Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "comments" WHERE "comments"."post_id" = ? LIMIT ?[0m  [["post_id", 3], ["LIMIT", 1]]
+  Rendered posts/show.html.erb within layouts/application (69.8ms)
+Completed 200 OK in 108ms (Views: 98.5ms | ActiveRecord: 1.1ms)
+
+
