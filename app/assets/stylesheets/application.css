@@ -14,40 +14,79 @@
  *= require_self
  */
 
-.container {
+ body {
+   font-family: Verdana, sans-serif;
+   font-size: 14px;
+   background-color: #ffffff;
+   width: 100%;
+ }
 
-  background-color: #f0f8ff
+.header{
+
+  height: 100px;
+  
 
 }
 
 .titlelogo{
   width: 400px;
-  margin: 20px auto;
-  background-color: #ffffff
+  margin: auto;
+
 }
 
+
+.login{
+  width: 150px;
+  margin: auto;
+}
+.logout{
+  margin-left: 800px;
+}
+
+.pagebody{
+  margin: auto;
+  width: 1100px;
+  height: 1000px;
+  border-top: 1px solid #000000;
+  background-color: #f5f5f5;
+
+
+}
 .contents{
-  border-bottom: 1px solid #ddd;
-
+  width: 400px;
+  margin: auto;
 }
 
-.column{
-  width: 720px;
+.pagebodymain{
+  width: 900px;
+  height: 1000px;
   float: left;
+  background-color: #ffffe0;
+}
+.column{
+  margin-left: 200px;
 
 
 }
 
-.profile{
-  width: 220px;
+.pagebodysub{
   float: right;
-  background-color: f5f5f5;
+  width: 150px;
+  height: 1000px;
+  background-color: #ffffff;
+}
+/*.profile{
+  float: left;
+  background-color: #f5f5f5;
 }
 
-body {
-  font-family: Verdana, sans-serif;
-  font-size: 14px;
+.profile2{
+  float: left;
+  background-color: #f5f5f5;
 }
+*/
+
+
 
 h2 {
   font-size: 16px;
