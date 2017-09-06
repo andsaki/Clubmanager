@@ -46,9 +46,6 @@
 .pagebody{
   margin: auto;
   width: 1100px;
-
-
-
 }
 
 .contents{
@@ -65,8 +62,6 @@
 }
 .column{
   margin-left: 200px;
-
-
 }
 
 .pagebodysub{
@@ -102,8 +97,12 @@ ul > li {
 }
 .apio {
   width: 100px;
-  width: 100px;
+  height: 100px;
+}
 
+.edit_b {
+  width: 20px;
+  height: 20px;
 }
 
 
