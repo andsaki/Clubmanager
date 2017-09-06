@@ -39,6 +39,10 @@
   width: 150px;
   margin: auto;
 }
+.sign_up{
+  width: 350px;
+  margin: auto;
+}
 .logout{
   margin-left: 600px;
 }
