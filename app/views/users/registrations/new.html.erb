@@ -4,14 +4,17 @@
   <%= devise_error_messages! %>
 
   <div class="field">
-    <%= f.label :email %><br />
+    <%= f.label :email %><i>　必須</i><br />
     <%= f.email_field :email, autofocus: true %>
   </div>
+
+  <div><%= f.label :usename %><i>　必須(1~20文字)</i><br />
+  <%= f.text_field :username %></div>
 
   <div class="field">
     <%= f.label :password %>
     <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
+    <em>　必須(<%= @minimum_password_length %> characters minimum)</em>
     <% end %><br />
     <%= f.password_field :password, autocomplete: "off" %>
   </div>
@@ -21,9 +24,11 @@
     <%= f.password_field :password_confirmation, autocomplete: "off" %>
   </div>
 
+
   <div class="actions">
     <%= f.submit "Sign up" %>
   </div>
 <% end %>
+
 
 <%= render "users/shared/links" %>
