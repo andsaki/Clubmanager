@@ -3,7 +3,8 @@ Rails.application.routes.draw do
   get 'events/new'
   post 'events' => 'events#create'
   get 'events/show/:e_id' => 'events#show'
-  
+
+  get 'events/calender/:num' => 'events#calender'  
 
   devise_for :users
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

@@ -16,4 +16,19 @@ class EventsController < ApplicationController
    @event.username = params[:event][:username]
    @event.save
   end
+
+  def calender
+   if params[:num] == '0' then
+      @day = Date.today
+   elsif params[:num] == '-1' then
+      @day = Date.today.last_month
+   elsif params[:num] == '1' then
+      @day = Date.today.next_month
+   else
+      @day = Date.today
+   end
+
+   @events = Event.all
+  end
+
 end
