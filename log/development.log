@@ -8231,3 +8231,347 @@ Processing by EventsController#show as HTML
 Completed 200 OK in 30ms (Views: 27.0ms | ActiveRecord: 0.2ms)
 
 
+Started GET "/events/show/1" for 127.0.0.1 at 2017-09-06 10:45:17 +0900
+Processing by EventsController#show as HTML
+  Parameters: {"e_id"=>"1"}
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE (id = '1') ORDER BY "events"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  Rendering events/show.html.erb within layouts/application
+  Rendered events/show.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 29ms (Views: 26.3ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/events/show/2" for 127.0.0.1 at 2017-09-06 10:46:38 +0900
+Processing by EventsController#show as HTML
+  Parameters: {"e_id"=>"2"}
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE (id = '2') ORDER BY "events"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  Rendering events/show.html.erb within layouts/application
+  Rendered events/show.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 32ms (Views: 28.7ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/events/show/1" for 127.0.0.1 at 2017-09-06 10:47:18 +0900
+Processing by EventsController#show as HTML
+  Parameters: {"e_id"=>"1"}
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE (id = '1') ORDER BY "events"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  Rendering events/show.html.erb within layouts/application
+  Rendered events/show.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 42ms (Views: 39.0ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/events/show/2" for 127.0.0.1 at 2017-09-06 10:47:21 +0900
+Processing by EventsController#show as HTML
+  Parameters: {"e_id"=>"2"}
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE (id = '2') ORDER BY "events"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  Rendering events/show.html.erb within layouts/application
+  Rendered events/show.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 32ms (Views: 28.3ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/posts/new" for 127.0.0.1 at 2017-09-06 10:47:26 +0900
+Processing by PostsController#new as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/_form.html.erb (3.6ms)
+  Rendered posts/new.html.erb within layouts/application (6.1ms)
+Completed 200 OK in 36ms (Views: 30.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-09-06 10:52:18 +0900
+Processing by PostsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY "posts"."created_at" DESC[0m
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT "events".* FROM "events"[0m
+  Rendered posts/index.html.erb within layouts/application (4.7ms)
+Completed 200 OK in 31ms (Views: 27.7ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/events/show/1" for 127.0.0.1 at 2017-09-06 10:52:20 +0900
+Processing by EventsController#show as HTML
+  Parameters: {"e_id"=>"1"}
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE (id = '1') ORDER BY "events"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  Rendering events/show.html.erb within layouts/application
+  Rendered events/show.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 40ms (Views: 37.6ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/events/show/1" for 127.0.0.1 at 2017-09-06 10:52:21 +0900
+Processing by EventsController#show as HTML
+  Parameters: {"e_id"=>"1"}
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE (id = '1') ORDER BY "events"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  Rendering events/show.html.erb within layouts/application
+  Rendered events/show.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 36ms (Views: 33.8ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/events/new" for 127.0.0.1 at 2017-09-06 10:52:23 +0900
+  
+ActionController::RoutingError (No route matches [GET] "/events/new"):
+  
+actionpack (5.1.3) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+web-console (3.5.1) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.5.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.3) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.3) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.3) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.3) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.3) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.3) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.3) lib/rack/method_override.rb:22:in `call'
+rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.3) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.3) lib/rails/engine.rb:522:in `call'
+puma (3.10.0) lib/puma/configuration.rb:225:in `call'
+puma (3.10.0) lib/puma/server.rb:605:in `handle_request'
+puma (3.10.0) lib/puma/server.rb:437:in `process_client'
+puma (3.10.0) lib/puma/server.rb:301:in `block in run'
+puma (3.10.0) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/events/new" for 127.0.0.1 at 2017-09-06 10:53:30 +0900
+Processing by EventsController#new as HTML
+  Rendering events/new.html.erb within layouts/application
+  Rendered events/new.html.erb within layouts/application (1.6ms)
+Completed 500 Internal Server Error in 9ms
+
+
+  
+SyntaxError (/Users/appirits_1010376/Desktop/gitlub/blog/app/views/events/new.html.erb:5: syntax error, unexpected '<'
+append=( f.text_field :title></p>
+                              ^
+/Users/appirits_1010376/Desktop/gitlub/blog/app/views/events/new.html.erb:5: unterminated regexp meets end of file):
+  
+app/views/events/new.html.erb:5: syntax error, unexpected '<'
+append=( f.text_field :title></p>
+app/views/events/new.html.erb:5: unterminated regexp meets end of file
+Started GET "/events/new" for 127.0.0.1 at 2017-09-06 10:54:02 +0900
+Processing by EventsController#new as HTML
+  Rendering events/new.html.erb within layouts/application
+  Rendered events/new.html.erb within layouts/application (118.1ms)
+Completed 500 Internal Server Error in 124ms (ActiveRecord: 0.8ms)
+
+
+  
+ActionView::Template::Error (undefined method `events_path' for #<#<Class:0x007f8c7b708438>:0x007f8c83084a28>
+Did you mean?  events_new_path):
+    1: <h1>イベントを作成する</h1>
+    2: 
+    3: <%= form_for Event.new do |f| %>
+    4:   <p>title</p>
+    5:   <p><%= f.text_field :title %></p>
+    6: <% end %>
+  
+app/views/events/new.html.erb:3:in `_app_views_events_new_html_erb___1497958088541416625_70120735255020'
+Started GET "/events/new" for 127.0.0.1 at 2017-09-06 10:54:58 +0900
+Processing by EventsController#new as HTML
+  Rendering events/new.html.erb within layouts/application
+  Rendered events/new.html.erb within layouts/application (109.1ms)
+Completed 500 Internal Server Error in 118ms (ActiveRecord: 0.8ms)
+
+
+  
+ActionView::Template::Error (undefined method `events_path' for #<#<Class:0x007f8c83126850>:0x007f8c83124be0>
+Did you mean?  events_new_path):
+    1: <h1>イベントを作成する</h1>
+    2: 
+    3: <%= form_for Event.new do |f| %>
+    4:   <p>title</p>
+    5:   <p><%= f.text_field :title %></p>
+    6: <% end %>
+  
+app/views/events/new.html.erb:3:in `_app_views_events_new_html_erb___1497958088541416625_70120735586420'
+Started GET "/events/new" for 127.0.0.1 at 2017-09-06 10:55:00 +0900
+Processing by EventsController#new as HTML
+  Rendering events/new.html.erb within layouts/application
+  Rendered events/new.html.erb within layouts/application (84.8ms)
+Completed 500 Internal Server Error in 92ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (undefined method `events_path' for #<#<Class:0x007f8c83126850>:0x007f8c82c94af8>
+Did you mean?  events_new_path):
+    1: <h1>イベントを作成する</h1>
+    2: 
+    3: <%= form_for Event.new do |f| %>
+    4:   <p>title</p>
+    5:   <p><%= f.text_field :title %></p>
+    6: <% end %>
+  
+app/views/events/new.html.erb:3:in `_app_views_events_new_html_erb___1497958088541416625_70120733190720'
+Started GET "/events/new" for 127.0.0.1 at 2017-09-06 10:55:01 +0900
+Processing by EventsController#new as HTML
+  Rendering events/new.html.erb within layouts/application
+  Rendered events/new.html.erb within layouts/application (96.7ms)
+Completed 500 Internal Server Error in 105ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (undefined method `events_path' for #<#<Class:0x007f8c83126850>:0x007f8c815b9f18>
+Did you mean?  events_new_path):
+    1: <h1>イベントを作成する</h1>
+    2: 
+    3: <%= form_for Event.new do |f| %>
+    4:   <p>title</p>
+    5:   <p><%= f.text_field :title %></p>
+    6: <% end %>
+  
+app/views/events/new.html.erb:3:in `_app_views_events_new_html_erb___1497958088541416625_70120721219680'
+Started GET "/events/new" for 127.0.0.1 at 2017-09-06 10:56:36 +0900
+Processing by EventsController#new as HTML
+  Rendering events/new.html.erb within layouts/application
+  Rendered events/new.html.erb within layouts/application (11.6ms)
+Completed 200 OK in 46ms (Views: 43.8ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/events/new" for 127.0.0.1 at 2017-09-06 11:01:01 +0900
+Processing by EventsController#new as HTML
+  Rendering events/new.html.erb within layouts/application
+  Rendered events/new.html.erb within layouts/application (4.2ms)
+Completed 200 OK in 38ms (Views: 36.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/events/new" for 127.0.0.1 at 2017-09-06 11:03:23 +0900
+Processing by EventsController#new as HTML
+  Rendering events/new.html.erb within layouts/application
+  Rendered events/new.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 30ms (Views: 28.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/events/new" for 127.0.0.1 at 2017-09-06 11:05:40 +0900
+Processing by EventsController#new as HTML
+  Rendering events/new.html.erb within layouts/application
+  Rendered events/new.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 30ms (Views: 27.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/events/new" for 127.0.0.1 at 2017-09-06 11:06:06 +0900
+Processing by EventsController#new as HTML
+  Rendering events/new.html.erb within layouts/application
+  Rendered events/new.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 28ms (Views: 26.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/events/new" for 127.0.0.1 at 2017-09-06 11:21:56 +0900
+Processing by EventsController#new as HTML
+  Rendering events/new.html.erb within layouts/application
+  Rendered events/new.html.erb within layouts/application (179.8ms)
+Completed 500 Internal Server Error in 187ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `path' for #<#<Class:0x007f8c7bfe30d0>:0x007f8c7b744028>):
+    15:   </p>
+    16:   <%= f.submit %>
+    17: 
+    18:   <%= form_for(@product, url: path, method: method) do |f| %>
+    19:   <label class="control-label" for="">商品名</label>
+    20:   <%= f.text_field :name, class: 'form-control' %>
+    21: 
+  
+app/views/events/new.html.erb:18:in `block in _app_views_events_new_html_erb___1497958088541416625_70120671683800'
+app/views/events/new.html.erb:3:in `_app_views_events_new_html_erb___1497958088541416625_70120671683800'
+Started GET "/events/new" for 127.0.0.1 at 2017-09-06 11:22:32 +0900
+Processing by EventsController#new as HTML
+  Rendering events/new.html.erb within layouts/application
+  Rendered events/new.html.erb within layouts/application (6.4ms)
+Completed 500 Internal Server Error in 14ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (undefined method `name' for #<Event:0x007f8c82a7b780>):
+    17: 
+    18:   <%= form_for Event.new do |f| %>
+    19:   <label class="control-label" for="">商品名</label>
+    20:   <%= f.text_field :name, class: 'form-control' %>
+    21: 
+    22:   <label class="control-label" for="">入荷予定日</label>
+    23:   <%= f.date_select :arrival_date, {}, class: 'form-control' %>
+  
+app/views/events/new.html.erb:20:in `block (2 levels) in _app_views_events_new_html_erb___1497958088541416625_70120731738940'
+app/views/events/new.html.erb:18:in `block in _app_views_events_new_html_erb___1497958088541416625_70120731738940'
+app/views/events/new.html.erb:3:in `_app_views_events_new_html_erb___1497958088541416625_70120731738940'
+Started GET "/events/new" for 127.0.0.1 at 2017-09-06 11:25:20 +0900
+Processing by EventsController#new as HTML
+  Rendering events/new.html.erb within layouts/application
+  Rendered events/new.html.erb within layouts/application (2.7ms)
+Completed 200 OK in 31ms (Views: 27.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-09-06 11:27:23 +0900
+Processing by PostsController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY "posts"."created_at" DESC[0m
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events"[0m
+  Rendered posts/index.html.erb within layouts/application (11.7ms)
+Completed 200 OK in 58ms (Views: 36.7ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/events/show/1" for 127.0.0.1 at 2017-09-06 11:27:25 +0900
+Processing by EventsController#show as HTML
+  Parameters: {"e_id"=>"1"}
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE (id = '1') ORDER BY "events"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  Rendering events/show.html.erb within layouts/application
+  Rendered events/show.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 29ms (Views: 25.0ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-09-06 11:27:27 +0900
+Processing by PostsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY "posts"."created_at" DESC[0m
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT "events".* FROM "events"[0m
+  Rendered posts/index.html.erb within layouts/application (5.3ms)
+Completed 200 OK in 44ms (Views: 39.8ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-09-06 11:27:38 +0900
+Processing by PostsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY "posts"."created_at" DESC[0m
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT "events".* FROM "events"[0m
+  Rendered posts/index.html.erb within layouts/application (5.5ms)
+Completed 200 OK in 31ms (Views: 28.2ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/events/show/1" for 127.0.0.1 at 2017-09-06 11:27:40 +0900
+Processing by EventsController#show as HTML
+  Parameters: {"e_id"=>"1"}
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE (id = '1') ORDER BY "events"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  Rendering events/show.html.erb within layouts/application
+  Rendered events/show.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 27ms (Views: 24.4ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/events/show/1" for 127.0.0.1 at 2017-09-06 11:27:42 +0900
+Processing by EventsController#show as HTML
+  Parameters: {"e_id"=>"1"}
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE (id = '1') ORDER BY "events"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  Rendering events/show.html.erb within layouts/application
+  Rendered events/show.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 35ms (Views: 31.9ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/events/new" for 127.0.0.1 at 2017-09-06 11:27:43 +0900
+Processing by EventsController#new as HTML
+  Rendering events/new.html.erb within layouts/application
+  Rendered events/new.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 28ms (Views: 26.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/events/new" for 127.0.0.1 at 2017-09-06 11:27:44 +0900
+Processing by EventsController#new as HTML
+  Rendering events/new.html.erb within layouts/application
+  Rendered events/new.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 42ms (Views: 39.8ms | ActiveRecord: 0.0ms)
+
+

@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   get 'events/index'
-
-  get 'events/show'
+  get 'events/new' => 'events#new'
+  get 'events/show/:e_id' => 'events#show'
 
   get 'home/index'
 
