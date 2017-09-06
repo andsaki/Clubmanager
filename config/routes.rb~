@@ -10,6 +10,6 @@ resources :posts do
   resources :comments, only: [:create, :destroy]
 end
 
-root 'posts#index'
+# root 'posts#index'
 
 end
