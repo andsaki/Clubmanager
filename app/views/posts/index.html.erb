@@ -21,6 +21,7 @@
       <% end %>
     </ul>
     <%= link_to 'Add New', new_post_path%>
+    <p><%= link_to 'Create New Event', 'events/new'%></p>
    </h2>
  </section>
  <div class = "profile">
@@ -35,7 +36,7 @@
 
 <% today = Date.today%>
 <table align="center">
-  <caption><%= today.strftime('%Y年%m月')%></caption>
+  <caption><%= link_to "◀︎", " "%><%= today.strftime('%Y年%m月')%><%= link_to "▶︎", " "%></caption>
   <tr>
     <th width="10" height="20"><font color="red">日</font></th>
     <th width="10" height="20">月</th>
@@ -55,7 +56,7 @@
     <br><font size="1">
     <% @events.each do |e| %>
     <!--<a href=""><%= ( (c.strftime('%m') == e.month) && (c.strftime('%d') == e.date) )? e.title : "  "%></a>-->
-    <% if (c.strftime('%m') == e.month) && (c.strftime('%d') == e.date) then %>
+    <% if (c.strftime('%m').to_i == e.month.to_i) && (c.strftime('%d').to_i == e.date.to_i) then %>
     <%= link_to "#{e.title}", "events/show/#{e.id}" %>
     <% else %>
     <% end %>
