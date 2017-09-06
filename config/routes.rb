@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'events/index'
+
+  get 'events/show/:e_id' => 'events#show'
+
   get 'home/index'
 
   get 'home/authentication'

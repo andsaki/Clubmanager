@@ -54,7 +54,7 @@
     <% @events.each do |e| %>
     <!--<a href=""><%= ( (c.strftime('%m') == e.month) && (c.strftime('%d') == e.date) )? e.title : "  "%></a>-->
     <% if (c.strftime('%m') == e.month) && (c.strftime('%d') == e.date) then %>
-    <%= link_to "#{e.title}", "test&id=#{e.id}" %>
+    <%= link_to "#{e.title}", "events/show/#{e.id}" %>
     <% else %>
     <% end %>
     <% end %>
