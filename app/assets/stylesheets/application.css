@@ -15,7 +15,7 @@
  */
 
  body {
-   overflow:auto;
+
    margin: 0;
    padding: 0;
    font-family: Verdana, sans-serif;
@@ -24,15 +24,15 @@
 
  }
 
- .box_scrollbar {
-        overflow:auto;
-        width:300px;
-        height:500px;
-        padding:5px;
-        border:1px solid #000;
-        background-color:#ffffff;
-        font-size:15px;
-    }
+.box_scrollbar {
+  overflow:auto;
+  width:300px;
+  height:500px;
+  padding:5px;
+  border:1px solid #000;
+  background-color:#ffffff;
+  font-size:15px;
+  }
 
 
 .header-fixed{
@@ -78,8 +78,12 @@
   border-radius: 3px;
   transition: .4s;
 }
+.outline{
+  margin-top: 100px;
 
+}
 .pagebody{
+
   margin: auto;
   width: 1100px;
 }
