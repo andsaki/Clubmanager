@@ -4,7 +4,6 @@ class PostsController < ApplicationController
 
   def index
     @posts = Post.all.order(created_at: 'desc')
-    @events = Event.all
   end
 
   def show

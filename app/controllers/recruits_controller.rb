@@ -1,6 +1,8 @@
 class RecruitsController < ApplicationController
 
   def index
+    @recruits = Post.all.order(created_at: 'desc')
+    @events = Event.all
   end
 
   def show
@@ -20,5 +22,5 @@ class RecruitsController < ApplicationController
 
   def destroy
   end
-    
+
 end

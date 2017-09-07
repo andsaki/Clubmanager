@@ -30,8 +30,6 @@
 
 
 
-
-
         aaaaa
       </h1>
     </section>
@@ -70,17 +68,11 @@
           <% 1.upto(5).each do|i|%>
           <tr>
             <% (d..d.end_of_week(:sunday)).each do|c|%>
-            <th width="20" height="20"><font size="1"><%= (c.strftime('%m') == month)? c.strftime('%d'): "  "%></font>
+              <th width="20" height="20"><font size="1"><%= (c.strftime('%m') == month)? c.strftime('%d'): "  "%></font>
               <br><font size="1">
-                <% @events.each do |e| %>
-                <% if (c.strftime('%m') == e.month) && (c.strftime('%d') == e.date) then %>
-                <!--<%= link_to "#{e.title}", "events/show/#{e.id}" %>-->
-                <% else %>
-                <% end %>
                 <% end %>
               </br></font></th>
-              <% end %>
-            </tr>
+          </tr>
             <% d = d + 1.week %>
             <% end %>
           </table>
