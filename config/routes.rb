@@ -1,12 +1,11 @@
 Rails.application.routes.draw do
   get 'users/index'
-
   get 'users/show'
 
   get 'events/index'
   get 'events/new'
+  get 'events/new_from_cal'
   post 'events' => 'events#create'
-
   get 'events/show/:e_id' => 'events#show'
 
   get 'events/calender/:num' => 'events#calender'

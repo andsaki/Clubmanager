@@ -1,5 +1,9 @@
 class EventsController < ApplicationController
   def index
+   @year = params[:year]
+   @month = params[:month]
+   @day = params[:day]
+   @events = Event.all
   end
 
   def show
@@ -7,14 +11,32 @@ class EventsController < ApplicationController
   end
 
   def create
-   @event = Event.new
-   @event.title = params[:event][:title]
-   @event.about = params[:event][:about]
-   @event.year = params[:event][:year]
-   @event.month = params[:event][:month]
-   @event.date = params[:event][:date]
-   @event.username = params[:event][:username]
-   @event.save
+
+     if params[:event][:title].empty? then
+      redirect_to "/events/new"
+     elsif params[:event][:about].empty? then
+      redirect_to "/events/new"
+     else
+
+        @year = params[:event][:year].to_i
+	@month = params[:event][:month].to_i
+   	@date = params[:event][:date].to_i
+
+   	if Date.valid_date?(@year, @month, @date) then
+   	  @event = Event.new
+   	  @event.title = params[:event][:title]
+   	  @event.about = params[:event][:about]
+   	  @event.year = params[:event][:year]
+   	  @event.month = params[:event][:month]
+   	  @event.date = params[:event][:date]
+   	  @event.username = current_user.username
+   	  @event.save
+   	  redirect_to "/events/calender/0"
+        else
+          redirect_to "/events/new"
+        end 
+      end
+
   end
 
   def calender

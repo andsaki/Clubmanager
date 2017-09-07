@@ -2,7 +2,7 @@
 <div class = "calendar">
   <table align="center">
     <caption>
-      <%= link_to "#{today.strftime('%Y年%m月')}", "events/calender/0"%>
+      <%= link_to "#{today.strftime('%Y年%m月')}", "/events/calender/0"%>
     </caption>
     <tr>
       <th width="30" height="20"><font color="red">日</font></th>
@@ -29,5 +29,5 @@
           </tr>
         <% end %>
   </table>
-  <%= link_to 'Add New Event', 'events/new' %>
+  <p align="center"><%= link_to 'Add New Event', '/events/new' %></p>
 </div>

@@ -1,55 +1,58 @@
 
 <% today = @day %>
 <div class = "calender">
-  <table align="center">
+  <table align="center" frame="border" rules="all">
     <caption><p><%= today.strftime("%Y年%-m月") %></p>
-    <%= link_to "#{Date.today.months_ago(6).strftime('%-m')}月","-6"%>
-    <%= link_to "#{Date.today.months_ago(5).strftime('%-m')}月","-5"%>
-    <%= link_to "#{Date.today.months_ago(4).strftime('%-m')}月","-4"%>
-    <%= link_to "#{Date.today.months_ago(3).strftime('%-m')}月","-3"%>
-    <%= link_to "#{Date.today.months_ago(2).strftime('%-m')}月","-2"%>
-    <%= link_to "#{Date.today.last_month.strftime('%-m')}月","-1"%>
-    <%= link_to "#{Date.today.strftime('%-m')}月","0"%>
-    <%= link_to "#{Date.today.next_month.strftime('%m')}月","1"%>
-    <%= link_to "#{Date.today.months_since(2).strftime('%-m')}月","2"%>
-    <%= link_to "#{Date.today.months_since(3).strftime('%-m')}月","3"%>
-    <%= link_to "#{Date.today.months_since(4).strftime('%-m')}月","4"%>
-    <%= link_to "#{Date.today.months_since(5).strftime('%-m')}月","5"%>
+      <p>
+      <%= link_to "#{Date.today.months_ago(6).strftime('%-m')}月","-6"%>
+      <%= link_to "#{Date.today.months_ago(5).strftime('%-m')}月","-5"%>
+      <%= link_to "#{Date.today.months_ago(4).strftime('%-m')}月","-4"%>
+      <%= link_to "#{Date.today.months_ago(3).strftime('%-m')}月","-3"%>
+      <%= link_to "#{Date.today.months_ago(2).strftime('%-m')}月","-2"%>      
+      <%= link_to "#{Date.today.last_month.strftime('%-m')}月","-1"%>
+      <%= link_to "#{Date.today.strftime('%-m')}月","0"%>
+      <%= link_to "#{Date.today.next_month.strftime('%m')}月","1"%>
+      <%= link_to "#{Date.today.months_since(2).strftime('%-m')}月","2"%>
+      <%= link_to "#{Date.today.months_since(3).strftime('%-m')}月","3"%>
+      <%= link_to "#{Date.today.months_since(4).strftime('%-m')}月","4"%>
+      <%= link_to "#{Date.today.months_since(5).strftime('%-m')}月","5"%>
     </p></caption>
     <tr>
-      <th width="150" height="50"><font color="red">日</font></th>
+      <th width="150" height="50" bgcolor="#ffe8ff"><font color="red">日</font></th>
       <th width="150" height="50">月</th>
       <th width="150" height="50">火</th>
       <th width="150" height="50">水</th>
       <th width="150" height="50">木</th>
       <th width="150" height="50">金</th>
-      <th width="150" height="50"><font color="blue">土</font></th>
+      <th width="150" height="50" bgcolor="#afeeee"><font color="blue">土</font></th>
     </tr>
-    <tr>
-      <% month = today.strftime('%m')%>
-      <% d = today.at_beginning_of_month.at_beginning_of_week(:sunday)%>
-      <% 1.upto(5).each do|i|%>
+    <% month = today.strftime('%m')%>
+    <% d = today.at_beginning_of_month.at_beginning_of_week(:sunday)%>
+    <% 1.upto(5).each do|i|%>
     <tr>
       <% (d..d.end_of_week(:sunday)).each do|c|%>
-      <th width="150" height="80" align="left">
+      <th width="150" height="80" align="left" valign="top">
 	<font size="2">
-	  <!--<%= (c.strftime('%m') == month)? c.strftime("%-d"): "  "%>-->
+          <!-- 日付の表示 -->
 	  <% if (c.strftime('%m') == month) then %>
-          <%= link_to "#{c.strftime('%-d')}", "/events/new" %>
+            <%= link_to "#{c.strftime('%-d')}", events_index_path(:year => c.strftime('%Y'), :month => c.strftime("%-m"), :day => c.strftime("%-d")) %>
           <% else %>
-          <%= "  " %>
+            <%= "  " %>
           <% end %>
 	</font>
         <br><font size="1">
+	  <!-- イベントの表示 -->
           <% @events.each do |e| %>
-          <% if (c.strftime('%m') == e.month) && (c.strftime('%d') == e.date) then %>
-          <%= link_to "#{e.title}", "/events/show/#{e.id}" %>
-          <% else %>
+            <% if (c.strftime('%m') == e.month) && (c.strftime('%d') == e.date) then %>
+              <%= link_to "#{e.title}", "/events/show/#{e.id}" %>
+            <% else %>
+            <% end %>
           <% end %>
-          <% end %>
-      </br></font></th>
-      <% end %>
+	</br></font>
+	<% end %>
+      </th>
     </tr>
     <% d = d + 1.week %>
     <% end %>
   </table>
+</div>
