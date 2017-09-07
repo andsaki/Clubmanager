@@ -20,7 +20,7 @@
    padding: 0;
    font-family: Verdana, sans-serif;
    font-size: 14px;
-   background-color: #eeeeee;
+   background-color: #f5f5f5;
 
  }
 
@@ -48,7 +48,7 @@
   padding: 10px 0 20px;
   width: 100%;
   height: 70px;
-  background-color: #dddddd;
+  background-color: rgba(250,219,218,0.8);
 }
 .header{
   height: 100%;
@@ -57,27 +57,24 @@
   border: 5px solid #fff;
 }
 
+.logo_posi{
+  width: 100%;
+  margin-top: 10px;
+}
 .titlelogo{
   width: 400px;
   margin: auto;
 
+
 }
+
 
 
 .login{
   width: 165px;
   margin: auto;
 }
-.logout{
-  float: right;
-  display: inline-block;
-  padding: 0.3em 0.5em;
-  text-decoration: none;
-  color: #67c5ff;
-  border: solid 2px #67c5ff;
-  border-radius: 3px;
-  transition: .4s;
-}
+
 .outline{
   margin-top: 100px;
 
@@ -95,10 +92,18 @@
 
 .pagebodymain{
   width: 700px;
-  height: 1000px;
   border : 5px solid maroon ;
   float: left;
-  background-color: #f0f8ff;
+  padding: 0.2em 0.5em;
+  margin: 0.8em 0;
+  background: #d6ebff;
+  box-shadow: 0px 0px 0px 10px #d6ebff;
+  border: dashed 2px white;
+}
+
+.pagebodymain p{
+  .margin: 0;
+  padding: 0;
 }
 .column{
   margin-left: 200px;
@@ -111,6 +116,37 @@
 
   background-color: #ffffff;
 }
+
+.logout{
+  float: right;
+  display: inline-block;
+  padding: 0.3em 0.5em;
+  text-decoration: none;
+  color: #67c5ff;
+  border: solid 2px #67c5ff;
+  border-radius: 3px;
+  transition: .4s;
+}
+.logout:hover{
+  background: #67c5ff;
+  color: white;
+}
+
+.link_btn{
+  font-weight: bold;/*太字に*/
+  text-decoration: none;/*下線消す*/
+  background: skyblue;/*背景を水色に*/
+  color:white;/*文字を白に*/
+  padding:5px 10px;/*内側の余白*/
+  border-radius: 20px;/*角を丸くする*/
+  font-family: 'Avenir','Arial';
+}
+.link_btn:hover {
+  background: silver;/*背景色をシルバーに*/
+  text-decoration: none;/*下線を消す*/
+}
+
+
 .profile{
   margin: auto;
   padding-left: 120px;
