@@ -4,8 +4,9 @@
     <%= link_to 'ログアウト', destroy_user_session_path, method: :delete ,class: 'logout'%>
     <section class = "column">
       <h1>
-        イベント・お知らせ
+        掲示板
       </h1>
+      <%= link_to 'Add New', new_post_path%>
       <p>
         <ul>
           <% @posts.each do |post| %>
@@ -16,9 +17,10 @@
           </li>
             <% end %>
         </ul>
-          <%= link_to 'Add New', new_post_path%>
-          <%= link_to 'Add New Event', 'events/new' %>
       </p>
+      <h1>
+        募集
+      </h1>
     </section>
   </div>
   <!--ページの左-->
@@ -69,6 +71,7 @@
             <% end %>
           </table>
         </div>
+        <%= link_to 'Add New Event', 'events/new' %>
     </div>
   </div>
 </div>
