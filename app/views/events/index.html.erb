@@ -3,6 +3,7 @@
 <% if ( (e.year.to_i == @year.to_i) && (e.month.to_i == @month.to_i) && (e.date.to_i == @day.to_i) ) then %>
 <h4>「<%= e.title %>」</h4>
 <p><%= e.about %><p>
+<p><%= link_to "delete", "/events/delete/#{e.id}", data: { confirm: 'Sure?'} %></p>
 <% else %>
 <% end %>
 <% end %>

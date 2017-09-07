@@ -1,4 +1,3 @@
-
 <% today = @day %>
 <div class = "calender">
   <table align="center" frame="border" rules="all">
@@ -8,7 +7,7 @@
       <%= link_to "#{Date.today.months_ago(5).strftime('%-m')}月","-5"%>
       <%= link_to "#{Date.today.months_ago(4).strftime('%-m')}月","-4"%>
       <%= link_to "#{Date.today.months_ago(3).strftime('%-m')}月","-3"%>
-      <%= link_to "#{Date.today.months_ago(2).strftime('%-m')}月","-2"%>      
+      <%= link_to "#{Date.today.months_ago(2).strftime('%-m')}月","-2"%>
       <%= link_to "#{Date.today.last_month.strftime('%-m')}月","-1"%>
       <%= link_to "#{Date.today.strftime('%-m')}月","0"%>
       <%= link_to "#{Date.today.next_month.strftime('%m')}月","1"%>
