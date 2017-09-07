@@ -31,7 +31,7 @@
     <tr>
       <% (d..d.end_of_week(:sunday)).each do|c|%>
       <th width="150" height="80" align="left" valign="top">
-	<font size="2">
+	<font size="3">
           <!-- 日付の表示 -->
 	  <% if (c.strftime('%m') == month) then %>
             <%= link_to "#{c.strftime('%-d')}", events_index_path(:year => c.strftime('%Y'), :month => c.strftime("%-m"), :day => c.strftime("%-d")) %>
@@ -39,7 +39,7 @@
             <%= "  " %>
           <% end %>
 	</font>
-        <br><font size="1">
+        <br><font size="2">
 	  <!-- イベントの表示 -->
           <% @events.each do |e| %>
             <% if (c.strftime('%m') == e.month) && (c.strftime('%d') == e.date) then %>

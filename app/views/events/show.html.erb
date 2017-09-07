@@ -1,5 +1,6 @@
-<h3>title: 「<%= @event.title %>」</h3>
-<p>date: <%= @event.year %>/<%= @event.month %>/<%= @event.date %></p>
-<p>about: <%= simple_format(@event.about) %></p>
-<p>username: <%= @event.username%></p>
-<p><%= link_to "delete", "/events/delete/#{@event.id}", data: { confirm: 'Sure?'} %></p>
+<h2>Edit Event</h2>
+<p>title:</p><p><%= @event.title %><p>
+<p>date:</p><p><%= @event.year %>/<%= @event.month %>/<%= @event.date %></p>
+<p>about:</p><p><%= simple_format(@event.about) %></p>
+<p>username:</p><%= @event.username%></p>
+<p><%= link_to "[削除]", "/events/delete/#{@event.id}", data: { confirm: 'Sure?'} %></p>
