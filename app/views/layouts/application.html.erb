@@ -3,7 +3,7 @@
 
 <!-- header -->
   <head>
-    <title>Blog</title>
+    <title>Appirits</title>
     <%= csrf_meta_tags %>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
@@ -13,25 +13,8 @@
   <body>
     <!-- header -->
     <%= render "posts/header"%>
-
-    <div class ="outline">
-      <div class = "pagebody">
-        <!-- main -->
-        <div class = "pagebodymain">
-          <%= yield %>
-        </div>
-        <!-- ページの右 -->
-        <div class = "pagebodysub">
-          <%= link_to 'ログアウト', destroy_user_session_path, method: :delete ,class: 'logout'%>
-          <!--プロフィール-->
-          <%= render "/posts/profile" %>
-          <br></br>
-          <br></br>
-          <br></br>
-          <!--カレンダー-->
-          <%= render "/posts/calendar" %>
-        </div>
-      </div>
-    </div>
+    <!-- main -->
+    <%= yield %>
   </body>
+
 </html>
