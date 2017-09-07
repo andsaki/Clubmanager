@@ -7,10 +7,8 @@ Rails.application.routes.draw do
   get 'events/new_from_cal'
   post 'events' => 'events#create'
   get 'events/show/:e_id' => 'events#show'
-<<<<<<< HEAD
-=======
+  get 'events/show/:e_id' => 'events#delete'
 
->>>>>>> e1264272c7e22a5ae769a1581586d68aefa73790
   get 'events/calender/:num' => 'events#calender'
 
   devise_for :users

@@ -10,6 +10,16 @@ class EventsController < ApplicationController
    @event = Event.where("id = ?", params[:e_id]).first
   end
 
+  def new
+   @event = Event.new
+  end
+
+  def delete
+   @event = Event.find(params[:e_id])
+   @event.destroy
+   redirect_to "/events/calender/0"
+  end  
+
   def create
 
      if params[:event][:title].empty? then
