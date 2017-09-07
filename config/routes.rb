@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   get 'events/index'
+
   get 'events/new'
+
   post 'events' => 'events#create'
 
   get 'events/show/:e_id' => 'events#show'
