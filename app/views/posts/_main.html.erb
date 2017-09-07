@@ -1,0 +1,24 @@
+<section class = "column">
+  <h1>
+    掲示板
+  </h1>
+
+  <div class = "box_scrollbar">
+
+  <p>
+    <ul>
+      <% @posts.each do |post| %>
+      <li>
+        <%= post.created_at.strftime('%Y/%m/%d %H:%M') %>
+        <br>
+        <font size = "5"><%= link_to post.title, post_path(post) %></font>
+      </li>
+        <% end %>
+    </ul>
+  </p>
+</div>
+<%= link_to 'Add New', new_post_path, class: "add_new"%>
+  <h1>
+    募集
+  </h1>
+</section>
