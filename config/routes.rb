@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   get 'events/new_from_cal'
   post 'events' => 'events#create'
   get 'events/show/:e_id' => 'events#show'
+
   get 'events/calender/:num' => 'events#calender'
 
   devise_for :users

@@ -4,12 +4,14 @@ Rails.application.routes.draw do
 
   get 'events/index'
   get 'events/new'
+  get 'events/new_from_cal'
   post 'events' => 'events#create'
   get 'events/show/:e_id' => 'events#show'
-  get 'events/calender/:num' => 'events#calender'  
-  get 'events/new_from_cal'
+<<<<<<< HEAD
+=======
 
-  get 'events/new_from_cal/:date' => 'events#date'
+>>>>>>> e1264272c7e22a5ae769a1581586d68aefa73790
+  get 'events/calender/:num' => 'events#calender'
 
   devise_for :users
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
