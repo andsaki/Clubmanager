@@ -2,7 +2,7 @@
   
   <!--ページの右-->
   <div class = "pagebodymain">
-    <%= link_to 'ログアウト', destroy_user_session_path, method: :delete ,class: 'logout'%>
+
     <section class = "column">
       <h1>
         掲示板
@@ -29,6 +29,7 @@
   </div>
   <!--ページの左-->
   <div class = "pagebodysub">
+    <%= link_to 'ログアウト', destroy_user_session_path, method: :delete ,class: 'logout'%>
     <!--プロフィール-->
   <div class = "profile">
     <h1>
