@@ -2,12 +2,25 @@
 <h2><%= @post.title %></h2>
 <p><%= simple_format @post.body %></p>
 
+<br>
+更新日時：<%= @post.created_at.strftime('%Y/%m/%d %H:%M') %>
+<br>
+最終更新：<%= time_ago_in_words(@post.created_at) %>
+<br>
+<%= link_to '[編集]', edit_post_path(@post), class: 'command' %>
+<%= link_to '[削除]',
+post_path(@post),
+method: :delete,
+class: 'command',
+  data: { confirm: 'Sure?' } %>
 
 <h3>Comments</h3>
 <% if @post.comments.any? %>
 <ul>
   <% @post.comments.each do |comment| %>
   <li>
+    <%= @post.created_at.strftime('%Y/%m/%d %H:%M') %>
+    <br>
     <%= comment.body %>
     <%= link_to '[x]',
       post_comment_path(@post, comment),

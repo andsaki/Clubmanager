@@ -15,17 +15,33 @@
  */
 
  body {
+   margin: 0;
+   padding: 0;
    font-family: Verdana, sans-serif;
    font-size: 14px;
    background-color: #eeeeee;
 
  }
+.header-fixed{
 
-.header{
-  height: 74px;
+  position: fixed;
+  top: 0px;
+  left: 0px;
   width: 100%;
+  height: 84px;
+}
+
+.header-bk{
+  padding: 10px 0 20px;
+  width: 100%;
+  height: 70px;
   background-color: #dddddd;
-  border-bottom: 1px solid #000000;
+}
+.header{
+  height: 100%;
+  width: 96%;
+  margin: auto;
+  border: 5px solid #fff;
 }
 
 .titlelogo{
@@ -41,6 +57,13 @@
 }
 .logout{
   margin-left: 600px;
+  display: inline-block;
+  padding: 0.3em 0.5em;
+  text-decoration: none;
+  color: #67c5ff;
+  border: solid 2px #67c5ff;
+  border-radius: 3px;
+  transition: .4s;
 }
 
 .pagebody{
@@ -58,7 +81,7 @@
   height: 1000px;
   border : 5px solid maroon ;
   float: left;
-  background-color: #ffffe0;
+  background-color: #f0f8ff;
 }
 .column{
   margin-left: 200px;
@@ -78,7 +101,9 @@
 
 }
 
-
+h1 {
+  font-size: 40px;
+}
 
 h2 {
   font-size: 16px;
@@ -124,6 +149,7 @@ textarea {
 
 .command {
   font-size: 12px;
+  float: right;
 }
 
 h3 {

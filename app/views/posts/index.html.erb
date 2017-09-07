@@ -10,68 +10,65 @@
         <ul>
           <% @posts.each do |post| %>
           <li>
-            <%= link_to post.title, post_path(post) %>
-            <%= link_to '[Edit]', edit_post_path(post), class: 'command' %>
-            <%= link_to '[x]',
-            post_path(post),
-            method: :delete,
-            class: 'command',
-              data: { confirm: 'Sure?' } %>
-            </li>
+            <%= post.created_at.strftime('%Y/%m/%d %H:%M') %>
+            <br>
+            <font size = "5"><%= link_to post.title, post_path(post) %></font>
+          </li>
             <% end %>
-          </ul>
+        </ul>
           <%= link_to 'Add New', new_post_path%>
-        </p>
-      </section>
-    </div>
-    <!--ページの左-->
-    <div class = "pagebodysub">
-      <!--プロフィール-->
-      <div class = "profile">
-        <h1>
-          profile
-        </h1>
-        <%= link_to image_tag('apio.png', class: 'apio') %>
-        <%= link_to image_tag('edit_b.jpg', class: 'edit_b'), edit_user_registration_path %>
-      </div>
-      <!--カレンダー-->
-      <br></br>
-      <br></br>
-      <br></br>
-      <% today = Date.today%>
-      <div class = "calender">
-        <table align="center">
-          <caption><%= today.strftime('%Y年%m月')%></caption>
+          <%= link_to 'Add New Event', 'events/new' %>
+      </p>
+    </section>
+  </div>
+  <!--ページの左-->
+  <div class = "pagebodysub">
+    <!--プロフィール-->
+  <div class = "profile">
+    <h1>
+      profile
+    </h1>
+      <%= link_to image_tag('apio.png', class: 'apio') %>
+      <%= link_to image_tag('edit_b.jpg', class: 'edit_b'), edit_user_registration_path %>
+  </div>
+    <!--カレンダー-->
+  <br></br>
+  <br></br>
+  <br></br>
+  <% today = Date.today%>
+  <div class = "calender">
+    <table align="center">
+      <caption><%= link_to "#{today.strftime('%Y年%m月')}", "events/calender/0"%></caption>
+        <tr>
+          <th width="30" height="20"><font color="red">日</font></th>
+          <th width="30" height="20">月</th>
+          <th width="30" height="20">火</th>
+          <th width="30" height="20">水</th>
+          <th width="30" height="20">木</th>
+          <th width="30" height="20">金</th>
+          <th width="30" height="20"><font color="blue">土</font></th>
+        </tr>
+        <tr>
+          <% month = today.strftime('%m')%>
+          <% d = today.at_beginning_of_month.at_beginning_of_week(:sunday)%>
+          <% 1.upto(5).each do|i|%>
           <tr>
-            <th width="10" height="20"><font color="red">日</font></th>
-            <th width="10" height="20">月</th>
-            <th width="10" height="20">火</th>
-            <th width="10" height="20">水</th>
-            <th width="10" height="20">木</th>
-            <th width="10" height="20">金</th>
-            <th width="10" height="20"><font color="blue">土</font></th>
-          </tr>
-          <tr>
-            <% month = today.strftime('%m')%>
-            <% d = today.at_beginning_of_month.at_beginning_of_week(:sunday)%>
-            <% 1.upto(5).each do|i|%>
-            <tr>
             <% (d..d.end_of_week(:sunday)).each do|c|%>
             <th width="20" height="20"><font size="1"><%= (c.strftime('%m') == month)? c.strftime('%d'): "  "%></font>
-            <br><font size="1">
-            <% @events.each do |e| %>
-            <% if (c.strftime('%m') == e.month) && (c.strftime('%d') == e.date) then %>
-            <%= link_to "#{e.title}", "events/show/#{e.id}" %>
-            <% else %>
+              <br><font size="1">
+                <% @events.each do |e| %>
+                <% if (c.strftime('%m') == e.month) && (c.strftime('%d') == e.date) then %>
+                <!--<%= link_to "#{e.title}", "events/show/#{e.id}" %>-->
+                <% else %>
+                <% end %>
+                <% end %>
+              </br></font></th>
+              <% end %>
+            </tr>
+            <% d = d + 1.week %>
             <% end %>
-            <% end %>
-            </br></font></th>
-            <% end %>
-          </tr>
-          <% d = d + 1.week %>
-          <% end %>
-        </table>
-      </div>
+          </table>
+        </div>
     </div>
   </div>
 </div>
