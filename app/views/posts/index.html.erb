@@ -8,6 +8,8 @@
         掲示板
       </h1>
       <%= link_to 'Add New', new_post_path%>
+      <div class = "box_scrollbar">
+
       <p>
         <ul>
           <% @posts.each do |post| %>
@@ -19,6 +21,7 @@
             <% end %>
         </ul>
       </p>
+    </div>
       <h1>
         募集
       </h1>
