@@ -29,7 +29,7 @@ class EventsController < ApplicationController
    	  @event.year = params[:event][:year]
    	  @event.month = params[:event][:month]
    	  @event.date = params[:event][:date]
-   	  @event.username = params[:event][:username]
+   	  @event.username = current_user.username
    	  @event.save
    	  redirect_to "/events/calender/0"
         else

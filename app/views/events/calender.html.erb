@@ -17,13 +17,13 @@
       <%= link_to "#{Date.today.months_since(5).strftime('%-m')}月","5"%>
     </p></caption>
     <tr>
-      <th width="150" height="50"><font color="red">日</font></th>
+      <th width="150" height="50" bgcolor="#ffe8ff"><font color="red">日</font></th>
       <th width="150" height="50">月</th>
       <th width="150" height="50">火</th>
       <th width="150" height="50">水</th>
       <th width="150" height="50">木</th>
       <th width="150" height="50">金</th>
-      <th width="150" height="50"><font color="blue">土</font></th>
+      <th width="150" height="50" bgcolor="#afeeee"><font color="blue">土</font></th>
     </tr>
     <% month = today.strftime('%m')%>
     <% d = today.at_beginning_of_month.at_beginning_of_week(:sunday)%>
@@ -54,3 +54,4 @@
     <% d = d + 1.week %>
     <% end %>
   </table>
+</div>
