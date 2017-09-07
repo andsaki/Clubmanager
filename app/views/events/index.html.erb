@@ -1,9 +1,9 @@
-<h2 align="center"><%= @year %>年<%= @month %>月<%= @day %>日のイベント</h2>
+<h2><%= @year %>年<%= @month %>月<%= @day %>日のイベント</h2>
 <% @events.each do |e|%>
 <% if ( (e.year.to_i == @year.to_i) && (e.month.to_i == @month.to_i) && (e.date.to_i == @day.to_i) ) then %>
 <h4>「<%= e.title %>」</h4>
-<p><%= e.about %><p>
-<p><%= link_to "delete", "/events/delete/#{e.id}", data: { confirm: 'Sure?'} %></p>
+<p><%= simple_format(e.about) %><p>
+<p><%= link_to "[削除]", "/events/delete/#{e.id}", data: { confirm: 'Sure?'} %></p>
 <% else %>
 <% end %>
 <% end %>
