@@ -1,2 +1,8 @@
-<h1>Events#index</h1>
-<p>Find me in app/views/events/index.html.erb</p>
+<h2 align="center"><%= @year %>年<%= @month %>月<%= @day %>日のイベント</h2>
+<% @events.each do |e|%>
+<% if ( (e.year.to_i == @year.to_i) && (e.month.to_i == @month.to_i) && (e.date.to_i == @day.to_i) ) then %>
+<h4>「<%= e.title %>」</h4>
+<p><%= e.about %><p>
+<% else %>
+<% end %>
+<% end %>

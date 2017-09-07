@@ -6,9 +6,11 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
     </head>
     <body>
-
+      <div class = "header-fixed">
+        <div class = "header-bk">
       <div class = "header">
       <div class= "titlelogo">
     <h1>
@@ -16,11 +18,13 @@
     </h1>
 
   </div>
+</div>
+</div>
 
 
 
       <%= yield %>
-    </div>
+
 
 
   </body>
