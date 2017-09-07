@@ -18,7 +18,6 @@ class EventsController < ApplicationController
   end
 
   def calender
-
    if params[:num].nil? then
       @day = Date.today
    elsif params[:num] == '-6' then
@@ -48,7 +47,6 @@ class EventsController < ApplicationController
    else
       @day = Date.today
    end
-
    @events = Event.all
   end
 

@@ -17,6 +17,7 @@
             <% end %>
         </ul>
           <%= link_to 'Add New', new_post_path%>
+          <%= link_to 'Add New Event', 'events/new' %>
       </p>
     </section>
   </div>
@@ -37,7 +38,7 @@
   <% today = Date.today%>
   <div class = "calender">
     <table align="center">
-      <caption><%= today.strftime('%Y年%m月')%></caption>
+      <caption><%= link_to "#{today.strftime('%Y年%m月')}", "events/calender/0"%></caption>
         <tr>
           <th width="30" height="20"><font color="red">日</font></th>
           <th width="30" height="20">月</th>
@@ -57,7 +58,7 @@
               <br><font size="1">
                 <% @events.each do |e| %>
                 <% if (c.strftime('%m') == e.month) && (c.strftime('%d') == e.date) then %>
-                <%= link_to "#{e.title}", "events/show/#{e.id}" %>
+                <!--<%= link_to "#{e.title}", "events/show/#{e.id}" %>-->
                 <% else %>
                 <% end %>
                 <% end %>
