@@ -12,6 +12,13 @@
 
 ActiveRecord::Schema.define(version: 20170908023242) do
 
+  create_table "attendances", force: :cascade do |t|
+    t.string "e_id"
+    t.string "username"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "comments", force: :cascade do |t|
     t.string "body"
     t.integer "post_id"
@@ -66,7 +73,7 @@ ActiveRecord::Schema.define(version: 20170908023242) do
     t.integer "age"
     t.string "location", default: ""
     t.text "comment", default: ""
-    t.string "image", default: ""
+    t.string "image"
     t.integer "month"
     t.integer "day"
     t.index ["email"], name: "index_users_on_email", unique: true
