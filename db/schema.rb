@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170908021140) do
+ActiveRecord::Schema.define(version: 20170908023242) do
 
   create_table "attendances", force: :cascade do |t|
     t.string "e_id"
@@ -24,6 +24,7 @@ ActiveRecord::Schema.define(version: 20170908021140) do
     t.integer "post_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "username"
     t.index ["post_id"], name: "index_comments_on_post_id"
   end
 
@@ -73,6 +74,8 @@ ActiveRecord::Schema.define(version: 20170908021140) do
     t.string "location", default: ""
     t.text "comment", default: ""
     t.string "image"
+    t.integer "month"
+    t.integer "day"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
