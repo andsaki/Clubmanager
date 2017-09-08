@@ -7,8 +7,7 @@
 <br>
 最終更新：<%= time_ago_in_words(@post.created_at) %>
 <br>
-<!--未完成-->
-作成者：<%= current_user.username%>
+作成者：<%= @post.username%>
 <%= link_to '[編集]', edit_post_path(@post), class: 'command' %>
 <%= link_to '[削除]',
 post_path(@post),

@@ -19,6 +19,7 @@ class PostsController < ApplicationController
     #render plain: params[:post].inspect
     #@post = Post.new(params.require(:post).permit(:title, :body))
     @post = Post.new(post_params)
+    @post.username = current_user.username
     if @post.save
       redirect_to posts_path
     else
