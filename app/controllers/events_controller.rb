@@ -40,11 +40,16 @@ class EventsController < ApplicationController
   def delete
    @event = Event.find(params[:e_id])
    if @event.username != current_user.username then
-    redirect_to "/events/calender/0"
    else
-    @event.destroy
-    redirect_to "/events/calender/0"
+#    @event.destroy
+#    @attend = Attendance.where("e_id = ?", params[:e_id])
+#    if @attend != nil then
+#    @attend.destroy
+#    redirect_to "/events/calender/0"
+#    else
+#    end
    end
+     redirect_to "/events/calender/0"
   end  
 
   def create
