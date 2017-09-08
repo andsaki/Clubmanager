@@ -87,6 +87,9 @@ class EventsController < ApplicationController
   end
 
   def calender
+
+   @users = User.all
+
    if params[:num].nil? then
       @day = Date.today
    elsif params[:num] == '-6' then
