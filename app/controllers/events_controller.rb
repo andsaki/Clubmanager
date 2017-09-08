@@ -8,10 +8,29 @@ class EventsController < ApplicationController
 
   def show
    @event = Event.where("id = ?", params[:e_id]).first
+   @attend = Attendance.where("e_id = ?", params[:e_id])
   end
 
   def new
    @event = Event.new
+  end
+
+  def attend
+   @check = Attendance.where("e_id = ?", params[:e_id]).where("username = ?", current_user.username).first
+   if @check == nil then
+   @attend = Attendance.new
+   @attend.e_id = params[:e_id]
+   @attend.username = current_user.username
+   @attend.save
+   redirect_to "/events/show/#{params[:e_id]}"
+   else
+   end
+  end
+
+  def absence
+   @absence = Attendance.where("e_id = ?", params[:e_id]).where("username = ?", current_user.username).first
+   @absence.destroy
+   redirect_to "/events/show/#{params[:e_id]}"
   end
 
   def edit

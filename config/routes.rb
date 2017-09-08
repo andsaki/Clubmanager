@@ -10,6 +10,8 @@ Rails.application.routes.draw do
   get 'events/show/:e_id' => 'events#show'
   get 'events/delete/:e_id' => 'events#delete'
   get 'events/edit/:e_id' => 'events#edit'
+  get 'events/attend/:e_id' => 'events#attend'
+  get 'events/absence/:e_id' => 'events#absence'
 
   get 'events/calender/:num' => 'events#calender'
 
