@@ -14,14 +14,28 @@ class EventsController < ApplicationController
    @event = Event.new
   end
 
+  def edit
+   @original = Event.where("id = ?", params[:e_id]).first
+  end
+
   def delete
    @event = Event.find(params[:e_id])
-   @event.destroy
-   redirect_to "/events/calender/0"
+   if @event.username != current_user.username then
+    redirect_to "/events/calender/0"
+   else
+    @event.destroy
+    redirect_to "/events/calender/0"
+   end
   end  
 
   def create
-
+ 
+    if params[:event][:id] != nil then
+    @original = Event.find(params[:event][:id].to_i)
+    @original.destroy
+    else
+    end
+ 
      if params[:event][:title].empty? then
       redirect_to "/events/new"
      elsif params[:event][:about].empty? then

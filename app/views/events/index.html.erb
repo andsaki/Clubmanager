@@ -3,7 +3,14 @@
 <% if ( (e.year.to_i == @year.to_i) && (e.month.to_i == @month.to_i) && (e.date.to_i == @day.to_i) ) then %>
 <h4>「<%= e.title %>」</h4>
 <p><%= simple_format(e.about) %><p>
-<p><%= link_to "[削除]", "/events/delete/#{e.id}", data: { confirm: 'Sure?'} %></p>
+<% if e.username == current_user.username then %>
+<p>
+<%= link_to "[削除]", "/events/delete/#{e.id}", data: { confirm: 'Sure?'} %>
+<%= link_to "[編集]", "/events/edit/#{e.id}" %>
+</p>
 <% else %>
+<p>[削除・編集できません]</p>
+<% end %>
+<% else%>
 <% end %>
 <% end %>
