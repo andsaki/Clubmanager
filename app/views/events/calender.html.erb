@@ -1,8 +1,8 @@
 <% today = @day %>
 <div class = "calender">
   <table align="center" frame="border" rules="all">
-    <caption><p><%= today.strftime("%Y年%-m月") %></p>
-      <p>
+    <caption>   
+    <p>
       <%= link_to "#{Date.today.months_ago(6).strftime('%-m')}月","-6"%>
       <%= link_to "#{Date.today.months_ago(5).strftime('%-m')}月","-5"%>
       <%= link_to "#{Date.today.months_ago(4).strftime('%-m')}月","-4"%>
@@ -15,7 +15,9 @@
       <%= link_to "#{Date.today.months_since(3).strftime('%-m')}月","3"%>
       <%= link_to "#{Date.today.months_since(4).strftime('%-m')}月","4"%>
       <%= link_to "#{Date.today.months_since(5).strftime('%-m')}月","5"%>
-    </p></caption>
+    </p>
+    <p><%= today.strftime("%Y年%-m月") %></p>
+    </caption>
     <tr>
       <th width="150" height="50" bgcolor="#ffe8ff"><font color="red">日</font></th>
       <th width="150" height="50">月</th>

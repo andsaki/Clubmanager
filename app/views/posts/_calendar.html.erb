@@ -3,7 +3,7 @@
 
   <table align="left">
     <caption>
-      <%= link_to "#{today.strftime('%Y年%m月')}", "/events/calender/0"%>
+      <%= link_to "#{today.strftime('%Y年%-m月')}", "/events/calender/0"%>
     </caption>
     <tr>
       <th width="30" height="20"><font color="red">日</font></th>
@@ -22,7 +22,24 @@
             <% (d..d.end_of_week(:sunday)).each do |c| %>
             <th width = "20" height = "20">
               <font size = "1">
-                <%= (c.strftime('%m') == month)? c.strftime('%d'): "  "%>
+                <!--<%= (c.strftime('%m') == month)? c.strftime('%d'): "  "%>-->
+		<% @f = 0 %>
+		<% if c.strftime('%m') == month then %>
+                  <% @events.each do |e| %>
+		    <% if ( (c.strftime('%Y') == e.year) && (c.strftime('%m') == e.month) && (c.strftime('%d') == e.date) ) then %>
+		      <%= link_to "#{c.strftime('%-d')}", events_index_path(:year => c.strftime('%Y'), :month => c.strftime("%-m"), :day => c.strftime("%-d")) %>
+		      <% @f = 1%>
+                      <% break %>
+                    <% else %>
+                    <% end %>
+		  <% end %>
+		  <% if @f == 0 then %>
+		  <%= c.strftime("%-d") %>
+                  <% else %>
+                  <% end %>
+		<% else %>
+		<% end %>
+		<!-- -->
               </font>
             </th>
             <% end %>

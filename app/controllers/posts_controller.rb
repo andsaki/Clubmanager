@@ -4,6 +4,8 @@ class PostsController < ApplicationController
 
   def index
     @posts = Post.all.order(updated_at: 'desc')
+    #イベントデータの格納
+    @events = Event.all
   end
 
   def show
