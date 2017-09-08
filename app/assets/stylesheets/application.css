@@ -24,15 +24,7 @@
 
  }
 
-.box_scrollbar {
-  overflow:auto;
-  width:300px;
-  height:500px;
-  padding:5px;
-  border:1px solid #000;
-  background-color:#fffafa;
-  font-size:15px;
-  }
+
 
 
 .header-fixed{
@@ -109,7 +101,71 @@
   margin-left: 200px;
 
 }
+.box_scrollbar {
+  overflow:auto;
+  width:300px;
+  height:500px;
+  
 
+  font-size:15px;
+}
+ul.board{
+  top: 0px;
+  counter-reset: list;
+  list-style-type:none;
+  position:relative;
+  font: 14px/1.6 'Mv Boli', 'arial narrow', sans-serif;
+  padding: 1.2em;
+  background:#F2EFE7;
+  -webkit-box-shadow: 0 0 40px rgba(0, 0, 0, 0.2) inset,0 0 4px rgba(0, 0, 0, 0.2) ;
+  -moz-box-shadow: 0 0 40px rgba(0, 0, 0, 0.2) inset,0 0 4px rgba(0, 0, 0, 0.2) ;
+  box-shadow: 0 0 40px rgba(0, 0, 0, 0.2) inset,0 0 4px rgba(0, 0, 0, 0.2) ;
+
+}
+ul.board:after{
+  content:"list-information";  /* 右下の文字 */
+  position: absolute;
+  bottom: 8px;
+  right: 1.2em;
+  font-size:12px;
+  color:#bbb;
+}
+ul.board li{
+  /*position:relative;*/
+  padding: 0px 10px 5px 10px;
+  margin: 7px 0 10px 0px;
+  font-weight: bold;
+  font-size:14px;
+  border-bottom:dashed 1px #ccc;
+  color:#333;
+}
+
+ol.ex li:first-child{
+  margin-top:0;
+
+}
+ol.ex li:last-child{
+  margin-bottom: 20px;
+
+}
+
+ol.ex li:before{
+  counter-increment: list;
+  content: counter(list) ",";
+  position: absolute;
+  left: 15px;
+  font-size:1.2em;
+   top: 50%;
+  -moz-transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
+  -o-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+.info{
+
+}
 .infolink{
   color: black;
   text-decoration: none;
