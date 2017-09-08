@@ -2,8 +2,19 @@
 <% provide(:title, @user.username) %>
 <h1><%= @user.username %>のページ</h1>
 
+<% if @user.image? %>
+  <div class="thumbnail">
+    <%= image_tag @user.image.url %>
+<% else %>
+  <div>
+    <%= link_to image_tag('apio.png', :size => '100x100') %>
+  </div>
+<% end %>
 
+<h2>誕生日: <%= @user.month %>/<%= @user.day %></h2>
 <h2>年齢: <%= @user.age %></h2>
 <h2>所在地: <%= @user.location %></h2>
 <h2>コメント: <%= @user.comment %></h2>
+
+<%= link_to image_tag('edit_b.png', class: 'edit_b'), edit_user_registration_path %>
 </div>

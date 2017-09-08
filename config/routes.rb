@@ -12,7 +12,6 @@ Rails.application.routes.draw do
   get 'events/edit/:e_id' => 'events#edit'
   get 'events/attend/:e_id' => 'events#attend'
   get 'events/absence/:e_id' => 'events#absence'
-
   get 'events/calender/:num' => 'events#calender'
 
   devise_for :users
