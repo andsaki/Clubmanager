@@ -1,0 +1,24 @@
+<div class = "contents">
+<h3>Edit Event</h3>
+
+<% @event = Event.new %>
+<%= form_for @event do |f| %>
+<!-- Event.new -->
+  <p><%= f.text_field :title, :value => "#{@original.title}" %></p>
+  <% if @event.errors.messages[:title].any? %>
+  <span class="error"><%= f.title.errors.messages[:title][0] %></span>
+  <% end %>
+  <p><%= f.text_area :about, :value => "#{@original.about}" %></p>
+  <% if @event.errors.messages[:body].any? %>
+  <span class="error"><%= @event.errors.messages[:about][o] %></span>
+  <% end %>
+  <p>
+  <% today = Date.today %>
+  <%= f.select :year, [["2017","2017"],["2018","2018"],["2019","2019"]], :selected => "#{@original.year}" %>
+  <%= f.select :month, [["1","01"],["2","02"],["3","03"],["4","04"],["5","05"],["6","06"],["7","07"],["8","08"],["9","09"],["10","10"],["11","11"],["12","12"]], :selected => "#{@original.month}" %>
+  <%= f.select :date, [["1","01"],["2","02"],["3","03"],["4","04"],["5","05"],["6","06"],["7","07"],["8","08"],["9","09"],["10","10"],["11","11"],["12","12"],["13","13"],["14","14"],["15","15"],["16","16"],["17","17"],["18","18"],["19","19"],["20","20"],["21","21"],["22","22"],["23","23"],["24","24"],["25","25"],["26","26"],["27","27"],["28","28"],["29","29"],["30","30"],["31","31"]], :selected => "#{@original.date}" %>
+  </p>
+  <%= f.hidden_field :id, :value => "#{@original.id}" %>
+  <%= f.submit :value => "Edit Event" %>
+<% end %>
+</div>

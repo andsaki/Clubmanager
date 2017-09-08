@@ -3,4 +3,11 @@
 <p>date:</p><p><%= @event.year %>/<%= @event.month %>/<%= @event.date %></p>
 <p>about:</p><p><%= simple_format(@event.about) %></p>
 <p>username:</p><%= @event.username%></p>
-<p><%= link_to "[削除]", "/events/delete/#{@event.id}", data: { confirm: 'Sure?'} %></p>
+<% if @event.username == current_user.username then %>
+<p>
+<%= link_to "[削除]", "/events/delete/#{@event.id}", data: { confirm: 'Sure?'} %>
+<%= link_to "[編集]", "/events/edit/#{@event.id}" %>
+</p>
+<% else %>
+<p>[削除・編集できません]</p>
+<% end %>
