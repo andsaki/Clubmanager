@@ -11,6 +11,10 @@ class EventsController < ApplicationController
    @attend = Attendance.where("e_id = ?", params[:e_id])
   end
 
+  def all
+   @events = Event.all
+  end
+
   def new
    @event = Event.new
   end
