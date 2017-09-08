@@ -1,6 +1,7 @@
-<% today = Date.today%>
 <div class = "calendar">
-  <table align="center">
+<% today = Date.today%>
+
+  <table align="left">
     <caption>
       <%= link_to "#{today.strftime('%Y年%m月')}", "/events/calender/0"%>
     </caption>
