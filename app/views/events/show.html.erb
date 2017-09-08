@@ -1,27 +1,27 @@
 <h2>Event</h2>
-<p>title: <%= @event.title %><p>
-<p>date: <%= @event.year %>/<%= @event.month %>/<%= @event.date %></p>
-<p>about: <%= simple_format(@event.about) %></p>
-<p>username: <%= @event.username%></p>
+<p><%= @event.title %><p>
+<p>日時: <%= @event.year %>/<%= @event.month %>/<%= @event.date %></p>
+<p>本文: <%= simple_format(@event.about) %></p>
+<p>投稿者: <%= @event.username%></p>
 <% @i = 0 %>
 <% @f = 0 %>
-<p>state: 
+<p>出席状況: 
 <% @attend.each do |a| %>
   <% @i = @i + 1 %>
   <% if a.username == current_user.username then %>
-    <%= "attend" %>
+    <%= "出席" %>
     <% @f = @f + 1 %>
   <% else %>
   <% end %>
 <% end%>
 
 <% if @f == 0 then %>
-<%= "absence" %>
+<%= "欠席" %>
 <% else %>
 <% end %>
 
 </p>
-<p>attend: <%= @i %></p>
+<p>出席者数: <%= @i %>人</p>
 <% if @f == 0 then %>
 <%= link_to "[出席]", "/events/attend/#{@event.id}.to_i" %>
 [欠席]
