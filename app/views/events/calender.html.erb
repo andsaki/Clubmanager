@@ -35,6 +35,17 @@
           <!-- 日付の表示 -->
 	  <% if (c.strftime('%m') == month) then %>
             <%= link_to "#{c.strftime('%-d')}", events_index_path(:year => c.strftime('%Y'), :month => c.strftime("%-m"), :day => c.strftime("%-d")) %>
+            <% if ((c.strftime("%-m").to_i == current_user.month.to_i) && (c.strftime("%-d").to_i == current_user.day.to_i)) then %>
+            <font color="green">B</font>
+	    <font color="blue">i</font>
+	    <font color="orange">r</font>
+	    <font color="red">t</font>
+	    <font color="fuchsia">h</font>
+	    <font color="green">D</font>
+	    <font color="blue">a</font>
+	    <font color="orange">y</font>
+            <% else %>
+            <% end %>
           <% else %>
             <%= "  " %>
           <% end %>
