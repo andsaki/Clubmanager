@@ -143,16 +143,16 @@ ul.board li{
   color:#333;
 }
 
-ol.ex li:first-child{
+ul.ex li:first-child{
   margin-top:0;
 
 }
-ol.ex li:last-child{
+ul.ex li:last-child{
   margin-bottom: 20px;
 
 }
 
-ol.ex li:before{
+ul.ex li:before{
   counter-increment: list;
   content: counter(list) ",";
   position: absolute;
@@ -223,6 +223,25 @@ ol.ex li:before{
   border: dashed 2px white;
 
 
+}
+ul.menu{
+  margin: 50px 250px;
+  padding: 5px 0;
+  text-align: center;
+  border: 1px solid #999;
+}
+
+ul.menu li {
+  display: inline;
+  margin-left: 5px;
+  padding-left: 10px;
+  border-left: 1px solid #666;
+}
+
+ul.menu li:first-child {
+  margin-left: 0;
+  padding-left: 0;
+  border-left: 0;
 }
 
 h1 {
