@@ -41,7 +41,7 @@ class EventsController < ApplicationController
    @event = Event.find(params[:e_id])
    if @event.username != current_user.username then
    else
-#    @event.destroy
+    @event.destroy
 #    @attend = Attendance.where("e_id = ?", params[:e_id])
 #    if @attend != nil then
 #    @attend.destroy
