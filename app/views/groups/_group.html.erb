@@ -1,5 +1,5 @@
-<div class = "pagebodymain">
-<h2>　団体一覧</h2>
+<section class="column">
+<h1>　団体一覧</h1>
   <% @group = Group.all %>
   <% @group.each do |f| %>
   <ul>
@@ -10,4 +10,4 @@
   </ul>
   <% end %>
 <p><%= link_to "管理団体一覧", "/groups/my_group" %></p>
-</div>
+</section>

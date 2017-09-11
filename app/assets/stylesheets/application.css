@@ -53,13 +53,21 @@
 }
 
 .logo_posi{
-  width: 30%;
+  width: 330px;
   float: left;
   margin-top: 0px;
+
+　
+}
+.Hlogo_posi{
+  width: 100%;
+  margin-top: 0px;
+
 　
 }
 .titlelogo{
-  width: 320px;
+  width: 298px;
+  height: 120px;
   margin: auto;
 
 
@@ -100,7 +108,7 @@ ul.h_menu li:first-child {
 }
 
 .login{
-  width: 165px;
+  width: 298px;
   margin: auto;
   padding: 0.2em 0.5em;
   background: #ffe4d5;
@@ -119,8 +127,8 @@ ul.h_menu li:first-child {
 }
 
 .contents{
-  width: 700px;
-  float: left;
+  width: 400px;
+  margin: auto;
   padding: 0.2em 0.5em;
   background: #ffe4d5;
   box-shadow: 0px 0px 0px 10px #ffe4d5;
@@ -141,7 +149,8 @@ ul.h_menu li:first-child {
   padding: 0;
 }
 .column{
-  margin-left: 200px;
+  width: 300px;
+  margin: auto;
 
 }
 .box_scrollbar {
@@ -241,6 +250,13 @@ ul.board li{
 
 
 }
+.edit_b{
+  width: 20px;
+  height: 20px;
+}
+.field{
+  width: 300px;
+}
 ul.menu{
   margin: 50px 250px;
   padding: 5px 0;
@@ -285,10 +301,6 @@ ul > li {
   height: 100px;
 }
 
-.edit_b {
-  width: 20px;
-  height: 20px;
-}
 
 
 input[type="text"],textarea {
