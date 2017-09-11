@@ -5,7 +5,7 @@
 
       <div class = "logo_posi">
       <div class= "titlelogo">
-          <%= link_to image_tag('logo.png', class: 'logo'), posts_path %>
+          <%= link_to image_tag('logo.png', class: 'logo'), root_path %>
         </div>
         </div>
 
@@ -15,8 +15,10 @@
             <li><%= link_to "ホーム",root_path,class: "m_font"%></li>
             <li><%= link_to "カレンダー","/events/calender/0",class: "m_font"%></li>
             <li><%= link_to "マイページ",current_user,class: "m_font"%></li>
-            <li><%= link_to "サークル作成",class: "m_font"%></li>
 
+            <li><%= link_to "団体作成","/groups/new",class: "m_font"%></li>
+        <% end %>
+>>>>>>> app/views/posts/_header.html.erb
 
           </ul>
 
