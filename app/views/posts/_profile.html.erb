@@ -1,10 +1,14 @@
 <div class = "profile">
   <h1>
     <%= link_to 'Profile', current_user %>
-    <% if current_user.image == nil %>
+    <% if current_user.image? %>
       <%= link_to image_tag(current_user.image.url), current_user %>
     <% else %>
       <%= link_to image_tag('apio.png', :size => '100x100'), edit_user_registration_path %>
     <% end %>
+  </h1>
+  <br>
+  <h1>
+    <%= link_to 'Post', posts_path%>
   </h1>
 </div>

@@ -1,27 +1,29 @@
 <section class = "column">
   <p class="notice"><%= notice %></p>
   <p class="alert"><%= alert %></p>
+
   <h1>
     Information
   </h1>
 
   <%= link_to 'Add New!', new_post_path, class: "link_btn"%>
   <div class = "box_scrollbar">
-    <div class = "info">
-
-  <p>
-    <ul class = "board">
-      <% @posts.each do |post| %>
-      <li>
-        <%= post.updated_at.strftime('%Y/%m/%d %H:%M') %>
-        <br>
-        <font size = "5"><%= link_to post.title, post_path(post) ,class: "infolink"%></font>
-      </li>
-        <% end %>
-    </ul>
-  </p>
-</div>
-
+      <p>
+        <ul class = "board">
+          <% @posts.each do |post| %>
+          <li>
+            <%= post.updated_at.strftime('%Y/%m/%d %H:%M') %>
+            <br>
+            <font size = "5"><%= link_to post.title, post_path(post) ,class: "infolink"%></font>
+          </li>
+          <% end %>
+        </ul>
+      </p>
   </div>
+
+  <h1>
+    All Member
+  </h1>
+    <p>ここにメンバー一覧を</p>
 
 </section>

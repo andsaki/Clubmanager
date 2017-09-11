@@ -1,13 +1,17 @@
-<div class = "pagebodymain">
-<h2>　団体一覧</h2>
+<section class="column">
+<h1>　団体一覧</h1>
+<div class = "box_scrollbar">
   <% @group = Group.all %>
+  <ul class = "board">
   <% @group.each do |f| %>
-  <ul>
+
     <li>
       <h4><%= link_to "#{f.name}", "/groups/out_top/#{f.id}" %></h4>
       管理者: <%= "#{f.master_name}" %>
     </li>
+    <% end %>
   </ul>
-  <% end %>
+
 <p><%= link_to "管理団体一覧", "/groups/my_group" %></p>
 </div>
+</section>
