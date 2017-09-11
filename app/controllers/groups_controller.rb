@@ -1,4 +1,8 @@
 class GroupsController < ApplicationController
+
+  #ログイン者のみ表示
+  before_action :authenticate_user!
+  
   def index
   end
 

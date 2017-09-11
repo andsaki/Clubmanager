@@ -1,4 +1,5 @@
 class PostsController < ApplicationController
+  
   #ログイン者のみ表示
   before_action :authenticate_user!
 

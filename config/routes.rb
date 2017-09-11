@@ -45,6 +45,6 @@ resources :posts do
   resources :comments, only: [:create, :destroy]
 end
 
- root 'posts#index'
+ root 'groups#group'
 
 end
