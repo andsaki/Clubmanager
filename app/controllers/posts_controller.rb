@@ -20,6 +20,8 @@ class PostsController < ApplicationController
     #@post = Post.new(params.require(:post).permit(:title, :body))
     @post = Post.new(post_params)
     @post.username = current_user.username
+    @post.user_id = current_user.id
+    #@post.group_id = @group.id
     if @post.save
       redirect_to posts_path
     else
