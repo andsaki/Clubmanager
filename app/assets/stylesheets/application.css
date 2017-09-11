@@ -53,7 +53,7 @@
 }
 
 .logo_posi{
-  width: 330px;
+  width: 298px;
   float: left;
   margin-top: 0px;
 
@@ -85,7 +85,7 @@ ul.h_menu li {
   display: inline;
   margin-left: 10px;
   padding-left: 10px;
-  border-left: 1px solid #666;
+  /*border-left: 1px solid #666;*/
 
 }
 
@@ -95,6 +95,15 @@ ul.h_menu li:first-child {
   border-left: 0;
 
 }
+ul.h_menu li a{
+  font-family: "Trebuchet MS", sans-serif;
+  text-decoration: none;
+  color: #000;
+}
+ul.h_menu li a:hover{
+  color: skyblue;
+  border-bottom: 5px solid skyblue;
+}
 
 .menu_posi{
   width: 100%;
@@ -102,10 +111,7 @@ ul.h_menu li:first-child {
 
 }
 
-.m_font{
-  font: 14px/1.6 'Mv Boli', 'arial narrow', sans-serif;
-  list-style-type:none;
-}
+
 
 .login{
   width: 298px;
@@ -252,14 +258,13 @@ ul.board li{
   width: 20px;
   height: 20px;
 }
-.field{
-  width: 300px;
-}
+
 ul.menu{
-  margin: 50px 250px;
+  margin: 50px 0px;
   padding: 5px 0;
   text-align: center;
-  border: 1px solid #999;
+
+  /*border: 1px solid #999;*/
 }
 
 ul.menu li {
@@ -267,12 +272,14 @@ ul.menu li {
   margin-left: 5px;
   padding-left: 10px;
   border-left: 1px solid #666;
+
 }
 
 ul.menu li:first-child {
   margin-left: 0;
   padding-left: 0;
   border-left: 0;
+
 }
 
 h1 {
