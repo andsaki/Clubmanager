@@ -2,6 +2,27 @@ class GroupsController < ApplicationController
 
   #ログイン者のみ表示
   before_action :authenticate_user!
+
+  def delete
+    @group = Group.where("id = ?", params[:id]).first
+    if @group.master_id != current_user.id then
+    redirect_to "no_title"
+    else 
+    @group.destroy
+    @member = Member.where("group_id = ?", params[:id])
+    @member.destroy_all
+    redirect_to "/groups/my_group"
+    end
+  end
+
+  def delete_member
+    @member = Member.where("group_id = ?", params[:id]).where("user_id = ?", current_user.id).first
+    @member.destroy
+    redirect_to root_path
+  end
+
+  def update
+  end
   
   def index
   end
@@ -14,12 +35,22 @@ class GroupsController < ApplicationController
   end
 
   def create
-    @group = Group.new
-    @group.name = params[:group][:name]
-    @group.master_id = current_user.id
-    @group.master_name = current_user.username
-    @group.save
-    redirect_to "/groups/my_group"
+    if params[:group][:group_id] != nil then
+     @group = Group.where("id = ?", params[:group][:group_id]).first
+     @group.name = params[:group][:name]
+     @group.about = params[:group][:about]
+     @group.save
+     redirect_to "/groups/my_group"
+    elsif params[:group][:group_id] == nil then
+     @group = Group.new
+     @group.name = params[:group][:name]
+     @group.master_id = current_user.id
+     @group.master_name = current_user.username
+     @group.about = params[:group][:about]
+     @group.save
+     redirect_to "/groups/my_group"
+    else
+    end
   end
 
   def out_top

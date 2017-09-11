@@ -1,6 +1,7 @@
 <h3>新規団体作成</h3>
 
 <%= form_for Group.new do |f| %>
-<%= f.text_field :name, :placeholder => "Group Name" %>
+<p><%= f.text_field :name, :placeholder => "Group Name" %></p>
+<%= f.text_area :about, :placeholder => "About Group"%>
 <%= f.submit :value => "作成する" %>
 <% end %>

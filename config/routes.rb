@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
   get 'members/index'
-
   get 'members/show'
 
   get 'groups/index'
@@ -14,6 +13,8 @@ Rails.application.routes.draw do
   get "groups/top/:id" => "groups#top"
   get "groups/top_page/:id" => "groups#top_page"
   get "groups/waiting/:id" => "groups#waiting"
+  get "groups/delete/:id" => "groups#delete"
+  get "groups/delete_member/:id" => "groups#delete_member"
 
   get "members/application/:id" => "members#application"
   get "members/applicate/:id" => "members#applicate"
