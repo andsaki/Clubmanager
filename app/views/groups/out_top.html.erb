@@ -1,3 +1,5 @@
+<div class = "pagebodymain">
 <% @group = Group.where("id = ?", @group_id).first %>
 <h3 align="center"><%= @group.name %></h3>
 <p align="center"><%= link_to "入場する", "/groups/top/#{@group.id}" %></p>
+</div>
