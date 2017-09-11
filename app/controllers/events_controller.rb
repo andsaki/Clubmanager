@@ -1,4 +1,8 @@
 class EventsController < ApplicationController
+  
+  #ログイン者のみ表示
+  before_action :authenticate_user!
+
   def index
    @year = params[:year]
    @month = params[:month]
@@ -54,16 +58,16 @@ class EventsController < ApplicationController
 #    end
    end
      redirect_to "/events/calender/0"
-  end  
+  end
 
   def create
- 
+
     if params[:event][:id] != nil then
       @original = Event.find(params[:event][:id].to_i)
       @original.destroy
     else
     end
- 
+
      if params[:event][:title].empty? then
       redirect_to "/events/new"
      elsif params[:event][:about].empty? then
@@ -90,7 +94,7 @@ class EventsController < ApplicationController
    	  redirect_to "/events/calender/0"
         else
           redirect_to "/events/new"
-        end 
+        end
       end
 
   end
