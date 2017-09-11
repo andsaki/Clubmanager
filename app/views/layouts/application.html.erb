@@ -13,22 +13,21 @@
   <body>
     <!-- header -->
     <%= render "posts/header"%>
+
     <div class = "outline">
       <div class = "pagebody">
         <!-- main -->
         <%= yield %>
-
-      <!-- bodysub -->
-      <div class = "pagebodysub">
-          <%= link_to 'ログアウト', destroy_user_session_path, method: :delete ,class: 'logout'%>
+        <% if (current_user != nil)%>
+        <!-- bodysub -->
+        <div class = "pagebodysub">
+        <%= link_to 'ログアウト', destroy_user_session_path, method: :delete ,class: 'logout'%>
           <%= render "posts/profile"%>
-
-
           <%= render "posts/calendar"%>
-
-      </div>
-      <!-- footer -->
-      <%= render "posts/footer"%>
+        </div>
+        <% end %>
+        <!-- footer -->
+        <%= render "posts/footer"%>
       </div>
     </div>
   </body>
