@@ -55,25 +55,27 @@
   margin-top: 0px;
 }
 .titlelogo{
-  width: 400px;
+  width: 320px;
   margin: auto;
 
 
 }
-
-
 
 .login{
   width: 165px;
   margin: auto;
+  padding: 0.2em 0.5em;
+  background: #ffe4d5;
+  box-shadow: 0px 0px 0px 10px #ffe4d5;
+  border: dashed 2px white;
+
 }
 
 .outline{
-  margin-top: 140px;
+  margin-top: 170px;
 
 }
 .pagebody{
-
   margin: auto;
   width: 1100px;
 }
@@ -81,15 +83,18 @@
 .contents{
   width: 400px;
   margin: auto;
+  padding: 0.2em 0.5em;
+  background: #ffe4d5;
+  box-shadow: 0px 0px 0px 10px #ffe4d5;
+  border: dashed 2px white;
 }
 
 .pagebodymain{
-  width: 700px;;
+  width: 700px;
   float: left;
   padding: 0.2em 0.5em;
-  margin: 0.8em 0;
-  background: #ffc0cb;
-  box-shadow: 0px 0px 0px 10px #ffc0cb;
+  background: #ffe4d5;
+  box-shadow: 0px 0px 0px 10px #ffe4d5;
   border: dashed 2px white;
 }
 
@@ -105,9 +110,7 @@
   overflow:auto;
   width:300px;
   height:500px;
-  
-
-  font-size:15px;
+  padding: 0px;
 }
 ul.board{
   top: 0px;
@@ -131,7 +134,7 @@ ul.board:after{
   color:#bbb;
 }
 ul.board li{
-  /*position:relative;*/
+
   padding: 0px 10px 5px 10px;
   margin: 7px 0 10px 0px;
   font-weight: bold;
@@ -140,16 +143,16 @@ ul.board li{
   color:#333;
 }
 
-ol.ex li:first-child{
+ul.ex li:first-child{
   margin-top:0;
 
 }
-ol.ex li:last-child{
+ul.ex li:last-child{
   margin-bottom: 20px;
 
 }
 
-ol.ex li:before{
+ul.ex li:before{
   counter-increment: list;
   content: counter(list) ",";
   position: absolute;
@@ -174,7 +177,6 @@ ol.ex li:before{
 .pagebodysub{
   float: right;
   width: 350px;
-
   background-color: #ffffff;
 }
 
@@ -198,7 +200,7 @@ ol.ex li:before{
   text-decoration: none;/*下線消す*/
   background: skyblue;/*背景を水色に*/
   color:white;/*文字を白に*/
-  padding:5px 10px;/*内側の余白*/
+  padding:0px 10px;/*内側の余白*/
   border-radius: 20px;/*角を丸くする*/
   font-family: 'Avenir','Arial';
 }
@@ -213,7 +215,33 @@ ol.ex li:before{
   padding-left: 120px;
 }
 .calender{
+  margin-left: 305px;
+  width: 1300px;
+  padding: 0.2em 0.5em;
+  background: #ffe4d5;
+  box-shadow: 0px 0px 0px 10px #ffe4d5;
+  border: dashed 2px white;
 
+
+}
+ul.menu{
+  margin: 50px 250px;
+  padding: 5px 0;
+  text-align: center;
+  border: 1px solid #999;
+}
+
+ul.menu li {
+  display: inline;
+  margin-left: 5px;
+  padding-left: 10px;
+  border-left: 1px solid #666;
+}
+
+ul.menu li:first-child {
+  margin-left: 0;
+  padding-left: 0;
+  border-left: 0;
 }
 
 h1 {

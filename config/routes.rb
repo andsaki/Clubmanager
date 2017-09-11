@@ -14,6 +14,8 @@ Rails.application.routes.draw do
   get 'events/absence/:e_id' => 'events#absence'
   get 'events/calender/:num' => 'events#calender'
 
+#  get 'posts/_calender' => 'events#all'
+
   devise_for :users
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   resources :users, :only => [:index, :show]
