@@ -14,11 +14,22 @@
     <!-- header -->
     <%= render "posts/header"%>
     <div class = "outline">
-    <!-- main -->
-    <%= yield %>
+      <div class = "pagebody">
+        <!-- main -->
+        <%= yield %>
+      </div>
+      <!-- bodysub -->
+      <div class = "pagebodysub">
+        <div class = "profile">
+          <%= render "posts/profile"%>
+        </div>
+        <div class = "calender">
+          <%= render "posts/calendar"%>
+        </div>
+      </div>
+      <!-- footer -->
+      <%= render "posts/footer"%>
     </div>
-    <!-- footer -->
-    <%= render "posts/footer"%>
   </body>
 
 </html>
