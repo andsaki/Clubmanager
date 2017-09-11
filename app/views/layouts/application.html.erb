@@ -13,22 +13,21 @@
   <body>
     <!-- header -->
     <%= render "posts/header"%>
+
     <div class = "outline">
       <div class = "pagebody">
         <!-- main -->
         <%= yield %>
 
-      <!-- bodysub -->
-      <div class = "pagebodysub">
-
+        <% if (current_user != nil)%>
+        <!-- bodysub -->
+        <div class = "pagebodysub">
           <%= render "posts/profile"%>
-
-
           <%= render "posts/calendar"%>
-
-      </div>
-      <!-- footer -->
-      <%= render "posts/footer"%>
+        </div>
+        <% end %>
+        <!-- footer -->
+        <%= render "posts/footer"%>
       </div>
     </div>
   </body>
