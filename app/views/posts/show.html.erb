@@ -2,13 +2,14 @@
 
   <h1>『<%= @post.title %>』</h1>
   <h2><%= simple_format @post.body %></h2>
-
-  更新日時：<%= @post.created_at.strftime('%Y/%m/%d %H:%M') %>
-  <br>
   <!--最終更新：<%= time_ago_in_words(@post.created_at) %>
   <br>
   -->
-  作成者：<%= @post.username%>
+  作成：<%= @post.created_at.strftime('%Y/%m/%d %H:%M') %> Created at "<%= @post.username%>"
+  <br>
+  更新：<%= @post.updated_at.strftime('%Y/%m/%d %H:%M') %>
+
+  <% if (@post.username == current_user.username) %>
   <%= link_to '[編集]', edit_post_path(@post), class: 'command' %>
   <%= link_to '[削除]',
   post_path(@post),
@@ -16,6 +17,7 @@
   class: 'command',
     data: { confirm: 'Sure?' }
   %>
+  <% end %>
 
   <!-- コメントの表示 -->
   <h3>Comments</h3>
@@ -26,8 +28,6 @@
       <%= comment.created_at.strftime('%Y/%m/%d %H:%M') %>
       <br>
       内容：<%= comment.body %>
-      <br>
-      作成者：<%= comment.username %>
       <%= link_to '[x]',
         post_comment_path(@post, comment),
         method: :delete,
