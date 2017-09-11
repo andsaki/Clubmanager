@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170908023242) do
+ActiveRecord::Schema.define(version: 20170911014448) do
 
   create_table "attendances", force: :cascade do |t|
     t.string "e_id"
@@ -35,6 +35,31 @@ ActiveRecord::Schema.define(version: 20170908023242) do
     t.string "month"
     t.string "date"
     t.string "username"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "groups", force: :cascade do |t|
+    t.string "name"
+    t.integer "master_id"
+    t.string "master_name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "members", force: :cascade do |t|
+    t.integer "group_id"
+    t.integer "user_id"
+    t.string "user_name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "p"
+  end
+
+  create_table "p_members", force: :cascade do |t|
+    t.integer "group_id"
+    t.integer "user_id"
+    t.string "user_name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

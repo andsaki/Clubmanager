@@ -1,0 +1,12 @@
+<% @group = Group.where("id = ?", params[:id]).first %>
+<h3>「<%= @group.name %>」への参加申請者</h3>
+<ul>
+<% @member = Member.where("group_id = ?", params[:id]).where("p = ?", 0) %>
+<% @member.each do |f| %>
+<li>
+<%= f.user_name %>
+<%= link_to "[承認]", "/members/permit/#{params[:id]}&#{f.user_id}" %>
+<%= link_to "[削除]", "" %>
+</li>
+<% end %>
+</ul>

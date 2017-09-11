@@ -1,0 +1,11 @@
+<h2>　団体一覧</h2>
+<% @group = Group.all %>
+<% @group.each do |f| %>
+<ul>
+<li>
+<h4><%= link_to "#{f.name}", "/groups/out_top/#{f.id}" %></h4>
+管理者: <%= "#{f.master_name}" %>
+</li>
+</ul>
+<% end %>
+<p align="right"><%= link_to "管理団体一覧", "/groups/my_group" %></p>

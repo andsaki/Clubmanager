@@ -1,4 +1,25 @@
 Rails.application.routes.draw do
+  get 'members/index'
+
+  get 'members/show'
+
+  get 'groups/index'
+  get 'groups/show'
+  get 'groups/new'
+  post 'groups' => "groups#create"
+
+  get "groups/my_group"
+  get "groups/group"
+  get "groups/out_top/:id" => "groups#out_top"
+  get "groups/top/:id" => "groups#top"
+  get "groups/top_page/:id" => "groups#top_page"
+  get "groups/waiting/:id" => "groups#waiting"
+
+  get "members/application/:id" => "members#application"
+  get "members/applicate/:id" => "members#applicate"
+  get "members/applicater/:id" => "members#applicater"
+  get "members/permit/:group_id&:user_id" => "members#permit"
+
   get 'users/index'
   get 'users/show'
 
