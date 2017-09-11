@@ -1,12 +1,10 @@
 class PostsController < ApplicationController
-  
+
   #ログイン者のみ表示
   before_action :authenticate_user!
 
   def index
     @posts = Post.all.order(updated_at: 'desc')
-    #イベントデータの格納
-    @events = Event.all
   end
 
   def show
