@@ -1,8 +1,9 @@
 <section class="column">
 <h1>　団体一覧</h1>
+<div class = "box_scrollbar">
   <% @group = Group.all %>
   <% @group.each do |f| %>
-  <ul>
+  <ul class = "board">
     <li>
       <h4><%= link_to "#{f.name}", "/groups/out_top/#{f.id}" %></h4>
       管理者: <%= "#{f.master_name}" %>
@@ -10,4 +11,5 @@
   </ul>
   <% end %>
 <p><%= link_to "管理団体一覧", "/groups/my_group" %></p>
+</div>
 </section>

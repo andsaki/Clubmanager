@@ -149,52 +149,50 @@ ul.h_menu li:first-child {
   padding: 0;
 }
 .column{
-  width: 300px;
+  width: 400px;
   margin: auto;
 
 }
 .box_scrollbar {
   overflow:auto;
-  width:300px;
+  width:400px;
   height:500px;
   padding: 0px;
+
 }
 ul.board{
-  top: 0px;
-  counter-reset: list;
-  list-style-type:none;
-  position:relative;
-  font: 14px/1.6 'Mv Boli', 'arial narrow', sans-serif;
-  padding: 1.2em;
-  background:#F2EFE7;
-  -webkit-box-shadow: 0 0 40px rgba(0, 0, 0, 0.2) inset,0 0 4px rgba(0, 0, 0, 0.2) ;
-  -moz-box-shadow: 0 0 40px rgba(0, 0, 0, 0.2) inset,0 0 4px rgba(0, 0, 0, 0.2) ;
-  box-shadow: 0 0 40px rgba(0, 0, 0, 0.2) inset,0 0 4px rgba(0, 0, 0, 0.2) ;
+ top: 0px;
+ counter-reset: list;
+ list-style-type:none;
+ font: 14px/1.6 'Mv Boli', 'arial narrow', sans-serif;
+ padding: 1.2em;
+ background:#F2EFE7 ;
+ -webkit-box-shadow: 0 0 40px rgba(0, 0, 0, 0.2) inset,0 0 4px rgba(0, 0, 0, 0.2) ;
+ -moz-box-shadow: 0 0 40px rgba(0, 0, 0, 0.2) inset,0 0 4px rgba(0, 0, 0, 0.2) ;
+ box-shadow: 0 0 40px rgba(0, 0, 0, 0.2) inset,0 0 4px rgba(0, 0, 0, 0.2) ;
 
 }
 ul.board:after{
-  content:"list-information";  /* 右下の文字 */
-  position: absolute;
-  bottom: 8px;
-  right: 1.2em;
-  font-size:12px;
-  color:#bbb;
+ content:"list-information";
+ position: absolute;
+ bottom: 8px;
+ right: 1.2em;
+ font-size:12px;
+ color:#bbb;
 }
 ul.board li{
 
-  padding: 0px 10px 5px 10px;
-  margin: 7px 0 10px 0px;
-  font-weight: bold;
-  font-size:14px;
-  border-bottom:dashed 1px #ccc;
-  color:#333;
+ padding: 0px 10px 5px 10px;
+ margin: 7px 0 10px 0px;
+ font-weight: bold;
+ font-size:14px;
+ border-bottom:dashed 1px #ccc;
+ color:#333;
 }
 
 
 
-.info{
 
-}
 .infolink{
   color: black;
   text-decoration: none;
