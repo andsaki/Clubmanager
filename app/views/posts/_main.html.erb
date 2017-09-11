@@ -1,18 +1,17 @@
 <section class = "column">
   <h1>
-    information
+    Information
   </h1>
 
   <%= link_to 'Add New!', new_post_path, class: "link_btn"%>
   <div class = "box_scrollbar">
     <div class = "info">
 
-
   <p>
     <ul class = "board">
       <% @posts.each do |post| %>
       <li>
-        <%= post.created_at.strftime('%Y/%m/%d %H:%M') %>
+        <%= post.updated_at.strftime('%Y/%m/%d %H:%M') %>
         <br>
         <font size = "5"><%= link_to post.title, post_path(post) ,class: "infolink"%></font>
       </li>
@@ -20,7 +19,6 @@
     </ul>
   </p>
 </div>
-
 
   </div>
 
