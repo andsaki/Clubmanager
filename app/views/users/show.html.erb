@@ -1,5 +1,6 @@
+<section class="column">
 
-<div class = "contents">
+
 <% provide(:title, @user.username) %>
 <h1><%= @user.username %>のページ</h1>
 
@@ -7,7 +8,7 @@
   <div class="thumbnail">
     <%= image_tag @user.image.url %>
 <% else %>
-  <div>
+
     <%= link_to image_tag('apio.png', :size => '100x100') %>
   </div>
 <% end %>
@@ -18,4 +19,4 @@
 <h2>コメント: <%= @user.comment %></h2>
 
 <%= link_to image_tag('edit_b.png', class: 'edit_b'), edit_user_registration_path %>
-</div>
+</section>

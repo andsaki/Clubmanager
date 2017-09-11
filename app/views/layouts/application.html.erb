@@ -17,14 +17,21 @@
     <div class = "outline">
       <div class = "pagebody">
         <!-- main -->
-        <%= yield %>
         <% if (current_user != nil)%>
+        <div class = "pagebodymain">
+          <!--<section class = "column">-->
+        <%= yield %>
+      <!--</section>-->
+      </div>
+
         <!-- bodysub -->
         <div class = "pagebodysub">
         <%= link_to 'ログアウト', destroy_user_session_path, method: :delete ,class: 'logout'%>
           <%= render "posts/profile"%>
           <%= render "posts/calendar"%>
         </div>
+        <%else%>
+        <%= yield %>
         <% end %>
         <!-- footer -->
         <%= render "posts/footer"%>
