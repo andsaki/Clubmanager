@@ -1,45 +1,49 @@
 <div class = "contents">
-<h2><%= @post.title %></h2>
-<p><%= simple_format @post.body %></p>
 
-<br>
-更新日時：<%= @post.created_at.strftime('%Y/%m/%d %H:%M') %>
-<br>
-最終更新：<%= time_ago_in_words(@post.created_at) %>
-<br>
-作成者：<%= @post.username%>
-<%= link_to '[編集]', edit_post_path(@post), class: 'command' %>
-<%= link_to '[削除]',
-post_path(@post),
-method: :delete,
-class: 'command',
-  data: { confirm: 'Sure?' } %>
+  <h1>『<%= @post.title %>』</h1>
+  <h2><%= simple_format @post.body %></h2>
 
-<h3>Comments</h3>
-<% if @post.comments.any? %>
-<ul>
-  <% @post.comments.each do |comment| %>
-  <li>
-    <%= comment.created_at.strftime('%Y/%m/%d %H:%M') %>
-    <br>
-    内容：<%= comment.body %>
-    <br>
-    作成者：<%= comment.username %>
-    <%= link_to '[x]',
-      post_comment_path(@post, comment),
-      method: :delete,
-      class: 'command',
-      data: { confirm: 'Sure?' } %>
-  </li>
+  更新日時：<%= @post.created_at.strftime('%Y/%m/%d %H:%M') %>
+  <br>
+  <!--最終更新：<%= time_ago_in_words(@post.created_at) %>
+  <br>
+  -->
+  作成者：<%= @post.username%>
+  <%= link_to '[編集]', edit_post_path(@post), class: 'command' %>
+  <%= link_to '[削除]',
+  post_path(@post),
+  method: :delete,
+  class: 'command',
+    data: { confirm: 'Sure?' }
+  %>
+
+  <!-- コメントの表示 -->
+  <h3>Comments</h3>
+  <% if @post.comments.any? %>
+  <ul>
+    <% @post.comments.each do |comment| %>
+    <li>
+      <%= comment.created_at.strftime('%Y/%m/%d %H:%M') %>
+      <br>
+      内容：<%= comment.body %>
+      <br>
+      作成者：<%= comment.username %>
+      <%= link_to '[x]',
+        post_comment_path(@post, comment),
+        method: :delete,
+        class: 'command',
+        data: { confirm: 'Sure?' } %>
+    </li>
+    <% end %>
+  </ul>
   <% end %>
-</ul>
-<% end %>
-<%= form_for ([@post, @post.comments.build]) do |f| %>
-<p>
-  <%= f.text_field :body %>
-</p>
-<p>
-  <%= f.submit  %>
-</p>
-<% end %>
+
+  <%= form_for ([@post, @post.comments.build]) do |f| %>
+  <p>
+    <%= f.text_field :body, placeholder: 'comment' %>
+  </p>
+  <p>
+    <%= f.submit  %>
+  </p>
+  <% end %>
 </div>
