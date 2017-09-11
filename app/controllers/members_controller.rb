@@ -3,6 +3,7 @@ class MembersController < ApplicationController
   #ログイン者のみ表示
   before_action :authenticate_user!
 
+
   def index
   end
 
@@ -14,6 +15,7 @@ class MembersController < ApplicationController
    @member = Member.where("group_id = ?", params[:group_id]).where("user_id = ?", params[:user_id]).first
    @member.p = 1
    @member.save
+   redirect_to "/members/applicater/#{@group.id}"
   end
 
   def application

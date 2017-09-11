@@ -2,7 +2,7 @@
 <p><%= @event.title %><p>
 <p>日時: <%= @event.year %>/<%= @event.month %>/<%= @event.date %></p>
 <p>本文: <%= simple_format(@event.about) %></p>
-<p>投稿者: <%= @event.username%></p>
+<p>投稿者: <%= link_to @event.username, "/users/#{@event.user_id}" %></p>
 <% @i = 0 %>
 <% @f = 0 %>
 <p>出席状況: 
@@ -29,7 +29,7 @@
 [出席]
 <%= link_to "[欠席]", "/events/absence/#{@event.id}.to_i" %>
 <% end %>
-<% if @event.username == current_user.username then %>
+<% if @event.user_id == current_user.id then %>
 <p>
 <%= link_to "[削除]", "/events/delete/#{@event.id}", data: { confirm: 'Sure?'} %>
 <%= link_to "[編集]", "/events/edit/#{@event.id}" %>

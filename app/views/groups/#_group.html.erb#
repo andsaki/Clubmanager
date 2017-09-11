@@ -1,0 +1,14 @@
+<div class = "pagebodymain">
+<h2>’¡¡’ÃÄ’ÂÎ’°ì’Í÷</h2>
+  <% @group = Group.all %>
+  <% @group.each do |f| %>
+  <ul>
+    <li>
+      <h4>
+	<%= link_to "#{f.name}", "/groups/out_top/#{f.id}" %><></h4>
+      ’´É’Íý’¼Ô: <%= "#{f.master_name}" %>
+    </li>
+  </ul>
+  <% end %>
+<p><%= link_to "’´É’Íý’ÃÄ’ÂÎ’°ì’Í÷", "/groups/my_group" %></p>
+</div>

@@ -17,6 +17,7 @@ ActiveRecord::Schema.define(version: 20170911082124) do
     t.string "username"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "user_id"
   end
 
   create_table "comments", force: :cascade do |t|
@@ -37,6 +38,7 @@ ActiveRecord::Schema.define(version: 20170911082124) do
     t.string "username"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "user_id"
   end
 
   create_table "groups", force: :cascade do |t|
@@ -45,6 +47,7 @@ ActiveRecord::Schema.define(version: 20170911082124) do
     t.string "master_name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.text "about"
   end
 
   create_table "members", force: :cascade do |t|

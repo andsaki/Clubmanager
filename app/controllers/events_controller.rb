@@ -24,11 +24,12 @@ class EventsController < ApplicationController
   end
 
   def attend
-   @check = Attendance.where("e_id = ?", params[:e_id]).where("username = ?", current_user.username).first
+   @check = Attendance.where("e_id = ?", params[:e_id]).where("user_id = ?", current_user.id).first
    if @check == nil then
    @attend = Attendance.new
    @attend.e_id = params[:e_id]
    @attend.username = current_user.username
+   @attend.user_id = current_user.id
    @attend.save
    redirect_to "/events/show/#{params[:e_id]}"
    else
@@ -36,7 +37,7 @@ class EventsController < ApplicationController
   end
 
   def absence
-   @absence = Attendance.where("e_id = ?", params[:e_id]).where("username = ?", current_user.username).first
+   @absence = Attendance.where("e_id = ?", params[:e_id]).where("user_id = ?", current_user.id).first
    @absence.destroy
    redirect_to "/events/show/#{params[:e_id]}"
   end
@@ -90,6 +91,7 @@ class EventsController < ApplicationController
    	  @event.month = params[:event][:month]
    	  @event.date = params[:event][:date]
    	  @event.username = current_user.username
+          @event.user_id = current_user.id
    	  @event.save
    	  redirect_to "/events/calender/0"
         else
