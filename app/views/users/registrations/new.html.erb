@@ -9,13 +9,13 @@
     <%= f.email_field :email, autofocus: true %>
   </div>
 
-  <div><%= f.label :usename %><i>　必須(1~20文字)</i><br />
+  <div><%= f.label :username %><i>　必須(1~20文字)</i><br />
   <%= f.text_field :username %></div>
 
   <div class="field">
     <%= f.label :password %>
     <% if @minimum_password_length %>
-    <em>　必須(<%= @minimum_password_length %> characters minimum)</em>
+    <em>　必須(<%= @minimum_password_length %>文字以上)</em>
     <% end %><br />
     <%= f.password_field :password, autocomplete: "off" %>
   </div>
@@ -27,7 +27,7 @@
 
 
   <div class="actions">
-    <%= f.submit "Sign up" %>
+    <%= f.submit "サインアップ" %>
   </div>
 <% end %>
 
