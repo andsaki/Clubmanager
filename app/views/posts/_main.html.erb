@@ -22,11 +22,15 @@
   </div>
 
   <h1>
-    All Member(まだグループだけにできていない。)
+    All Member
   </h1>
 
   <ul class = "board">
-    <% @member = Member.all %>
+    <% @group = Group.where("id = ?", current_user.state_group_id).first %>
+    <li>
+      <p><%= @group.master_name%></p>
+    </li>
+    <% @member = Member.where("group_id = ?", current_user.state_group_id) %>
     <% @member.each do |p|%>
     <li>
       <p><%= p.user_name %></p>
