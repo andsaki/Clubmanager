@@ -17,6 +17,7 @@
       <li><%= link_to "#{Date.today.months_since(5).strftime('%-m')}月","5"%></li>
     </ul>
     <h1><%= today.strftime("%Y年%-m月") %></h1>
+    <%= link_to 'Add New Event!', '/events/new',class: "link_btn" %>
     </caption>
     <tr>
       <th width="80" height="50" bgcolor="#ffe8ff"><font color="red">日</font></th>

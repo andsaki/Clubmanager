@@ -7,4 +7,5 @@ class User < ApplicationRecord
 
   #後で変更する
   validates :username, presence: true, length: { in: 1..20 }
+  #validates :age, :numericality => {:only_integer => true}
 end
