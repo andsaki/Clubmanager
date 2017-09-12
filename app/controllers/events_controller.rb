@@ -70,37 +70,76 @@ class EventsController < ApplicationController
 
   def create
 
-      if params[:event][:title].empty? then
-        if params[:event][:about].empty? then
-          if params[:event][:id] == nil then
-          redirect_to "/events/new", flash: {title_error: 'タイトルを入力してください', about_error: '内容を入力してください' }
-          else
-          redirect_to "/events/edit/#{params[:event][:id]}", flash: {title_error: 'タイトルを入力してください', about_error: '内容を入力してください'}
+      @title_error = "タイトルを入力してください"
+      @about_error = "内容を入力してください"
+      @date_error = "無効な日付です"
+      @year = params[:event][:year].to_i
+      @month = params[:event][:month].to_i
+      @date = params[:event][:date].to_i
+
+
+      if params[:event][:title].empty? then #>>>>>>>>>> title = 0
+
+        if params[:event][:about].empty? then #>>>>>>>>>> about = 0
+
+          if Date.valid_date?(@year, @month, @date) then #>>>>>>>>>> date != 0
+
+            if params[:event][:id] == nil then
+              redirect_to "/events/new", flash: {title_error: @title_error, about_error: @about_error }
+            else
+              redirect_to "/events/edit/#{params[:event][:id]}", flash: {title_error: @title_error, about_error: @about_error}
+            end
+
+          else #>>>>>>>>>> date = 0
+            if params[:event][:id] == nil then
+              redirect_to "/events/new", flash: {title_error: @title_error, about_error: @about_error, date_error: @date_error}
+            else
+              redirect_to "/events/edit/#{params[:event][:id]}", flash: {title_error: @title_error, about_error: @about_error, date_error: @date_error}
+            end
           end
-        else
-          if params[:event][:id] == nil then
-          redirect_to "/events/new", flash: {title_error: 'タイトルを入力してください', _about: params[:event][:about]}
-          else
-          redirect_to "/events/edit/#{params[:event][:id]}", flash: {title_error: 'タイトルを入力してください', _about: params[:event][:about]}
+
+        else #>>>>>>>>>> about != 0
+
+          if Date.valid_date?(@year, @month, @date) then #>>>>>>>>>> date != 0
+
+            if params[:event][:id] == nil then
+            redirect_to "/events/new", flash: {title_error: @title_error, _about: params[:event][:about]}
+            else
+            redirect_to "/events/edit/#{params[:event][:id]}", flash: {title_error: @title_error, _about: params[:event][:about]}
+            end
+
+          else #>>>>>>>>>> date = 0
+ 	    if params[:event][:id] == nil then
+            redirect_to "/events/new", flash: {title_error: @title_error, _about: params[:event][:about], date_error: @date_error}
+            else
+            redirect_to "/events/edit/#{params[:event][:id]}", flash: {title_error: @title_error, _about: params[:event][:about], date_error: @date_error}
+            end
+
           end
+
         end
-      elsif params[:event][:about].empty? then
-        if params[:event][:id] == nil then
-        redirect_to "/events/new", flash: {about_error: '内容を入力してください', _title: params[:event][:title]}
-        else
-	redirect_to "/events/edit/#{params[:event][:id]}", flash: {about_error: '内容を入力してください', _title: params[:event][:title]}
+
+      elsif params[:event][:about].empty? then #>>>>>>>>>> title != 0 && about = 0
+
+        if Date.valid_date?(@year, @month, @date) then #>>>>>>>>>> date != 0
+
+          if params[:event][:id] == nil then
+          redirect_to "/events/new", flash: {about_error: @about_error, _title: params[:event][:title]}
+          else
+	  redirect_to "/events/edit/#{params[:event][:id]}", flash: {about_error: @about_error, _title: params[:event][:title]}
+          end
+
+        else #>>>>>>>>>> date = 0
+
         end
-      else
+
+      else #>>>>>>>>>> title != 0 && about != 0
 
         if params[:event][:id] != nil then
           @original = Event.find(params[:event][:id].to_i)
           @original.destroy
         else
         end
-
-        @year = params[:event][:year].to_i
-    	@month = params[:event][:month].to_i
-    	@date = params[:event][:date].to_i
 
         if Date.valid_date?(@year, @month, @date) then
           @event = Event.new
