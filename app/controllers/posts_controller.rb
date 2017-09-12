@@ -21,6 +21,7 @@ class PostsController < ApplicationController
     @post = Post.new(post_params)
     @post.username = current_user.username
     @post.user_id = current_user.id
+    @post.group_id = current_user.state_group_id
     #@post.group_id = @group.id
     if @post.save
       redirect_to posts_path

@@ -12,13 +12,15 @@
   <div class = "box_scrollbar">
       <p>
         <ul class = "board">
-          <% @posts.each do |post| %>
-          <li>
-            <%= post.updated_at.strftime('%Y/%m/%d %H:%M') %>
-            <br>
-            <font size = "5"><%= link_to post.title, post_path(post) ,class: "infolink"%></font>
-          </li>
-          <% end %>
+
+          <% @posts = Post.where("group_id = ?", current_user.state_group_id) %>
+            <% @posts.each do |post| %>
+            <li>
+              <%= post.updated_at.strftime('%Y/%m/%d %H:%M') %>
+              <br>
+              <font size = "5"><%= link_to post.title, post_path(post) ,class: "infolink"%></font>
+            </li>
+            <% end %>
         </ul>
       </p>
   </div>
