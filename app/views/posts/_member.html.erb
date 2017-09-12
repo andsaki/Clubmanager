@@ -1,6 +1,6 @@
 <div class = "member">
 
-  <% if current_user.state_group_id == -1%>
+  <% if current_user.state_group_id == -1 || current_user.state_group_id == nil%>
   <% else%>
     <h1>
       <%= link_to 'All Member', members_show_path  %>
