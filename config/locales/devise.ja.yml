@@ -1,7 +1,7 @@
 ja:
   devise:
     confirmations:
-      confirmed: "アカウントが確認されました。ログインしています。"
+      confirmed: "アカウントが確認されました。ログインして下さい。"
       send_instructions: "アカウントの確認方法を数分以内にメールでご連絡します。"
       send_paranoid_instructions: "ご登録のメールアドレスが保存されている場合、アカウントの確認方法をメールでご連絡します。"
     failure:
@@ -61,6 +61,7 @@ ja:
       too_long: "は%{count}文字以下に設定して下さい。"
       invalid: "は有効でありません。"
       confirmation: "が内容とあっていません。"
+      not_a_number: "は半角数字で入力して下さい。"
   activerecord:
     attributes:
       user:
@@ -71,7 +72,7 @@ ja:
         remember_me: "パスワードを記憶する"
         age: "年齢"
         location: "所在地"
-        comment: "コメント"
+        comment: "自己紹介"
         birthday: "誕生日"
         current_password: "現在のパスワード"
         user: "ユーザー"
