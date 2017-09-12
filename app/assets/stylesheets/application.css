@@ -24,9 +24,6 @@
 
  }
 
-
-
-
 .header-fixed{
 
   position: fixed;
@@ -196,16 +193,17 @@ ul.board li{
  font-weight: bold;
  font-size:14px;
  border-bottom:dashed 1px #ccc;
- color:#333;
+
 }
 
-
-
-
-.infolink{
+ul.board li a{
   color: black;
   text-decoration: none;
 }
+
+
+
+
 
 .pagebodysub{
   float: right;
