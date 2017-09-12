@@ -4,11 +4,11 @@
     <% if current_user.image? %>
       <%= link_to image_tag(current_user.image.url), current_user %>
     <% else %>
-      <%= link_to image_tag('apio.png', :size => '100x100'), edit_user_registration_path %>
+      <%= link_to image_tag('apio.png', :size => '100x100'), current_user %>
     <% end %>
   </h1>
-  <br>
-  <%= link_to "管理団体一覧", "/groups/my_group",class: "link_btn" %>
+  <br/>
+
   <h1>
     <%= link_to 'Post', posts_path%>
   </h1>

@@ -1,4 +1,4 @@
-<div class = "contents">
+<section class = "column">
 <h3>Edit Event</h3>
 
 <% @event = Event.new %>
@@ -44,4 +44,4 @@
   <%= f.hidden_field :id, :value => "#{@original.id}" %>
   <%= f.submit :value => "Edit Event" %>
 <% end %>
-</div>
+</section>
