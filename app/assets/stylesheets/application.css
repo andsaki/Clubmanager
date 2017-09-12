@@ -127,6 +127,23 @@ ul.h_menu li a:hover{
   margin-top: 170px;
 
 }
+
+.titleposi{
+  height: 40px;
+  margin: auto;
+  padding: 0px 90px 0px 90px;
+  border-bottom: solid 3px pink;
+  position: relative;
+
+}
+.titleposi:after{
+  position: absolute;
+  content: " ";
+  display: block;
+  border-bottom: solid 3px deeppink;
+  bottom: -3px;
+  width: 20%;
+}
 .pagebody{
   margin: auto;
   width: 1100px;
@@ -243,8 +260,7 @@ ul.board li a{
 
 
 .profile{
-  margin: auto;
-  padding-left: 120px;
+  padding: 0 120px 0 120px; 
 }
 .calender{
   margin-left: 305px;
