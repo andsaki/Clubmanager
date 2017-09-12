@@ -14,8 +14,8 @@
   <% @member.each do |f| %>
   <li>
     <%= f.user_name %>
-    <%= link_to "[承認]", "/members/permit/#{params[:id]}&#{f.user_id}", data:{confirm: "「#{f.user_name}」さんの申請を承認しますか?"} %>
-    <%= link_to "[削除]", "", data:{confirm: "「#{f.user_name}」さんの申請を削除しますか?"} %>
+    <%= link_to "[承認]", "/members/permit/#{params[:id]}&#{f.id}", data:{confirm: "「#{f.user_name}」さんの申請を承認しますか?"} %>
+    <%= link_to "[削除]", "/members/delete/#{params[:id]}&#{f.id}", data:{confirm: "「#{f.user_name}」さんの申請を削除しますか?"} %>
   </li>
   <% end %>
 </ul>
