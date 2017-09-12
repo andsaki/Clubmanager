@@ -60,6 +60,14 @@ ActiveRecord::Schema.define(version: 20170912063606) do
     t.integer "p"
   end
 
+  create_table "p_members", force: :cascade do |t|
+    t.integer "group_id"
+    t.integer "user_id"
+    t.string "user_name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "posts", force: :cascade do |t|
     t.string "title"
     t.text "body"
@@ -68,6 +76,15 @@ ActiveRecord::Schema.define(version: 20170912063606) do
     t.string "username"
     t.integer "user_id"
     t.integer "group_id"
+  end
+
+  create_table "recruits", force: :cascade do |t|
+    t.string "title"
+    t.string "body"
+    t.string "name"
+    t.boolean "administrator", default: false, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|
