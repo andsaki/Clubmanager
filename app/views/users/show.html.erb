@@ -1,8 +1,20 @@
 <section class="column">
-
+<div class = "dropposi">
+  <ul id = "fade-in2" class="dropmenu">
+    <li><%= image_tag('edit_b.png', class: 'edit_b') %>
+      <ul>
+        <li><%= link_to "プロフィールを編集",edit_user_registration_path%></li>
+        <li><%= link_to 'ログアウト', destroy_user_session_path%></li>
+        <li><%= link_to "キャンセル",current_user%></li>
+      </ul>
+    </li>
+  </ul>
+</div>
 
 <% provide(:title, @user.username) %>
-<h1><%= @user.username %>のページ</h1>
+<h1><%= @user.username %></h1>
+
+
 
 <% if @user.image? %>
   <div class="thumbnail">
@@ -17,5 +29,5 @@
 <h2>所在地: <%= @user.location %></h2>
 <h2>コメント: <%= @user.comment %></h2>
 
-<%= link_to image_tag('edit_b.png', class: 'edit_b'), edit_user_registration_path %>
+
 </section>

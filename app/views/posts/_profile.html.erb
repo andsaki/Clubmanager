@@ -1,6 +1,7 @@
 <div class = "profile">
   <h1>
-    <%= link_to 'Profile', current_user %>
+    Profile
+    <br/>
     <% if current_user.image? %>
       <%= link_to image_tag(current_user.image.url), current_user %>
     <% else %>

@@ -263,6 +263,125 @@ ul.board li{
   height: 20px;
 }
 
+.dropposi{
+
+  float: right;
+  width: 200px;
+
+}
+.dropmenu{
+  *zoom: 1;
+  list-style-type: none;
+  width: 960px;
+  margin: 5px auto 30px;
+  padding: 0;
+}
+.dropmenu:before,.dropmenu:after{
+  content: "";
+  display: table;
+}
+.dropmenu:after{
+  clear: both;
+}
+.dropmenu li{
+  position: relative;
+  width: 20%;
+  float: left;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+.dropmenu li a{
+  display: block;
+  margin: 0;
+  padding: 15px 0 11px;
+
+  color: darkgray;
+  font-size: 14px;
+  line-height: 1;
+  text-decoration: none;
+}
+.dropmenu li ul{
+  list-style: none;
+  position: absolute;
+  z-index: 9999;
+  top: 100%;
+  left: 0;
+  margin: 0;
+  padding: 0;
+}
+.dropmenu li ul li{
+  width: 100%;
+}
+.dropmenu li ul li a{
+  padding: 13px 15px;
+  border-top: 1px solid #fff;
+  background: #ffe4d5;
+  text-align: left;
+}
+.dropmenu li:hover > a{
+  background: #ffe4d5;
+}
+.dropmenu li a:hover{
+  background: #ffe4d5;
+  color: skyblue;
+}
+
+
+#fade-in2 li ul{
+  opacity: 0;
+  top: 50%;
+  visibility: hidden;
+  transition: .5s;
+}
+#fade-in2 li:hover ul{
+  top: 100%;
+  visibility: visible;
+  opacity: 1;
+}
+
+#left-to-right ul{
+  overflow: hidden;
+  width: 0;
+  transition: .5s;
+}
+#left-to-right li:hover ul{
+  width: 100%;
+}
+#left-to-right li:hover ul li a{
+  white-space: nowrap;
+}
+
+
+#flip2 li ul {
+visibility: hidden;
+perspective: 400px;
+}
+#flip2 li:hover ul{
+visibility: visible;
+}
+#flip2 ul li{
+transform: rotateY(90deg);
+transform-origin: 50% 0;
+transition: .3s;
+}
+#flip2 li:hover li{
+transform: rotateY(0);
+}
+#flip2 ul li:nth-child(2) {
+transition-delay: .1s;
+}
+#flip2 ul li:nth-child(3) {
+transition-delay: .2s;
+}
+#flip2 ul li:nth-child(4) {
+transition-delay: .3s;
+}
+#flip2 ul li:nth-child(5) {
+transition-delay: .4s;
+}
+
+
 ul.menu{
   margin: 50px 0px;
   padding: 5px 0;
