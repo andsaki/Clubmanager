@@ -131,6 +131,7 @@ ul.h_menu li a:hover{
 .titleposi{
   height: 40px;
   margin: auto;
+  text-align: center;
   padding: 0px 90px 0px 90px;
   border-bottom: solid 3px pink;
   position: relative;
@@ -245,6 +246,7 @@ ul.board li a{
 }
 
 .link_btn{
+  float: right;
   font-weight: bold;/*太字に*/
   text-decoration: none;/*下線消す*/
   background: skyblue;/*背景を水色に*/
@@ -260,7 +262,7 @@ ul.board li a{
 
 
 .profile{
-  padding: 0 120px 0 120px; 
+  padding: 0 120px 0 120px;
 }
 .calender{
   margin-left: 305px;
