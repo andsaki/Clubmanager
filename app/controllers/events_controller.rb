@@ -3,6 +3,13 @@ class EventsController < ApplicationController
   #ログイン者のみ表示
   before_action :authenticate_user!
 
+  def exit
+   @user = User.where("id = ?", current_user.id).first
+   @user.state_group_id = -1
+   @user.save
+   redirect_to root_path
+  end
+
   def index
    @year = params[:year]
    @month = params[:month]
