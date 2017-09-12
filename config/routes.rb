@@ -49,7 +49,6 @@ Rails.application.routes.draw do
 #resources :posts do
 #  resources :comments, only: [:create, :destroy]
 #end
-match 'user_root' => 'users#show'
 
  root 'groups#index'
 
