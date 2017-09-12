@@ -103,7 +103,7 @@ ActiveRecord::Schema.define(version: 20170912063606) do
     t.string "image"
     t.integer "month"
     t.integer "day"
-    t.integer "state_group_id"
+    t.integer "state_group_id", default: -1
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
