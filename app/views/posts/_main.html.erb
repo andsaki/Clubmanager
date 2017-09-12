@@ -2,6 +2,10 @@
   <p class="notice"><%= notice %></p>
   <p class="alert"><%= alert %></p>
 
+<% @group = Group.where("id = ?", current_user.state_group_id).first %>
+<h1><%= @group.name %></h1>
+<p><%= link_to '団体から出る', '/events/exit' %></p>
+
   <h1>
     Information
   </h1>
@@ -20,22 +24,5 @@
         </ul>
       </p>
   </div>
-
-  <h1>
-    All Member
-  </h1>
-
-  <ul class = "board">
-    <% @group = Group.where("id = ?", current_user.state_group_id).first %>
-    <li>
-      <p><%= @group.master_name%></p>
-    </li>
-    <% @member = Member.where("group_id = ?", current_user.state_group_id) %>
-    <% @member.each do |p|%>
-    <li>
-      <p><%= p.user_name %></p>
-    </li>
-    <% end%>
-  </ul>
 
 </section>
