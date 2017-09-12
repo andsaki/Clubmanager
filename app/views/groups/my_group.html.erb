@@ -1,9 +1,16 @@
-<h2>「<%= current_user.username%>」さんの管理団体</h2>
+<section class = "column">
+<h1>「<%= current_user.username%>」さんの管理団体</h1>
+<%= link_to "Cleate!", "/groups/new",class: "link_btn" %>
 <% @group = Group.where("master_id = ?", current_user.id) %>
-<ul>
+<div class = "box_scrollbar">
+<ul class = "board">
 <% @group.each do |f| %>
 <li>
 <%= link_to "#{f.name}", "/members/applicater/#{f.id}" %>
+
 </li>
 <% end %>
 </ul>
+</div>
+
+</section>

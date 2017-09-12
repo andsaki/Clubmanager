@@ -84,6 +84,7 @@ ul.h_menu{
 
 ul.h_menu li {
   display: inline;
+  display: -moz-inline-box;
   margin-left: 10px;
   padding-left: 10px;
   /*border-left: 1px solid #666;*/

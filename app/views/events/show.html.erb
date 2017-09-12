@@ -1,3 +1,4 @@
+<section class = "column">
 <h2>Event</h2>
 <p><%= @event.title %><p>
 <p>日時: <%= @event.year %>/<%= @event.month %>/<%= @event.date %></p>
@@ -5,7 +6,7 @@
 <p>投稿者: <%= link_to @event.username, "/users/#{@event.user_id}" %></p>
 <% @i = 0 %>
 <% @f = 0 %>
-<p>出席状況: 
+<p>出席状況:
 <% @attend.each do |a| %>
   <% @i = @i + 1 %>
   <% if a.username == current_user.username then %>
@@ -37,3 +38,4 @@
 <% else %>
 <p>[削除・編集できません]</p>
 <% end %>
+</section>
