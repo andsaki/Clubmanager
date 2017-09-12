@@ -22,8 +22,16 @@
   </div>
 
   <h1>
-    All Member
+    All Member(まだグループだけにできていない。)
   </h1>
-    <p>ここにメンバー一覧を</p>
+
+  <ul class = "board">
+    <% @member = Member.all %>
+    <% @member.each do |p|%>
+    <li>
+      <p><%= p.user_name %></p>
+    </li>
+    <% end%>
+  </ul>
 
 </section>
