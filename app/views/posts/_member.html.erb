@@ -1,0 +1,23 @@
+<div class = "member">
+
+  <% if current_user.state_group_id == -1%>
+  <% else%>
+    <h1>
+      <%= link_to 'All Member', members_show_path  %>
+    </h1>
+
+    <ul>
+      <% @group = Group.where("id = ?", current_user.state_group_id).first %>
+      <li>
+        <p><%= @group.master_name%></p>
+      </li>
+      <% @member = Member.where("group_id = ?", current_user.state_group_id) %>
+      <% @member.each do |p|%>
+      <li>
+        <p><%= p.user_name %></p>
+      </li>
+      <% end%>
+    </ul>
+  <%end%>
+
+</div>
