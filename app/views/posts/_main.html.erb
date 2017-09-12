@@ -1,6 +1,4 @@
 <section class = "column">
-  <p class="notice"><%= notice %></p>
-  <p class="alert"><%= alert %></p>
 
 <% @group = Group.where("id = ?", current_user.state_group_id).first %>
 <h1><%= @group.name %></h1>
