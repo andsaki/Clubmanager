@@ -1,6 +1,6 @@
 
 <% today = Date.today%>
-<% @events = Event.all %>
+<% @events = Event.where("group_id = ?", current_user.state_group_id) %>
 
   <table align="center">
     <caption>

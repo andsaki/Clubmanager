@@ -7,7 +7,7 @@ class EventsController < ApplicationController
    @year = params[:year]
    @month = params[:month]
    @day = params[:day]
-   @events = Event.all
+   @events = Event.where("group_id = ?", current_user.state_group_id)
   end
 
   def show
@@ -16,7 +16,7 @@ class EventsController < ApplicationController
   end
 
   def all
-   @events = Event.all
+   @events = Event.where("group_id = ?", current_user.state_group_id)
   end
 
   def new
@@ -108,6 +108,7 @@ class EventsController < ApplicationController
       	  @event.date = params[:event][:date]
       	  @event.username = current_user.username
       	  @event.user_id = current_user.id
+          @event.group_id = current_user.state_group_id
       	  @event.save
       	  redirect_to "/events/calender/0"
         else
@@ -149,7 +150,7 @@ class EventsController < ApplicationController
    else
       @day = Date.today
    end
-   @events = Event.all
+   @events = Event.where("group_id = ?", current_user.state_group_id)
   end
 
 end
