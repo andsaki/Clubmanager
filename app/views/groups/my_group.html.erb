@@ -3,7 +3,8 @@
 <ul>
 <% @group.each do |f| %>
 <li>
-<%= link_to "#{f.name}", "/members/applicater/#{f.id}" %>
+<%= link_to "#{f.name}", "/groups/out_top/#{f.id}" %>
+<%= link_to "[編集]", "/members/applicater/#{f.id}" %>
 </li>
 <% end %>
 </ul>

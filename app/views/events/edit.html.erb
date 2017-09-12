@@ -4,14 +4,37 @@
 <% @event = Event.new %>
 <%= form_for @event do |f| %>
 <!-- Event.new -->
-  <p><%= f.text_field :title, :value => "#{@original.title}" %></p>
+
+  <p>
+  <% if flash[:_title] %>
+  <%= f.text_field :title, :value => "#{flash[:_title]}" %>
+  <% else %>
+  <%= f.text_field :title, :value => "#{@original.title}" %>
+  <% end %>
+  </p>
+  <font color="red">
+  <% if flash[:title_error] %>
+  <%= flash[:title_error]%>
+  <% end %>
+  </font>
   <% if @event.errors.messages[:title].any? %>
   <span class="error"><%= f.title.errors.messages[:title][0] %></span>
   <% end %>
-  <p><%= f.text_area :about, :value => "#{@original.about}" %></p>
+
+  <p>
+  <% if flash[:_about] %>
+  <%= f.text_area :about, :value => "#{flash[:_about]}" %>
+  <% else %>
+  <%= f.text_area :about, :value => "#{@original.about}" %>
+  <% end%>
+  </p>
+  <% if flash[:about_error] %>
+  <font color="red"><%= flash[:about_error]%></font>
+  <% end %>
   <% if @event.errors.messages[:body].any? %>
   <span class="error"><%= @event.errors.messages[:about][o] %></span>
   <% end %>
+
   <p>
   <% today = Date.today %>
   <%= f.select :year, [["2017","2017"],["2018","2018"],["2019","2019"]], :selected => "#{@original.year}" %>

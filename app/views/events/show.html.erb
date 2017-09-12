@@ -1,5 +1,4 @@
-<h2>Event</h2>
-<p><%= @event.title %><p>
+<h2>「<%= @event.title %>」</h2>
 <p>日時: <%= @event.year %>/<%= @event.month %>/<%= @event.date %></p>
 <p>本文: <%= simple_format(@event.about) %></p>
 <p>投稿者: <%= link_to @event.username, "/users/#{@event.user_id}" %></p>
@@ -31,7 +30,7 @@
 <% end %>
 <% if @event.user_id == current_user.id then %>
 <p>
-<%= link_to "[削除]", "/events/delete/#{@event.id}", data: { confirm: 'Sure?'} %>
+<%= link_to "[削除]", "/events/delete/#{@event.id}", data: { confirm: "「#{@event.title}」を削除しますか?"} %>
 <%= link_to "[編集]", "/events/edit/#{@event.id}" %>
 </p>
 <% else %>

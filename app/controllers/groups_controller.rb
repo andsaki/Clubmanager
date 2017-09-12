@@ -64,7 +64,7 @@ class GroupsController < ApplicationController
     if ( @member == nil && ( @group.master_id != current_user.id) ) then
      redirect_to "/members/application/#{@group_id}"
     elsif ( (@group.master_id == current_user.id) || (@member.p == 1) ) then
-     redirect_to "/groups/top_page/#{@group_id}"
+     redirect_to "/posts"
     elsif @member.p == 0 then
      redirect_to "/groups/waiting/#{@group_id}"
     else

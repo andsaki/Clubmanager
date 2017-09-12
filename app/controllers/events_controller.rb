@@ -63,42 +63,57 @@ class EventsController < ApplicationController
 
   def create
 
-    if params[:event][:id] != nil then
-      @original = Event.find(params[:event][:id].to_i)
-      @original.destroy
-    else
-    end
+      if params[:event][:title].empty? then
+        if params[:event][:about].empty? then
+          if params[:event][:id] == nil then
+          redirect_to "/events/new", flash: {title_error: 'タイトルを入力してください', about_error: '内容を入力してください' }
+          else
+          redirect_to "/events/edit/#{params[:event][:id]}", flash: {title_error: 'タイトルを入力してください', about_error: '内容を入力してください'}
+          end
+        else
+          if params[:event][:id] == nil then
+          redirect_to "/events/new", flash: {title_error: 'タイトルを入力してください', _about: params[:event][:about]}
+          else
+          redirect_to "/events/edit/#{params[:event][:id]}", flash: {title_error: 'タイトルを入力してください', _about: params[:event][:about]}
+          end
+        end
+      elsif params[:event][:about].empty? then
+        if params[:event][:id] == nil then
+        redirect_to "/events/new", flash: {about_error: '内容を入力してください', _title: params[:event][:title]}
+        else
+	redirect_to "/events/edit/#{params[:event][:id]}", flash: {about_error: '内容を入力してください', _title: params[:event][:title]}
+        end
+      else
 
-     if params[:event][:title].empty? then
-      redirect_to "/events/new"
-     elsif params[:event][:about].empty? then
-      redirect_to "/events/new"
-     else
+        if params[:event][:id] != nil then
+          @original = Event.find(params[:event][:id].to_i)
+          @original.destroy
+        else
+        end
 
         @year = params[:event][:year].to_i
-	@month = params[:event][:month].to_i
-   	@date = params[:event][:date].to_i
+    	@month = params[:event][:month].to_i
+    	@date = params[:event][:date].to_i
 
-   	if Date.valid_date?(@year, @month, @date) then
-   	  @event = Event.new
-          if params[:event][:id] != nil then
+        if Date.valid_date?(@year, @month, @date) then
+          @event = Event.new
+          if params[:event][:id] != nil then 
             @event.id = params[:event][:id].to_i
           else
           end
-   	  @event.title = params[:event][:title]
-   	  @event.about = params[:event][:about]
-   	  @event.year = params[:event][:year]
-   	  @event.month = params[:event][:month]
-   	  @event.date = params[:event][:date]
-   	  @event.username = current_user.username
-          @event.user_id = current_user.id
-   	  @event.save
-   	  redirect_to "/events/calender/0"
+          @event.title = params[:event][:title]
+    	  @event.about = params[:event][:about]
+     	  @event.year = params[:event][:year]
+      	  @event.month = params[:event][:month]
+      	  @event.date = params[:event][:date]
+      	  @event.username = current_user.username
+      	  @event.user_id = current_user.id
+      	  @event.save
+      	  redirect_to "/events/calender/0"
         else
-          redirect_to "/events/new"
+        redirect_to "/events/new"
         end
       end
-
   end
 
   def calender
