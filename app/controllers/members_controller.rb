@@ -10,9 +10,16 @@ class MembersController < ApplicationController
   def show
   end
 
+  def delete
+   @group = Group.where("id = ?", params[:group_id]).first
+   @member = Member.where("id = ?", params[:user_id]).first
+   @member.destroy
+   redirect_to "/members/applicater/#{@group.id}"
+  end
+
   def permit
    @group = Group.where("id = ?", params[:group_id]).first
-   @member = Member.where("group_id = ?", params[:group_id]).where("user_id = ?", params[:user_id]).first
+   @member = Member.where("id = ?", params[:user_id]).first
    @member.p = 1
    @member.save
    redirect_to "/members/applicater/#{@group.id}"

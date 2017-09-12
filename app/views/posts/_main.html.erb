@@ -1,6 +1,8 @@
 <section class = "column">
-  <p class="notice"><%= notice %></p>
-  <p class="alert"><%= alert %></p>
+
+<% @group = Group.where("id = ?", current_user.state_group_id).first %>
+<h1><%= @group.name %></h1>
+<p><%= link_to '団体から出る', '/events/exit' %></p>
 
   <h1>
     Information
@@ -10,20 +12,17 @@
   <div class = "box_scrollbar">
       <p>
         <ul class = "board">
-          <% @posts.each do |post| %>
-          <li>
-            <%= post.updated_at.strftime('%Y/%m/%d %H:%M') %>
-            <br>
-            <font size = "5"><%= link_to post.title, post_path(post) ,class: "infolink"%></font>
-          </li>
-          <% end %>
+
+          <% @posts = Post.where("group_id = ?", current_user.state_group_id) %>
+            <% @posts.each do |post| %>
+            <li>
+              <%= post.updated_at.strftime('%Y/%m/%d %H:%M') %>
+              <br>
+              <font size = "5"><%= link_to post.title, post_path(post) ,class: "infolink"%></font>
+            </li>
+            <% end %>
         </ul>
       </p>
   </div>
-
-  <h1>
-    All Member
-  </h1>
-    <p>ここにメンバー一覧を</p>
 
 </section>

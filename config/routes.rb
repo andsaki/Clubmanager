@@ -20,6 +20,7 @@ Rails.application.routes.draw do
   get "members/applicate/:id" => "members#applicate"
   get "members/applicater/:id" => "members#applicater"
   get "members/permit/:group_id&:user_id" => "members#permit"
+  get "members/delete/:group_id&:user_id" => "members#delete"
 
   get 'users/index'
   get 'users/show'
@@ -35,17 +36,22 @@ Rails.application.routes.draw do
   get 'events/attend/:e_id' => 'events#attend'
   get 'events/absence/:e_id' => 'events#absence'
   get 'events/calender/:num' => 'events#calender'
+  get "events/exit"
 
 #  get 'posts/_calender' => 'events#all'
 
   devise_for :users
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   resources :users, :only => [:index, :show]
+  as :user do
+    get 'users/edit', :to => 'users/registrations#edit', :as => :user_root
+  end
 
-resources :posts do
-  resources :comments, only: [:create, :destroy]
-end
 
- root 'groups#index'
+  resources :posts do
+    resources :comments, only: [:create, :destroy]
+  end
+
+  root 'groups#index'
 
 end

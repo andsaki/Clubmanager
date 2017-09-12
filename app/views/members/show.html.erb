@@ -1,2 +1,19 @@
-<h1>Members#show</h1>
-<p>Find me in app/views/members/show.html.erb</p>
+<div class = "member">
+  <h1>
+    All Member
+  </h1>
+
+  <ul>
+    <% @group = Group.where("id = ?", current_user.state_group_id).first %>
+    <li>
+      <p><%= @group.master_name%></p>
+    </li>
+    <% @member = Member.where("group_id = ?", current_user.state_group_id) %>
+    <% @member.each do |p|%>
+    <li>
+      <p><%= p.user_name %></p>
+    </li>
+    <% end%>
+  </ul>
+
+</div>
