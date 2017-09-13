@@ -1,4 +1,3 @@
-
 <% today = Date.today%>
 <% @events = Event.where("group_id = ?", current_user.state_group_id) %>
 
@@ -19,45 +18,42 @@
       <th width="30" height="20"><font color="blue">土</font></th>
     </tr>
 
+
     <% month = today.strftime('%m')%>
       <% d = today.at_beginning_of_month.at_beginning_of_week(:sunday)%>
         <% 1.upto(6).each do |i| %>
           <tr>
             <% (d..d.end_of_week(:sunday)).each do |c| %>
-            <th width = "20" height = "20">
-              <font size = "1">
-                <!--<%= (c.strftime('%m') == month)? c.strftime('%d'): "  "%>-->
-		<% @f = 0 %>
-		<% if c.strftime('%m') == month then %>
-                  <% @events.each do |e| %>
-		    <% if ( (c.strftime('%Y') == e.year) && (c.strftime('%m') == e.month) && (c.strftime('%d') == e.date) ) then %>
+          <th width = "20" height = "20">
+          <font size = "1">
+    	  <% @f = 0 %>
+          <% if c.strftime('%m') == month then %>
+            <% @events.each do |e| %>
+	      <% if ( (c.strftime('%Y') == e.year) && (c.strftime('%m') == e.month) && (c.strftime('%d') == e.date) ) then %>
 
-		      <% if c.strftime("%-d") == today.strftime("%-d") %>
-		      <font color="red">▶︎</font>
-		      <% else %>
-		      <% end%>
-
-                      <%= link_to "#{c.strftime('%-d')}", events_index_path(:year => c.strftime('%Y'), :month => c.strftime("%-m"), :day => c.strftime("%-d")) %>
-
-		      <% @f = 1%>
-                      <% break %>
-                    <% else %>
-                    <% end %>
-		  <% end %>
-		  <% if @f == 0 then %>
+                <% if c.strftime("%-d") == today.strftime("%-d") %>
+                  <font color="red">▶︎</font>
+                <% else %>
+                <% end %>
+                <%= link_to "#{c.strftime('%-d')}", events_neoindex_path(:year => c.strftime('%Y'), :month => c.strftime("%-m"), :day => c.strftime("%-d")) %>
+		<% @f = 1 %>
+                <% break %>
+                <% else %>
+                <% end %>
+                <% end %>
+                <% if @f == 0 then %>
 
                   <% if c.strftime("%-d") == today.strftime("%-d") %>
-		  <font color="red">▶︎</font>
+		    <font color="red">▶︎</font>
                   <% else %>
                   <% end %>
 
-		  <%= c.strftime("%-d") %>
+	          <%= c.strftime("%-d") %>
 
                   <% else %>
                   <% end %>
-		<% else %>
-		<% end %>
-		<!-- -->
+		  <% else %>
+		  <% end %>
               </font>
             </th>
             <% end %>
@@ -65,7 +61,7 @@
           </tr>
         <% end %>
   </table>
-  
+
 <!-- 退会処理 -->
 
 <% @tmp = Group.where("id = ?", current_user.state_group_id).first %>

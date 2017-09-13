@@ -38,6 +38,7 @@ Rails.application.routes.draw do
   get 'events/absence/:e_id' => 'events#absence'
   get 'events/calender/:num' => 'events#calender'
   get "events/exit"
+  get "events/neoindex"
 
 #  get 'posts/_calender' => 'events#all'
 
