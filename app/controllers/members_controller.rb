@@ -17,6 +17,15 @@ class MembersController < ApplicationController
    redirect_to "/members/applicater/#{@group.id}"
   end
 
+  def retire
+   @member = Member.where("user_id = ?", current_user.id).where("group_id = ?", current_user.state_group_id).first
+   @member.destroy
+   @user = User.where("id = ?", current_user.id).first
+   @user.state_group_id = -1
+   @user.save
+   redirect_to root_path
+  end
+
   def permit
    @group = Group.where("id = ?", params[:group_id]).first
    @member = Member.where("id = ?", params[:user_id]).first
