@@ -23,6 +23,18 @@
         </ul>
       </div>
 
+      <!-- ログイン状態の表示部分 -->
+
+          <% if current_user.state_group_id != -1 then %>
+	      <% @group = Group.where("id = ?", current_user.state_group_id).first %>
+	      <% if @group != nil then %>
+               「<%= @group.name %>」にログイン中
+              <% else %>
+              <% end %>
+          <% end %>
+
+      <!-- -->
+
       <%else%>
 
       <div class = "Hlogo_posi">
