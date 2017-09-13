@@ -1,4 +1,17 @@
+<div class = "dropposi">
+  <ul id = "fade-in2" class="dropmenu">
+    <li><%= image_tag('edit_b.png', class: 'edit_b') %>
+      <ul>
+        <li><%= link_to "Mypage",current_user%></li>
+        <li><%= link_to "Edit",edit_user_registration_path%></li>
+        <li><%= link_to 'logout', destroy_user_session_path, method: :delete%></li>
 
+      </ul>
+    </li>
+  </ul>
+</div>
+<br/>
+<br/>
   <h1 align = "center">
     Profile
   </h1>

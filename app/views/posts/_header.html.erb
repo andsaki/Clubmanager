@@ -1,8 +1,23 @@
 <div class = "header-fixed">
   <div class = "header-bk">
+
+    <!-- ログイン状態の表示部分 -->
+    <% if (current_user != nil)%>
+      <div class = "statelog">
+      <% if current_user.state_group_id != -1 then %>
+      <% @group = Group.where("id = ?", current_user.state_group_id).first %>
+      <% if @group != nil then %>
+             <%= @group.name %>にログイン中
+            <% else %>
+            <% end %>
+        <% end %>
+      </div>
+    <!-- -->
+    <%end%>
     <div class = "header_body">
 
       <% if (current_user != nil)%>
+
 
       <div class = "logo_posi">
         <div class= "titlelogo">
@@ -22,6 +37,8 @@
           <li><%= link_to "Manage","/groups/my_group"%></li>
         </ul>
       </div>
+
+
 
       <%else%>
 
