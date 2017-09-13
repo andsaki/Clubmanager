@@ -19,4 +19,11 @@ class MemberMailer < ApplicationMailer
     @group = group
     mail( :to => @new_member.email, :subject => "#{@group.name}から参加の許可が降りました")
   end
+
+  def retire_email(member, group, master)
+    @member = member
+    @group = group
+    @master = master
+    mail( :to => @master.email, :subject => "#{@member.user_name}が退会しました")
+  end
 end
