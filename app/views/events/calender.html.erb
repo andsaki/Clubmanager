@@ -47,9 +47,9 @@
           <!-- 日付の表示 -->
 	  <% if (c.strftime('%m') == month) then %>
             <% if (c.strftime("%d") != today.strftime("%-d")) || (c.strftime("%m") != Date.today.strftime("%m"))%>
-              <%= link_to "#{c.strftime('%-d')}", events_index_path(:year => c.strftime('%Y'), :month => c.strftime("%m"), :day => c.strftime("%d")) %>
+              <%= link_to "#{c.strftime('%-d')}", events_index_path(:year => c.strftime('%Y'), :month => c.strftime("%m"), :day => c.strftime("%d")),class:"linkline" %>
 	    <% else %>
-              <%= link_to "#{c.strftime('%-d')}", events_index_path(:year => c.strftime('%Y'), :month => c.strftime("%m"), :day => c.strftime("%d")) %>
+              <%= link_to "#{c.strftime('%-d')}", events_index_path(:year => c.strftime('%Y'), :month => c.strftime("%m"), :day => c.strftime("%d")),class: "linkline" %>
               <font color="red">▼</font>
 	    <% end %>
             <% @users.each do |u| %>

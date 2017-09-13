@@ -10,6 +10,7 @@
     </div>
   <br/>
   <br/>
+
   <h1 align = "center">
     Profile
   </h1>
@@ -21,15 +22,20 @@
     <% else %>
       <%= link_to image_tag('apio.png', :size => '100x100'), current_user %>
     <% end %>
+    <br/>
+    <br/>
 
     <h2>
       自己紹介
     </h2>
     <% @user = User.where("id = ?", current_user.id).first %>
     <%= @user.comment %>
-
+    <br/>
+    <br/>
+    <br/>
+    <br/>
   <h2>所属団体</h2>
-  <ul>
+  <ul class="linklist">
     <% @group = Group.where("master_id = ?", current_user.id) %>
     <% @group.each do |p| %>
     <li>
@@ -46,3 +52,7 @@
     <% end%>
 
 </div>
+<br/>
+<br/>
+<br/>
+<br/>
