@@ -2,6 +2,7 @@
   <ul id = "fade-in2" class="dropmenu">
     <li><%= image_tag('edit_b.png', class: 'edit_b') %>
       <ul>
+        <li><%= link_to "Manage","/groups/my_group"%></li>
         <li><%= link_to "Mypage",current_user%></li>
         <li><%= link_to "Edit",edit_user_registration_path%></li>
         <li><%= link_to 'logout', destroy_user_session_path, method: :delete%></li>
@@ -35,7 +36,7 @@
     <% @member.each do |p| %>
     <% @group = Group.where("id = ?", p.group_id).first %>
     <li>
-      <p><%= link_to @group.name, "/groups/out_top/#{@group.id}" %></p>
+      <p><%= link_to @group.name, "/groups/out_top/#{@group.id}" ,class: "linkline"%></p>
     </li>
     <% end%>
   </ul>
