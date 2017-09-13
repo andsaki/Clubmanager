@@ -38,8 +38,11 @@ class MembersController < ApplicationController
    @member.save
    @group = Group.where("id = ?", params[:id]).first
 
+   @master = User.find(@group.master_id)
+
    if @member.save
-     MemberMailer.member_email(current_user, @group).deliver
+     MemberMailer.apply_email(current_user, @group).deliver
+     MemberMailer.applied_email(current_user, @group, @master).deliver
    end
   end
 
