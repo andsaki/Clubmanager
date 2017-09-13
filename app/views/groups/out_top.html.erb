@@ -1,6 +1,10 @@
 <section class = "column">
+  <div class = "center">
 <% @group = Group.where("id = ?", @group_id).first %>
-<h1>「<%= @group.name %>」</h1>
+<div class = "titleposi">
+<h1><%= @group.name %></h1>
+</div>
 <p><%= simple_format(@group.about) %></p>
 <p><%= link_to "入場する", "/groups/top/#{@group.id}" %></p>
+<div class = "center">
 </section>
