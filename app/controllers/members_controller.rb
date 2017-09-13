@@ -22,6 +22,12 @@ class MembersController < ApplicationController
    @member = Member.where("id = ?", params[:user_id]).first
    @member.p = 1
    @member.save
+
+   @new_member = User.find(@member.user_id)
+   if @member.save
+     MemberMailer.approval_email(@new_member, @group).deliver
+   end
+
    redirect_to "/members/applicater/#{@group.id}"
   end
 
@@ -38,8 +44,8 @@ class MembersController < ApplicationController
    @member.save
    @group = Group.where("id = ?", params[:id]).first
 
+   #申請メール
    @master = User.find(@group.master_id)
-
    if @member.save
      MemberMailer.apply_email(current_user, @group).deliver
      MemberMailer.applied_email(current_user, @group, @master).deliver
