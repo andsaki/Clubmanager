@@ -21,6 +21,7 @@ Rails.application.routes.draw do
   get "members/applicater/:id" => "members#applicater"
   get "members/permit/:group_id&:user_id" => "members#permit"
   get "members/delete/:group_id&:user_id" => "members#delete"
+  get "members/retire" => "members#retire"
 
   get 'users/index'
   get 'users/show'

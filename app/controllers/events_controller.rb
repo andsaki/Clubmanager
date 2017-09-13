@@ -15,6 +15,9 @@ class EventsController < ApplicationController
    @month = params[:month]
    @day = params[:day]
    @events = Event.where("group_id = ?", current_user.state_group_id)
+
+   redirect_to "/events/new", flash: { y: @year, m: @month, d: @day}
+
   end
 
   def show

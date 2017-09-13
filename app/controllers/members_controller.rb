@@ -17,11 +17,26 @@ class MembersController < ApplicationController
    redirect_to "/members/applicater/#{@group.id}"
   end
 
+  def retire
+   @member = Member.where("user_id = ?", current_user.id).where("group_id = ?", current_user.state_group_id).first
+   @member.destroy
+   @user = User.where("id = ?", current_user.id).first
+   @user.state_group_id = -1
+   @user.save
+   redirect_to root_path
+  end
+
   def permit
    @group = Group.where("id = ?", params[:group_id]).first
    @member = Member.where("id = ?", params[:user_id]).first
    @member.p = 1
    @member.save
+
+   @new_member = User.find(@member.user_id)
+   if @member.save
+     MemberMailer.approval_email(@new_member, @group).deliver
+   end
+
    redirect_to "/members/applicater/#{@group.id}"
   end
 
@@ -38,8 +53,8 @@ class MembersController < ApplicationController
    @member.save
    @group = Group.where("id = ?", params[:id]).first
 
+   #申請メール
    @master = User.find(@group.master_id)
-
    if @member.save
      MemberMailer.apply_email(current_user, @group).deliver
      MemberMailer.applied_email(current_user, @group, @master).deliver

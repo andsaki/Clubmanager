@@ -1,11 +1,13 @@
-<div class = "contents">
+<section class = "column">
+  <div class = "titleposi">
 
-  <h1>『<%= @post.title %>』</h1>
+  <h1><%= @post.title %></h1>
+</div>
   <h2><%= simple_format @post.body %></h2>
   <!--最終更新：<%= time_ago_in_words(@post.created_at) %>
   <br>
   -->
-  作成：<%= @post.created_at.strftime('%Y/%m/%d %H:%M') %> Created at "<%= link_to @post.username, "/users/#{@post.user_id}" %>"
+  作成：<%= @post.created_at.strftime('%Y/%m/%d %H:%M') %> Created at <%= link_to @post.username, "/users/#{@post.user_id}" %>
   <br>
   更新：<%= @post.updated_at.strftime('%Y/%m/%d %H:%M') %>
 
@@ -25,10 +27,10 @@
   <ul>
     <% @post.comments.each do |comment| %>
     <li>
-      <%= comment.created_at.strftime('%Y/%m/%d %H:%M') %> Created at "<%= link_to comment.username, "/users/#{comment.user_id}" %>"
+      <%= comment.created_at.strftime('%Y/%m/%d %H:%M') %> Created at <%= link_to comment.username, "/users/#{comment.user_id}" %>
       <br>
       内容：<%= comment.body %>
-      <%= link_to '[x]',
+      <%= link_to 'del',
         post_comment_path(@post, comment),
         method: :delete,
         class: 'command',
@@ -46,4 +48,4 @@
     <%= f.submit value = "コメント" %>
   </p>
   <% end %>
-</div>
+</section>

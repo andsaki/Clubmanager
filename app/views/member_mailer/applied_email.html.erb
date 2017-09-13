@@ -5,8 +5,8 @@
 <p><%= @user.username %> さん から <%= @group.name %> へ参加の申請が来ています。</p>
 
 <p>
-  参加の申請は以下のリンク先のページで行うことができます。<br/>
-  <%= link_to "参加を承認する", "http://localhost:3000/members/applicater/#{@master.id}" %>
+  参加の申請は以下のリンク先から行うことができます。<br/>
+  <%= link_to "参加を承認する", "http://localhost:3000/members/applicater/#{@group.id}" %>
 </p>
 
 <p>※本メールにお心当たりがない場合は、お手数ですが、本メールを削除してください。</ p>
