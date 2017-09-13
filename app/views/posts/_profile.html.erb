@@ -1,8 +1,20 @@
 
   <h1 align = "center">
     Profile
-
   </h1>
+  
+  <div class = "dropposi">
+    <ul id = "fade-in2" class="dropmenu">
+      <li><%= image_tag('edit_b.png', class: 'edit_b') %>
+        <ul>
+          <li><%= link_to "プロフィールを編集",edit_user_registration_path%></li>
+          <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete%></li>
+          <li><%= link_to "キャンセル",current_user%></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+
   <div class = "profile">
     <% if current_user.image? %>
       <%= link_to image_tag(current_user.image.url), current_user %>
