@@ -21,7 +21,7 @@
             <li>
               <%= post.updated_at.strftime('%Y/%m/%d %H:%M') %>
               <br>
-              <font size = "5"><%= link_to post.title, post_path(post) ,class: "infolink"%></font>
+              <font size = "5"><%= link_to post.title, post_path(post) %></font>
             </li>
             <% end %>
         </ul>
