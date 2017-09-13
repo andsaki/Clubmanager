@@ -55,9 +55,12 @@ class EventsController < ApplicationController
 
   def delete
    @event = Event.find(params[:e_id])
-   if @event.username != current_user.username then
+   @attendance = Attendance.where("e_id = ?", params[:e_id])
+
+   if @event.user_id != current_user.id then
    else
     @event.destroy
+    @attendance.destroy_all
 #    @attend = Attendance.where("e_id = ?", params[:e_id])
 #    if @attend != nil then
 #    @attend.destroy
@@ -73,46 +76,46 @@ class EventsController < ApplicationController
       @title_error = "タイトルを入力してください"
       @about_error = "内容を入力してください"
       @date_error = "無効な日付です"
-      @year = params[:event][:year].to_i
-      @month = params[:event][:month].to_i
-      @date = params[:event][:date].to_i
+      @year = params[:event][:year]
+      @month = params[:event][:month]
+      @date = params[:event][:date]
 
 
       if params[:event][:title].empty? then #>>>>>>>>>> title = 0
 
         if params[:event][:about].empty? then #>>>>>>>>>> about = 0
 
-          if Date.valid_date?(@year, @month, @date) then #>>>>>>>>>> date != 0
+          if Date.valid_date?(@year.to_i, @month.to_i, @date.to_i) then #>>>>>>>>>> date != 0
 
             if params[:event][:id] == nil then
-              redirect_to "/events/new", flash: {title_error: @title_error, about_error: @about_error }
+              redirect_to "/events/new", flash: {title_error: @title_error, about_error: @about_error, y: @year, m: @month, d: @date}
             else
-              redirect_to "/events/edit/#{params[:event][:id]}", flash: {title_error: @title_error, about_error: @about_error}
+              redirect_to "/events/edit/#{params[:event][:id]}", flash: {title_error: @title_error, about_error: @about_error, y: @year, m: @month, d: @date}
             end
 
           else #>>>>>>>>>> date = 0
             if params[:event][:id] == nil then
-              redirect_to "/events/new", flash: {title_error: @title_error, about_error: @about_error, date_error: @date_error}
+              redirect_to "/events/new", flash: {title_error: @title_error, about_error: @about_error, date_error: @date_error, y: @year, m: @month, d: @date}
             else
-              redirect_to "/events/edit/#{params[:event][:id]}", flash: {title_error: @title_error, about_error: @about_error, date_error: @date_error}
+              redirect_to "/events/edit/#{params[:event][:id]}", flash: {title_error: @title_error, about_error: @about_error, date_error: @date_error, y: @year, m: @month, d: @date}
             end
           end
 
         else #>>>>>>>>>> about != 0
 
-          if Date.valid_date?(@year, @month, @date) then #>>>>>>>>>> date != 0
+          if Date.valid_date?(@year.to_i, @month.to_i, @date.to_i) then #>>>>>>>>>> date != 0
 
             if params[:event][:id] == nil then
-            redirect_to "/events/new", flash: {title_error: @title_error, _about: params[:event][:about]}
+            redirect_to "/events/new", flash: {title_error: @title_error, _about: params[:event][:about], y: @year, m: @month, d: @date}
             else
-            redirect_to "/events/edit/#{params[:event][:id]}", flash: {title_error: @title_error, _about: params[:event][:about]}
+            redirect_to "/events/edit/#{params[:event][:id]}", flash: {title_error: @title_error, _about: params[:event][:about], y: @year, m: @month, d: @date}
             end
 
           else #>>>>>>>>>> date = 0
  	    if params[:event][:id] == nil then
-            redirect_to "/events/new", flash: {title_error: @title_error, _about: params[:event][:about], date_error: @date_error}
+            redirect_to "/events/new", flash: {title_error: @title_error, _about: params[:event][:about], date_error: @date_error, y: @year, m: @month, d: @date}
             else
-            redirect_to "/events/edit/#{params[:event][:id]}", flash: {title_error: @title_error, _about: params[:event][:about], date_error: @date_error}
+            redirect_to "/events/edit/#{params[:event][:id]}", flash: {title_error: @title_error, _about: params[:event][:about], date_error: @date_error, y: @year, m: @month, d: @date}
             end
 
           end
@@ -121,45 +124,99 @@ class EventsController < ApplicationController
 
       elsif params[:event][:about].empty? then #>>>>>>>>>> title != 0 && about = 0
 
-        if Date.valid_date?(@year, @month, @date) then #>>>>>>>>>> date != 0
+        if Date.valid_date?(@year.to_i, @month.to_i, @date.to_i) then #>>>>>>>>>> date != 0
 
           if params[:event][:id] == nil then
-          redirect_to "/events/new", flash: {about_error: @about_error, _title: params[:event][:title]}
+          redirect_to "/events/new", flash: {about_error: @about_error, _title: params[:event][:title], y: @year, m: @month, d: @date}
           else
-	  redirect_to "/events/edit/#{params[:event][:id]}", flash: {about_error: @about_error, _title: params[:event][:title]}
+	  redirect_to "/events/edit/#{params[:event][:id]}", flash: {about_error: @about_error, _title: params[:event][:title], y: @year, m: @month, d: @date}
           end
 
         else #>>>>>>>>>> date = 0
+ 
+          if params[:event][:id] == nil then
+          redirect_to "/events/new", flash: {about_error: @about_error, _title: params[:event][:title], date_error: @date_error, y: @year, m: @month, d: @date}
+          else
+          redirect_to "/events/edit/#{params[:event][:id]}", flash: {about_error: @about_error, _title: params[:event][:title], date_error: @date_error, y: @year, m: @month, d: @date}
+          end
 
         end
 
       else #>>>>>>>>>> title != 0 && about != 0
 
-        if params[:event][:id] != nil then
-          @original = Event.find(params[:event][:id].to_i)
-          @original.destroy
-        else
-        end
+        if Date.valid_date?(@year.to_i, @month.to_i, @date.to_i) then #>>>>>>>>>> date != 0
 
-        if Date.valid_date?(@year, @month, @date) then
-          @event = Event.new
-          if params[:event][:id] != nil then 
-            @event.id = params[:event][:id].to_i
+#          if params[:event][:id] == nil then
+#          redirect_to "/events/new", flash: {about_error: @about_error, _title: params[:event][:title]}
+#          else
+#          redirect_to "/events/edit/#{params[:event][:id]}", flash: {about_error: @about_error, _title: params[:event][:title]}
+#          end
+
+
+	   #>>>>>>>>>>
+	   if params[:event][:id] != nil then
+             @original = Event.find(params[:event][:id].to_i)
+             @original.destroy
+           else
+           end
+
+           if Date.valid_date?(@year.to_i, @month.to_i, @date.to_i) then
+             @event = Event.new
+             if params[:event][:id] != nil then
+               @event.id = params[:event][:id].to_i
+             else
+             end
+             @event.title = params[:event][:title]
+             @event.about = params[:event][:about]
+             @event.year = params[:event][:year]
+             @event.month = params[:event][:month]
+             @event.date = params[:event][:date]
+             @event.username = current_user.username
+             @event.user_id = current_user.id
+             @event.group_id = current_user.state_group_id
+             @event.save
+             redirect_to "/events/calender/0"
+           else
+           redirect_to "/events/new"
+           end
+	   #>>>>>>>>>>
+
+
+	else #>>>>>>>>>> date = 0
+
+          if params[:event][:id] == nil then
+          redirect_to "/events/new", flash: {_about: params[:event][:about], _title: params[:event][:title], date_error: @date_error, y: @year, m: @month, d: @date}
           else
+          redirect_to "/events/edit/#{params[:event][:id]}", flash: {_about: params[:event][:about], _title: params[:event][:title], date_error: @date_error, y: @year, m: @month, d: @date}
           end
-          @event.title = params[:event][:title]
-    	  @event.about = params[:event][:about]
-     	  @event.year = params[:event][:year]
-      	  @event.month = params[:event][:month]
-      	  @event.date = params[:event][:date]
-      	  @event.username = current_user.username
-      	  @event.user_id = current_user.id
-          @event.group_id = current_user.state_group_id
-      	  @event.save
-      	  redirect_to "/events/calender/0"
-        else
-        redirect_to "/events/new"
-        end
+
+	end
+
+#        if params[:event][:id] != nil then
+#          @original = Event.find(params[:event][:id].to_i)
+#          @original.destroy
+#        else
+#        end
+
+#        if Date.valid_date?(@year, @month, @date) then
+#          @event = Event.new
+#          if params[:event][:id] != nil then 
+#            @event.id = params[:event][:id].to_i
+#          else
+#          end
+#          @event.title = params[:event][:title]
+#    	  @event.about = params[:event][:about]
+#     	  @event.year = params[:event][:year]
+#      	  @event.month = params[:event][:month]
+#      	  @event.date = params[:event][:date]
+#      	  @event.username = current_user.username
+#      	  @event.user_id = current_user.id
+#          @event.group_id = current_user.state_group_id
+#      	  @event.save
+#      	  redirect_to "/events/calender/0"
+#        else
+#        redirect_to "/events/new"
+#        end
       end
   end
 
