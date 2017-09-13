@@ -37,6 +37,13 @@ class MembersController < ApplicationController
    @member.p = 0
    @member.save
    @group = Group.where("id = ?", params[:id]).first
+
+   if @member.save
+     MemberMailer.member_email(current_user, @group).deliver
+   end
+
+   redirect_to "/groups/out_top/#{params[:id]}"
+
   end
 
 end

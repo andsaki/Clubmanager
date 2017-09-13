@@ -37,7 +37,7 @@
 	<font size="3">
           <!-- 日付の表示 -->
 	  <% if (c.strftime('%m') == month) then %>
-            <% if (c.strftime("%d") != today.strftime("%-d"))%>
+            <% if (c.strftime("%d") != today.strftime("%-d")) || (c.strftime("%m") != Date.today.strftime("%m"))%>
             <%= link_to "#{c.strftime('%-d')}", events_index_path(:year => c.strftime('%Y'), :month => c.strftime("%-m"), :day => c.strftime("%-d")) %>
 	    <% else %>
             <%= link_to "#{c.strftime('%-d')}", events_index_path(:year => c.strftime('%Y'), :month => c.strftime("%-m"), :day => c.strftime("%-d")) %>
@@ -68,7 +68,15 @@
 	  <!-- イベントの表示 -->
           <% @events.each do |e| %>
             <% if (c.strftime('%m') == e.month) && (c.strftime('%d') == e.date) then %>
-              <%= link_to "#{e.title}", "/events/show/#{e.id}" %><br />
+
+              <% if e.title.length <= 9 %>
+                <%= link_to "#{e.title}", "/events/show/#{e.id}" %><br />
+              <% else %>
+	      <% @tmp = e.title.split(/\A(.{1,7})/, 2) %>
+              <% @title = @tmp[1] + "..." %>
+              <%= link_to @title, "/events/show/#{e.id}" %><br />
+              <% end %>
+
             <% else %>
             <% end %>
           <% end %>
