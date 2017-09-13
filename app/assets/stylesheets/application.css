@@ -132,7 +132,7 @@ ul.h_menu li a:hover{
   height: 40px;
   margin: auto;
   text-align: center;
-  padding: 0px 90px 0px 90px;
+
   border-bottom: solid 3px pink;
   position: relative;
 
@@ -219,9 +219,7 @@ ul.board li a{
   text-decoration: none;
 }
 
-.center{
-  text-align: center;
-}
+
 
 
 
@@ -262,16 +260,10 @@ ul.board li a{
   text-decoration: none;/*下線を消す*/
 }
 
-.member{
-  text-align: center;
-}
 
 .profile{
   padding: 0 120px 0 120px;
-
-  text-align: center;
 }
-
 .calender{
   margin-left: 305px;
   width: 1300px;
@@ -279,7 +271,7 @@ ul.board li a{
   background: #ffe4d5;
   box-shadow: 0px 0px 0px 10px #ffe4d5;
   border: dashed 2px white;
-  border-bottom: 1px solid darkgray;
+
 
 }
 .edit_b{
@@ -290,15 +282,16 @@ ul.board li a{
 .dropposi{
 
   float: right;
-  width: 200px;
+  width: 110px;
 
 }
 .dropmenu{
   *zoom: 1;
   list-style-type: none;
-  width: 960px;
-  margin: 5px auto 30px;
+  width: 90px;
+  /*margin: 5px auto 30px;*/
   padding: 0;
+
 }
 .dropmenu:before,.dropmenu:after{
   content: "";
@@ -309,7 +302,7 @@ ul.board li a{
 }
 .dropmenu li{
   position: relative;
-  width: 20%;
+  width: 100%;
   float: left;
   margin: 0;
   padding: 0;
@@ -339,15 +332,15 @@ ul.board li a{
 }
 .dropmenu li ul li a{
   padding: 13px 15px;
-  border-top: 1px solid #fff;
-  background: #ffe4d5;
+  border-top: 1px solid skyblue;
+  background: #fff;
   text-align: left;
 }
 .dropmenu li:hover > a{
-  background: #ffe4d5;
+  background: #fff;
 }
 .dropmenu li a:hover{
-  background: #ffe4d5;
+  background: #fff;
   color: skyblue;
 }
 
@@ -452,9 +445,11 @@ ul > li {
 .apio {
   width: 100px;
   height: 100px;
-  margin-left: 122px;
 }
 
+.center{
+  text-align: center;
+}
 
 
 input[type="text"],textarea {
