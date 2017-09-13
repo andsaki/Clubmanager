@@ -16,16 +16,16 @@
       <p>
         <ul class = "board">
 
-          <% @posts = Post.where("group_id = ?", current_user.state_group_id) %>
+          <% @posts = Post.where("group_id = ?", current_user.state_group_id).order(updated_at: 'desc') %>
             <% @posts.each do |post| %>
             <li>
               <%= post.updated_at.strftime('%Y/%m/%d %H:%M') %>
               <br>
-              <font size = "5"><%= link_to post.title, post_path(post) ,class: "infolink"%></font>
+              <font size = "5"><%= link_to post.title, post_path(post) %></font>
             </li>
             <% end %>
         </ul>
       </p>
   </div>
-  
+  <%= render "posts/member"%>
 </section>

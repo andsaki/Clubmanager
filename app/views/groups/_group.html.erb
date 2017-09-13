@@ -3,13 +3,14 @@
   <div class = "titleposi">
 <h1>　Group list </h1>
   </div>
+  <br/>
 <div class = "box_scrollbar">
   <% @group = Group.all %>
   <ul class = "board">
   <% @group.each do |f| %>
 
     <li>
-      <h4><%= link_to "#{f.name}", "/groups/out_top/#{f.id}" %></h4>
+      <font size = "5"><%= link_to "#{f.name}", "/groups/out_top/#{f.id}" %></font><br/>
       管理者: <%= "#{f.master_name}" %>
     </li>
     <% end %>

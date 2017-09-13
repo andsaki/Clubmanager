@@ -10,18 +10,20 @@
   <table align="center" frame="border" rules="all">
     <caption>
     <ul class = "menu">
-      <li><%= link_to "#{Date.today.months_ago(6).strftime('%-m')}月","-6"%></li>
-      <li><%= link_to "#{Date.today.months_ago(5).strftime('%-m')}月","-5"%></li>
-      <li><%= link_to "#{Date.today.months_ago(4).strftime('%-m')}月","-4"%></li>
-      <li><%= link_to "#{Date.today.months_ago(3).strftime('%-m')}月","-3"%></li>
-      <li><%= link_to "#{Date.today.months_ago(2).strftime('%-m')}月","-2"%></li>
-      <li><%= link_to "#{Date.today.last_month.strftime('%-m')}月","-1"%></li>
-      <li><%= link_to "#{Date.today.strftime('%-m')}月","0"%></li>
-      <li><%= link_to "#{Date.today.next_month.strftime('%m')}月","1"%></li>
-      <li><%= link_to "#{Date.today.months_since(2).strftime('%-m')}月","2"%></li>
-      <li><%= link_to "#{Date.today.months_since(3).strftime('%-m')}月","3"%></li>
-      <li><%= link_to "#{Date.today.months_since(4).strftime('%-m')}月","4"%></li>
-      <li><%= link_to "#{Date.today.months_since(5).strftime('%-m')}月","5"%></li>
+
+      <li><%= link_to "#{Date.today.months_ago(6).strftime('%-m')}月","-6",class: "linkline"%></li>
+      <li><%= link_to "#{Date.today.months_ago(5).strftime('%-m')}月","-5",class: "linkline"%></li>
+      <li><%= link_to "#{Date.today.months_ago(4).strftime('%-m')}月","-4",class: "linkline"%></li>
+      <li><%= link_to "#{Date.today.months_ago(3).strftime('%-m')}月","-3",class: "linkline"%></li>
+      <li><%= link_to "#{Date.today.months_ago(2).strftime('%-m')}月","-2",class: "linkline"%></li>
+      <li><%= link_to "#{Date.today.last_month.strftime('%-m')}月","-1",class: "linkline"%></li>
+      <li><%= link_to "#{Date.today.strftime('%-m')}月","0",class: "linkline"%></li>
+      <li><%= link_to "#{Date.today.next_month.strftime('%m')}月","1",class: "linkline"%></li>
+      <li><%= link_to "#{Date.today.months_since(2).strftime('%-m')}月","2",class: "linkline"%></li>
+      <li><%= link_to "#{Date.today.months_since(3).strftime('%-m')}月","3",class: "linkline"%></li>
+      <li><%= link_to "#{Date.today.months_since(4).strftime('%-m')}月","4",class: "linkline"%></li>
+      <li><%= link_to "#{Date.today.months_since(5).strftime('%-m')}月","5",class: "linkline"%></li>
+
     </ul>
     <h1><%= today.strftime("%Y年%-m月") %></h1>
     <%= link_to 'Add New Event!', '/events/new',class: "link_btn" %>
@@ -46,9 +48,9 @@
           <!-- 日付の表示 -->
 	    <% if (c.strftime('%m') == month) then %>
             <% if (c.strftime("%d") != today.strftime("%-d")) || (c.strftime("%m") != Date.today.strftime("%m"))%>
-              <%= link_to "#{c.strftime('%-d')}", events_index_path(:year => c.strftime('%Y'), :month => c.strftime("%m"), :day => c.strftime("%d")) %>
-	          <% else %>
-              <%= link_to "#{c.strftime('%-d')}", events_index_path(:year => c.strftime('%Y'), :month => c.strftime("%m"), :day => c.strftime("%d")) %>
+              <%= link_to "#{c.strftime('%-d')}", events_index_path(:year => c.strftime('%Y'), :month => c.strftime("%m"), :day => c.strftime("%d")),class:"linkline" %>
+	    <% else %>
+              <%= link_to "#{c.strftime('%-d')}", events_index_path(:year => c.strftime('%Y'), :month => c.strftime("%m"), :day => c.strftime("%d")),class: "linkline" %>
               <font color="red">▼</font>
 	          <% end %>
             <% @users.each do |u| %>
@@ -159,3 +161,4 @@
     <% d = d + 1.week %>
     <% end %>
   </table>
+<br/>
