@@ -26,7 +26,6 @@ ActiveRecord::Schema.define(version: 20170912063606) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "username"
-    t.integer "user_id"
     t.index ["post_id"], name: "index_comments_on_post_id"
   end
 
