@@ -26,6 +26,7 @@ ActiveRecord::Schema.define(version: 20170912063606) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "username"
+    t.integer "user_id"
     t.index ["post_id"], name: "index_comments_on_post_id"
   end
 
@@ -58,14 +59,6 @@ ActiveRecord::Schema.define(version: 20170912063606) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "p"
-  end
-
-  create_table "p_members", force: :cascade do |t|
-    t.integer "group_id"
-    t.integer "user_id"
-    t.string "user_name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
   create_table "posts", force: :cascade do |t|
