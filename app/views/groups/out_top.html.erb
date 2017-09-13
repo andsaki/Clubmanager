@@ -5,18 +5,18 @@
 
 
 <% @member = Member.where("group_id = ?", @group_id).where("user_id = ?", current_user.id).first %>
+<% @group = Group.where("id = ?", @group_id).first %>
 
 <p>
-<% if @member == nil then %>
+<% if ( @member == nil ) && ( @group.master_id != current_user.id ) then %>
 
-<%= link_to "申請する", "/members/applicate/#{@group_id}" %>
+<%= link_to "申請する", "/members/applicate/#{@group_id}", data:{confirm: "「#{@group.name}」への参加を申請しますか?"} %>
 
-<% elsif @member.p == 0 %>
+<% elsif ( @group.master_id != current_user.id ) && ( @member.p == 0 ) then %>
 
-<% @group = Group.where("id = ?", @group_id).first %>
 <p>現在「<%= @group.name %>」への参加を申請中です。</p>
 <p>管理者の承認をお待ちください。</p>
-<p><%= link_to "申請を取り消す", "/groups/delete_member/#{@group_id}"%>
+<p><%= link_to "申請を取り消す", "/groups/delete_member/#{@group_id}", data:{confirm: "「#{@group.name}」への申請を取り消しますか?"}%>
 
 <% else %>
 <%= link_to "入場する", "/groups/top/#{@group.id}" %>
