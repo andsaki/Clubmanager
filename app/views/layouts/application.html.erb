@@ -11,6 +11,15 @@
 
 <!-- body -->
   <body>
+<!--edit -->
+  <% if current_user.id != -1 then %>
+  <% @group = Group.where("id = ?", current_user.state_group_id).first %>
+  <% if @group != nil then %>
+  <p align="right">「<%= @group.name %>」にログイン中　</p>
+  <% else %>
+  <% end %>
+  <% end %>
+<!--edit-->
     <!-- header -->
     <%= render "posts/header"%>
 
