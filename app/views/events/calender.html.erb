@@ -42,57 +42,116 @@
       <% (d..d.end_of_week(:sunday)).each do|c|%>
       <th width="80" height="80" align="left" valign="top">
 	<font size="3">
+
           <!-- 日付の表示 -->
-	  <% if (c.strftime('%m') == month) then %>
+	    <% if (c.strftime('%m') == month) then %>
             <% if (c.strftime("%d") != today.strftime("%-d")) || (c.strftime("%m") != Date.today.strftime("%m"))%>
               <%= link_to "#{c.strftime('%-d')}", events_index_path(:year => c.strftime('%Y'), :month => c.strftime("%m"), :day => c.strftime("%d")) %>
-	    <% else %>
+	          <% else %>
               <%= link_to "#{c.strftime('%-d')}", events_index_path(:year => c.strftime('%Y'), :month => c.strftime("%m"), :day => c.strftime("%d")) %>
               <font color="red">▼</font>
-	    <% end %>
+	          <% end %>
             <% @users.each do |u| %>
             <% if ((c.strftime("%-m").to_i == u.month.to_i) && (c.strftime("%-d").to_i == u.day.to_i)) then %>
-	      <!--<p align="center">
-              <font color="green">B</font>
-	      <font color="blue">i</font>
-	      <font color="orange">r</font>
-	      <font color="red">t</font>
-	      <font color="fuchsia">h</font>
-	      <font color="green">D</font>
-	      <font color="blue">a</font>
-	      <font color="orange">y</font>
-              <p align="center"><%= u.username %></p>
-	      </p>-->
               <% @tmp = Member.where("user_id = ?", u.id).where("group_id = ?", current_user.state_group_id).first %>
               <% @tmp2 = Group.where("master_id = ?", u.id).first %><!--団体の管理者-->
               <% @tmp3 = Group.where("id = ?", current_user.state_group_id).first %>
-	      <% if u.id == current_user.id || (@tmp2 != nil && @tmp2.id == current_user.state_group_id) || @tmp != nil then %>
+	        <% if u.id == current_user.id || (@tmp2 != nil && @tmp2.id == current_user.state_group_id) || @tmp != nil then %>
                 <br><font size="1"><%= u.username %>さんの誕生日</font><br />
               <% else %>
-	      <% end %>
+	            <% end %>
             <% else %>
             <% end %>
             <% end %>
           <% else %>
             <%= "  " %>
           <% end %>
-	</font>
+	  </font>
         <br><font size="2">
+
 	  <!-- イベントの表示 -->
-          <% @events.each do |e| %>
-            <% if (c.strftime('%m') == e.month) && (c.strftime('%d') == e.date) then %>
 
-              <% if e.title.length <= 9 %>
-                <%= link_to "#{e.title}", "/events/show/#{e.id}" %><br />
+	  <% if current_user.state_group_id != -1 then %>
+
+            <% @events.each do |e| %>
+              <% if (c.strftime('%m') == e.month) && (c.strftime('%d') == e.date) then %>
+
+                <% if e.title.length <= 9 %>
+                  <%= link_to "#{e.title}", "/events/show/#{e.id}" %><br />
+                <% else %>
+	        <% @tmp = e.title.split(/\A(.{1,7})/, 2) %>
+                <% @title = @tmp[1] + "..." %>
+                <%= link_to @title, "/events/show/#{e.id}" %><br />
+                <% end %>
+
               <% else %>
-	      <% @tmp = e.title.split(/\A(.{1,7})/, 2) %>
-              <% @title = @tmp[1] + "..." %>
-              <%= link_to @title, "/events/show/#{e.id}" %><br />
               <% end %>
-
-            <% else %>
             <% end %>
+
+	  <% else %>
+
+            <% @my_groups = Member.where("user_id = ?", current_user.id).where("p = ?", 1) %>
+            <% @my_groups.each do |g| %>
+
+              <% @my_events = Event.where("group_id = ?", g.group_id) %>
+              <% @my_group = Group.where("master_id = ?", current_user.id) %>
+
+              <!-- 自分が管理している団体のイベントの表示 -->
+              <!-- each -->
+	      <% @my_group.each do |g| %>
+                <% @my_group_events = Event.where("group_id = ?", g.id) %>
+                <% @my_group_events.each do |e| %>
+                  <% if (c.strftime('%m') == e.month) && (c.strftime('%d') == e.date) then %>
+                    <% if e.title.length <= 9 %>
+                      <%= link_to "#{e.title}", "/events/show/#{e.id}" %><br />
+                    <% else %>
+                      <% @tmp = e.title.split(/\A(.{1,7})/, 2) %>
+                      <% @title = @tmp[1] + "..." %>
+                      <%= link_to @title, "/events/show/#{e.id}" %><br />
+                    <% end %>
+                  <% else %>
+                  <% end %>
+	        <% end %>
+              <% end %>
+              <!-- each -->
+
+	      <!-- 自分が所属している団体のイベントの表示 -->
+              <!-- each -->
+	      <% @my_events.each do |e| %>
+                <% if (c.strftime('%m') == e.month) && (c.strftime('%d') == e.date) then %>
+                <% if e.title.length <= 9 %>
+                  <%= link_to "#{e.title}", "/events/show/#{e.id}" %><br />
+                <% else %>
+                  <% @tmp = e.title.split(/\A(.{1,7})/, 2) %>
+                  <% @title = @tmp[1] + "..." %>
+                  <%= link_to @title, "/events/show/#{e.id}" %><br />
+                <% end %>
+                <% else %>
+                <% end %>
+              <% end %>
+              <!-- each -->
+
+	      <!-- ログアウト中に作成したイベントの表示 -->
+              <% @myev = Event.where("user_id = ?", current_user.id).where("group_id = ?", -1) %>
+              <!-- each -->
+              <% @myev.each do |e| %>
+                <% if (c.strftime('%m') == e.month) && (c.strftime('%d') == e.date) then %>
+                  <% if e.title.length <= 9 %>
+                    <%= link_to "#{e.title}", "/events/show/#{e.id}" %><br />
+                  <% else %>
+                    <% @tmp = e.title.split(/\A(.{1,7})/, 2) %>
+                    <% @title = @tmp[1] + "..." %>
+                    <%= link_to @title, "/events/show/#{e.id}" %><br />
+                  <% end %>
+                <% else %>
+                <% end %>
+              <% end %>
+              <!-- each -->
+
+            <% end %>
+
           <% end %>
+
 	</br></font>
 	<% end %>
       </th>

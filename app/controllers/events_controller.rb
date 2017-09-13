@@ -16,8 +16,19 @@ class EventsController < ApplicationController
    @day = params[:day]
    @events = Event.where("group_id = ?", current_user.state_group_id)
 
-   redirect_to "/events/new", flash: { y: @year, m: @month, d: @day}
+   if params[:p] == nil then
+     redirect_to "/events/new", flash: { y: @year, m: @month, d: @day}
+   else
+   end
 
+  end
+
+  def neoindex
+   @year = params[:year].to_i
+   @month = params[:month].to_i
+   @day = params[:day].to_i
+   @events = Event.where("group_id = ?", current_user.state_group_id)
+   redirect_to events_index_path(:year => @year, :month => @month, :day => @day, :p => 1)
   end
 
   def show
