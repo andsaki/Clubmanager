@@ -1,6 +1,9 @@
 <section class = "column">
+  <div class = "center">
 <% @group = Group.where("id = ?", @group_id).first %>
-<h1>「<%= @group.name %>」</h1>
+<div class = "titleposi">
+<h1><%= @group.name %></h1>
+</div>
 <p><%= simple_format(@group.about) %></p>
 
 

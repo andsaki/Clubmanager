@@ -1,8 +1,11 @@
+<%= link_to 'EXIT', '/events/exit' ,class: "logout"%>
+
 <section class = "column">
 
 <% @group = Group.where("id = ?", current_user.state_group_id).first %>
+<div class = "titleposi">
 <h1><%= @group.name %></h1>
-<p><%= link_to '団体から出る', '/events/exit' %></p>
+</div>
 
   <h1>
     Information
@@ -24,5 +27,5 @@
         </ul>
       </p>
   </div>
-
+  
 </section>
