@@ -21,7 +21,7 @@
 
     <% month = today.strftime('%m')%>
       <% d = today.at_beginning_of_month.at_beginning_of_week(:sunday)%>
-        <% 1.upto(5).each do |i| %>
+        <% 1.upto(6).each do |i| %>
           <tr>
             <% (d..d.end_of_week(:sunday)).each do |c| %>
             <th width = "20" height = "20">
@@ -65,5 +65,16 @@
           </tr>
         <% end %>
   </table>
+  
+<!-- 退会処理 -->
 
-<br/>
+<% @tmp = Group.where("id = ?", current_user.state_group_id).first %>
+<% if @tmp != nil && @tmp.master_id == current_user.id then %>
+<% else %>
+<% if current_user.state_group_id != -1 then %>
+<%= link_to "退会", "/members/retire", data:{confirm: '本当に退会しますか?'}%>
+<% else %>
+<% end %>
+<% end %>
+
+<!-- /退会処理 -->
