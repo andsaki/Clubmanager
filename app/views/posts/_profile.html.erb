@@ -18,14 +18,6 @@
 
   <h2>所属団体</h2>
   <ul >
-    <!-- まずは管理している団体を表示 -->
-    <% @group = Group.where("master_id = ?", current_user.id) %>
-    <% @group.each do |p| %>
-    <li>
-      <p><%= link_to p.name, "/groups/out_top/#{p.id}"%></p>
-    </li>
-    <% end %>
-    <!-- 次に所属している団体を表示 -->
     <% @member = Member.where("user_id = ?", current_user.id) %>
     <% @member.each do |p| %>
     <% @group = Group.where("id = ?", p.group_id).first %>
