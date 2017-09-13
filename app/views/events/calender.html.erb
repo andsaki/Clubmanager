@@ -30,7 +30,7 @@
     </tr>
     <% month = today.strftime('%m')%>
     <% d = today.at_beginning_of_month.at_beginning_of_week(:sunday)%>
-    <% 1.upto(5).each do|i|%>
+    <% 1.upto(6).each do|i|%>
     <tr>
       <% (d..d.end_of_week(:sunday)).each do|c|%>
       <th width="80" height="80" align="left" valign="top">
@@ -38,25 +38,31 @@
           <!-- 日付の表示 -->
 	  <% if (c.strftime('%m') == month) then %>
             <% if (c.strftime("%d") != today.strftime("%-d")) || (c.strftime("%m") != Date.today.strftime("%m"))%>
-            <%= link_to "#{c.strftime('%-d')}", events_index_path(:year => c.strftime('%Y'), :month => c.strftime("%-m"), :day => c.strftime("%-d")) %>
+              <%= link_to "#{c.strftime('%-d')}", events_index_path(:year => c.strftime('%Y'), :month => c.strftime("%m"), :day => c.strftime("%d")) %>
 	    <% else %>
-            <%= link_to "#{c.strftime('%-d')}", events_index_path(:year => c.strftime('%Y'), :month => c.strftime("%-m"), :day => c.strftime("%-d")) %>
-            <font color="red">▼</font>
+              <%= link_to "#{c.strftime('%-d')}", events_index_path(:year => c.strftime('%Y'), :month => c.strftime("%m"), :day => c.strftime("%d")) %>
+              <font color="red">▼</font>
 	    <% end %>
             <% @users.each do |u| %>
             <% if ((c.strftime("%-m").to_i == u.month.to_i) && (c.strftime("%-d").to_i == u.day.to_i)) then %>
-	    <!--<p align="center">
-            <font color="green">B</font>
-	    <font color="blue">i</font>
-	    <font color="orange">r</font>
-	    <font color="red">t</font>
-	    <font color="fuchsia">h</font>
-	    <font color="green">D</font>
-	    <font color="blue">a</font>
-	    <font color="orange">y</font>
-            <p align="center"><%= u.username %></p>
-	    </p>-->
-            <br><font size="1"><%= u.username%>さんの誕生日</font><br />
+	      <!--<p align="center">
+              <font color="green">B</font>
+	      <font color="blue">i</font>
+	      <font color="orange">r</font>
+	      <font color="red">t</font>
+	      <font color="fuchsia">h</font>
+	      <font color="green">D</font>
+	      <font color="blue">a</font>
+	      <font color="orange">y</font>
+              <p align="center"><%= u.username %></p>
+	      </p>-->
+              <% @tmp = Member.where("user_id = ?", u.id).where("group_id = ?", current_user.state_group_id).first %>
+              <% @tmp2 = Group.where("master_id = ?", u.id).first %><!--団体の管理者-->
+              <% @tmp3 = Group.where("id = ?", current_user.state_group_id).first %>
+	      <% if u.id == current_user.id || (@tmp2 != nil && @tmp2.id == current_user.state_group_id) || @tmp != nil then %>
+                <br><font size="1"><%= u.username %>さんの誕生日</font><br />
+              <% else %>
+	      <% end %>
             <% else %>
             <% end %>
             <% end %>
