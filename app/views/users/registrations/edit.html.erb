@@ -5,6 +5,13 @@
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= devise_error_messages! %>
 
+  <% if notice %>
+    <p class="alert alert-notice"><%= notice %></p>
+  <% end %>
+  <% if alert %>
+    <p class="alert alert-error"><%= alert %></p>
+  <% end %>
+
   <h3>プロフィール画像:</h3>
   <% if @user.image? %>
     <div class="thumbnail">
@@ -37,7 +44,7 @@
     <%= f.select :month, [["月",""],["1","1"],["2","2"],["3","3"],["4","4"],["5","5"],["6","6"],["7","7"],["8","8"],["9","9"],["10","10"],["11","11"],["12","12"]] %>
 
     <%= f.select :day, [["日",""],["1","1"],["2","2"],["3","3"],["4","4"],["5","5"],["6","6"],["7","7"],["8","8"],["9","9"],["10","10"],["11","11"],["12","12"],["13","13"],["14","14"],["15","15"],["16","16"],["17","17"],["18","18"],["19","19"],["20","20"],["21","21"],["22","22"],["23","23"],["24","24"],["25","25"],["26","26"],["27","27"],["28","28"],["29","29"],["30","30"],["31","31"]] %> <br/>
-    <%= f.label :age %><br/>
+    <%= f.label :age %>
     <%= f.text_field :age %>
     <%= f.label :location %><br/>
     <%= f.text_field :location %>
@@ -74,7 +81,7 @@
 
 <h3>アカウントの削除</h3>
 
-<p>一度削除したアカウントは復元することができません <%= button_to "アカウントを削除する", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
+<p>一度削除したアカウントは復元することができません <%= button_to "アカウントを削除する", registration_path(resource_name), data: { confirm: "アカウントを削除します。本当によろしいですか？" }, method: :delete %></p>
 <br>
 <br>
 
