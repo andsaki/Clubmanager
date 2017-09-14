@@ -26,4 +26,10 @@ class MemberMailer < ApplicationMailer
     @master = master
     mail( :to => @master.email, :subject => "#{@member.user_name}が退会しました")
   end
+
+  def no_approval_email(member, group)
+    @member = member
+    @group = group
+    mail( :to => @member.email, :subject => "#{@group.name}から参加の申請が取り消されました")
+  end
 end

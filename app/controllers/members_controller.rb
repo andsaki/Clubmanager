@@ -14,6 +14,13 @@ class MembersController < ApplicationController
    @group = Group.where("id = ?", params[:group_id]).first
    @member = Member.where("id = ?", params[:user_id]).first
    @member.destroy
+
+   #申請不許可メール
+   @no_member = User.find(@member.user_id)
+   if @member.destroy
+     MemberMailer.no_approval_email(@no_member, @group).deliver
+   end
+
    redirect_to "/members/applicater/#{@group.id}"
   end
 
