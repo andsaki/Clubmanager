@@ -1,5 +1,12 @@
 <h2><%= @year %>年<%= @month %>月<%= @day %>日のイベント</h2>
-<% @events.each do |e|%>
+
+<% if current_user.state_group_id != -1 then %>
+<% @event = Event.where("group_id = ?", current_user.state_group_id) %>
+<% else %>
+<% @event = Event.all %>
+<% end %>
+
+<% @event.each do |e|%>
 <% if ( (e.year.to_i == @year.to_i) && (e.month.to_i == @month.to_i) && (e.date.to_i == @day.to_i) ) then %>
 <h4>「<%= link_to "#{e.title}", "/events/show/#{e.id}" %>」</h4>
 <p><%= simple_format(e.about) %><p>

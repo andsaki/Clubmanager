@@ -95,7 +95,7 @@
 	    <% @e.each do |e| %>
               <% if (c.strftime('%m') == e.month) && (c.strftime('%d') == e.date) then %>
                 <% if e.title.length <= 9 %>
-                  <%= link_to "(作成)#{e.title}", "/events/show/#{e.id}" %><br />
+                  <%= link_to "#{e.title}", "/events/show/#{e.id}" %><br /><!-- 作成 -->
                 <% else %>
                   <% @tmp = e.title.split(/\A(.{1,7})/, 2) %>
                   <% @title = @tmp[1] + "..." %>
@@ -113,7 +113,7 @@
 	      <% @m_g_e.each do |e| %>
                 <% if (c.strftime('%m') == e.month) && (c.strftime('%d') == e.date) then %>
                   <% if e.title.length <= 9 %>
-                    <%= link_to "(管理)#{e.title}", "/events/show/#{e.id}" %><br />
+                    <%= link_to "#{e.title}", "/events/show/#{e.id}" %><br /><!-- 管理 -->
                   <% else %>
                     <% @tmp = e.title.split(/\A(.{1,7})/, 2) %>
                     <% @title = @tmp[1] + "..." %>
@@ -133,7 +133,7 @@
 	      <% @mem_g_e.each do |e| %>
 	      <% if (c.strftime('%m') == e.month) && (c.strftime('%d') == e.date) then %>
 	        <% if e.title.length <= 9 %>
-                    <%= link_to "(所属)#{e.title}", "/events/show/#{e.id}" %><br />
+                    <%= link_to "#{e.title}", "/events/show/#{e.id}" %><br /><!-- 所属 -->
                   <% else %>
                     <% @tmp = e.title.split(/\A(.{1,7})/, 2) %>
                     <% @title = @tmp[1] + "..." %>
