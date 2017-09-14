@@ -28,4 +28,18 @@
       </p>
   </div>
   <%= render "posts/member"%>
+
+  <!-- 退会処理 -->
+
+<div class = "withdraw">
+  <% @tmp = Group.where("id = ?", current_user.state_group_id).first %>
+  <% if @tmp != nil && @tmp.master_id == current_user.id then %>
+  <% else %>
+  <% if current_user.state_group_id != -1 then %>
+  <%= link_to "退会", "/members/retire", data:{confirm:"本当に「#{@tmp.name}」を退会しますか?"}%>
+  <% else %>
+  <% end %>
+  <% end %>
+</div>
+
 </section>
