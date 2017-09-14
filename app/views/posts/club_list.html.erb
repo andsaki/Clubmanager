@@ -1,8 +1,12 @@
 <section class = "column">
-
-  <h1>
+  <div class="titleposi">
+    <h1>
+      Myclub
+    </h1>
+  </div>
+  <h1><font face = "sans-serif">
     所属団体
-  </h1>
+  </h1></font>
     <ul class="linklist">
       <% @group = Group.where("master_id = ?", current_user.id) %>
       <% @group.each do |p| %>
@@ -20,9 +24,9 @@
       <% end%>
     </ul>
 
-  <h1>
+  <h1><font face = "sans-serif">
     申請中
-  </h1>
+  </h1></font>
     <ul class="linklist">
       <% @member = Member.where("user_id = ?", current_user.id).where("p = ?", 0 ) %>
       <% @member.each do |p| %>

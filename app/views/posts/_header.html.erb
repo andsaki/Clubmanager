@@ -2,6 +2,7 @@
   <div class = "header-bk">
 
     <!-- ログイン状態の表示部分 -->
+
     <% if (current_user != nil)%>
       <div class = "statelog">
       <% if current_user.state_group_id != -1 then %>
@@ -12,7 +13,7 @@
             <% end %>
         <% end %>
       </div>
-    <!-- -->
+
     <%end%>
     <div class = "header_body">
 

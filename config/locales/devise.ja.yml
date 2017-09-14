@@ -76,3 +76,5 @@ ja:
         birthday: "誕生日"
         current_password: "現在のパスワード"
         user: "ユーザー"
+      group:
+        name: "団体名"
