@@ -11,6 +11,12 @@ class MessagesController < ApplicationController
    @message.body = params[:message][:body]
    @message.save
 
+   if @message.save
+     MemberMailer.direct_email(current_user, @message).deliver
+   end
+
+   @message.destroy
+
    redirect_to root_path
   end
 

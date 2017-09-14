@@ -25,13 +25,18 @@
 <h2>所在地: <%= @user.location %></h2>
 <h2>自己紹介: <%= simple_format(@user.comment) %></h2>
 
+
+<% if current_user.id != @user.id%>
+
 <% @message = Message.new %>
 <%= form_for @message do |f| %>
-<%= f.hidden_field :id, :value => @user.id %>
-<%= f.hidden_field :username, :value => @user.username %>
-<%= f.hidden_field :email, :value => @user.email %>
-<%= f.text_area :body, :placeholder => "メッセージを入力してください" %>
-<%= f.submit %>
+  <%= f.hidden_field :id, :value => @user.id %>
+  <%= f.hidden_field :username, :value => @user.username %>
+  <%= f.hidden_field :email, :value => @user.email %>
+  <%= f.text_area :body, :placeholder => "メッセージを入力してください" %>
+  <%= f.submit %>
+<% end %>
+
 <% end %>
 
 </section>

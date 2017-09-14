@@ -32,4 +32,10 @@ class MemberMailer < ApplicationMailer
     @group = group
     mail( :to => @member.email, :subject => "#{@group.name}から参加の申請が取り消されました")
   end
+
+  def direct_email(user, message)
+    @user = user
+    @message = message
+    mail( :to => @message.email, :submit => "#{user.username}からメッセージが届きました")
+  end
 end
