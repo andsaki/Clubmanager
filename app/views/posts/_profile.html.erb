@@ -37,16 +37,11 @@
     <br/>
     <br/>
   <h2>所属団体</h2>
-
+  
     <% @group = Group.where("master_id = ?", current_user.id) %>
-    <% @group1 = Group.where("id = ?", current_user.state_group_id).first %>
     <% @group.each do |p| %>
-    <li style="list-style:circle">
-      <%if p.name == @group1.name%>
-      <font size = 2><%= link_to p.name, "/groups/out_top/#{p.id}",class: "statecolor"%></font>
-      <% else %>
-      <font size = 2><%= link_to p.name, "/groups/out_top/#{p.id}",class: "linkline"%></font>
-      <%end%>
+    <li>
+      <p><%= link_to p.name, "/groups/out_top/#{p.id}"%></p>
     </li>
     <% end %>
 
