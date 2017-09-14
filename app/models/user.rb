@@ -6,7 +6,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable#, :confirmable
 
   #後で変更する
-  validates :username, presence: true, length: { in: 1..20 }
+  validates :username, presence: true, length: { in: 1..15 }
   #validates :comment, length: { in: 0..100 }
   validates :age, :numericality => {:only_integer => true, :allow_nil => true}
   #validates :age, numericality: true

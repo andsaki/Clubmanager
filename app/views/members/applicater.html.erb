@@ -2,7 +2,12 @@
 <h1>「<%= @group.name%>」</h1>
 
 <%= form_for Group.new do |f| %>
-<p><%= f.text_field :name, :value => "#{@group.name}" %></p>
+<p>
+  <%= f.text_field :name, :value => "#{@group.name}" %></br>
+  <% if flash[:name_error] %>
+  <font color="red"><%= flash[:name_error]%></font>
+  <% end %>
+</p>
 <p><%= f.text_area :about, :value => "#{@group.about}" %></p>
 <%= f.hidden_field :group_id, :value => @group.id%>
 <p><%= f.submit :value => "保存" %></p>
