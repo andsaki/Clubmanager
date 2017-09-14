@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  get 'messages/show'
+  post "messages" => "messages#create"
+
   get 'members/index'
   get 'members/show'
 
