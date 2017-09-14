@@ -4,20 +4,21 @@ class MessagesController < ApplicationController
 
   def create
 
-   @message = Message.new
-   @message.user_id = params[:message][:id]
-   @message.username = params[:message][:username]
-   @message.email = params[:message][:email]
-   @message.body = params[:message][:body]
-   @message.save
+    @message = Message.new
+    @message.user_id = params[:message][:id]
+    @message.username = params[:message][:username]
+    @message.email = params[:message][:email]
+    @message.body = params[:message][:body]
+    @message.save
 
-   if @message.save
-     MemberMailer.direct_email(current_user, @message).deliver
-   end
+    if @message.save
+      MemberMailer.direct_email(current_user, @message).deliver
+      @message.destroy
+      redirect_to "/users/#{@message.user_id}", notice: "メッセージを送信しました。"
+    else
+      redirect_to "/users/#{@message.user_id}", notice: "メッセージを入力して下さい。"
+    end
 
-   @message.destroy
-
-   redirect_to root_path
   end
 
 end
