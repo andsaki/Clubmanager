@@ -190,6 +190,7 @@ class EventsController < ApplicationController
              @event.group_id = current_user.state_group_id
              @event.save
 
+             #さらにポストに投稿
              @post = Post.new
              @post.title = "【イベント】#{params[:event][:title]}"
              @post.body = params[:event][:title]
@@ -197,8 +198,6 @@ class EventsController < ApplicationController
              @post.user_id = current_user.id
              @post.group_id = current_user.state_group_id
              @post.save
-
-
 
              redirect_to "/events/calender/0"
            else
