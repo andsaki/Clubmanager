@@ -28,6 +28,7 @@
           <font size = "1">
     	  <% @f = 0 %>
           <% if c.strftime('%m') == month then %>
+
             <% @events.each do |e| %>
 	      <% if ( (c.strftime('%Y') == e.year) && (c.strftime('%m') == e.month) && (c.strftime('%d') == e.date) ) then %>
 
@@ -35,7 +36,32 @@
                   <font color="red">▶︎</font>
                 <% else %>
                 <% end %>
-                <%= link_to "#{c.strftime('%-d')}", events_neoindex_path(:year => c.strftime('%Y'), :month => c.strftime("%-m"), :day => c.strftime("%-d")) %>
+
+		<!---------------------------------------------->
+
+		<% if current_user.state_group_id != -1 %><!-- ログイン状態 -->
+
+		  <% @e = Event.where("group_id = ?", current_user.state_group_id).where("year = ?", c.strftime('%Y')).where("month = ?", c.strftime("%m")).where("date = ?", c.strftime("%d")) %>
+		  <% if @e != nil then %>
+		    <%= link_to "#{c.strftime('%-d')}", events_neoindex_path(:year => c.strftime('%Y'), :month => c.strftime("%-m"), :day => c.strftime("%-d")) %>
+		  <% else%>
+		  <% end %>
+
+		<% else %><!-- ログアウト状態 -->
+
+		 <% @e = Event.where("user_id = ?", current_user.id).where("year = ?", c.strftime('%Y')).where("month = ?", c.strftime("%m")).where("date = ?", c.strftime("%d")) %>
+		 <% if @e != nil then %>
+		 
+		   <!--------------------------------------------->
+                   <%= link_to "#{c.strftime('%-d')}", events_neoindex_path(:year => c.strftime('%Y'), :month => c.strftime("%-m"), :day => c.strftime("%-d")) %>
+		   <!--------------------------------------------->
+
+  		 <% else %>
+                 <% end %>
+
+		<% end %>
+		<!--------------------------------------------->
+
 		<% @f = 1 %>
                 <% break %>
                 <% else %>
@@ -48,6 +74,7 @@
                   <% else %>
                   <% end %>
 
+		  <!-- イベントなしの日付表示-->
 	          <%= c.strftime("%-d") %>
 
                   <% else %>

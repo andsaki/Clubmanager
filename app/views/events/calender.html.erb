@@ -1,8 +1,6 @@
 <section class = "column">
 <div class = "titleposi">
-  <h1>
-  Calendar
-</h1>
+  <h1>Calendar</h1>
 </div>
 </section>
 <% today = @day %>
@@ -73,7 +71,7 @@
 
 	  <!-- イベントの表示 -->
 
-	  <% if current_user.state_group_id != -1 then %>
+	  <% if current_user.state_group_id != -1 then %><!-- 団体にログインしている状態 -->
 
             <% @events.each do |e| %>
               <% if (c.strftime('%m') == e.month) && (c.strftime('%d') == e.date) then %>
@@ -90,56 +88,32 @@
               <% end %>
             <% end %>
 
-	  <% else %>
+	  <% else %><!-- 団体にログインしていない状態 -->
 
-            <% @my_groups = Member.where("user_id = ?", current_user.id).where("p = ?", 1) %>
-            <% @my_groups.each do |g| %>
-
-              <% @my_events = Event.where("group_id = ?", g.group_id) %>
-              <% @my_group = Group.where("master_id = ?", current_user.id) %>
-
-              <!-- 自分が管理している団体のイベントの表示 -->
-              <!-- each -->
-	      <% @my_group.each do |g| %>
-                <% @my_group_events = Event.where("group_id = ?", g.id) %>
-                <% @my_group_events.each do |e| %>
-                  <% if (c.strftime('%m') == e.month) && (c.strftime('%d') == e.date) then %>
-                    <% if e.title.length <= 9 %>
-                      <%= link_to "#{e.title}", "/events/show/#{e.id}" %><br />
-                    <% else %>
-                      <% @tmp = e.title.split(/\A(.{1,7})/, 2) %>
-                      <% @title = @tmp[1] + "..." %>
-                      <%= link_to @title, "/events/show/#{e.id}" %><br />
-                    <% end %>
-                  <% else %>
-                  <% end %>
-	        <% end %>
-              <% end %>
-              <!-- each -->
-
-	      <!-- 自分が所属している団体のイベントの表示 -->
-              <!-- each -->
-	      <% @my_events.each do |e| %>
-                <% if (c.strftime('%m') == e.month) && (c.strftime('%d') == e.date) then %>
+	    <!-- 自分がログアウト中に作成したイベント -->
+            <% @e = Event.where("user_id = ?", current_user.id).where("group_id = ?", -1) %>
+	    <% @e.each do |e| %>
+              <% if (c.strftime('%m') == e.month) && (c.strftime('%d') == e.date) then %>
                 <% if e.title.length <= 9 %>
-                  <%= link_to "#{e.title}", "/events/show/#{e.id}" %><br />
+                  <%= link_to "#{e.title}", "/events/show/#{e.id}" %><br /><!-- 作成 -->
                 <% else %>
                   <% @tmp = e.title.split(/\A(.{1,7})/, 2) %>
                   <% @title = @tmp[1] + "..." %>
                   <%= link_to @title, "/events/show/#{e.id}" %><br />
                 <% end %>
-                <% else %>
-                <% end %>
+              <% else %>
               <% end %>
-              <!-- each -->
+            <% end %>
 
-	      <!-- ログアウト中に作成したイベントの表示 -->
-              <% @myev = Event.where("user_id = ?", current_user.id).where("group_id = ?", -1) %>
-              <!-- each -->
-              <% @myev.each do |e| %>
+	    <!-- 自分が管理する団体のイベント-->
+	    <% @m_g = Group.where("master_id = ?", current_user.id) %>
+	    <% @m_g.each do |g| %>
+
+	      <% @m_g_e = Event.where("group_id = ?", g.id) %>
+	      <% @m_g_e.each do |e| %>
                 <% if (c.strftime('%m') == e.month) && (c.strftime('%d') == e.date) then %>
                   <% if e.title.length <= 9 %>
-                    <%= link_to "#{e.title}", "/events/show/#{e.id}" %><br />
+                    <%= link_to "#{e.title}", "/events/show/#{e.id}" %><br /><!-- 管理 -->
                   <% else %>
                     <% @tmp = e.title.split(/\A(.{1,7})/, 2) %>
                     <% @title = @tmp[1] + "..." %>
@@ -148,9 +122,28 @@
                 <% else %>
                 <% end %>
               <% end %>
-              <!-- each -->
 
-            <% end %>
+	    <% end %>
+
+	    <!-- 自分が所属する団体のイベント -->
+	    <% @m = Member.where("user_id = ?", current_user.id) %>
+	    <% @m.each do |m| %>
+
+	      <% @mem_g_e = Event.where("group_id = ?", m.group_id) %>
+	      <% @mem_g_e.each do |e| %>
+	      <% if (c.strftime('%m') == e.month) && (c.strftime('%d') == e.date) then %>
+	        <% if e.title.length <= 9 %>
+                    <%= link_to "#{e.title}", "/events/show/#{e.id}" %><br /><!-- 所属 -->
+                  <% else %>
+                    <% @tmp = e.title.split(/\A(.{1,7})/, 2) %>
+                    <% @title = @tmp[1] + "..." %>
+                    <%= link_to @title, "/events/show/#{e.id}" %><br />
+                  <% end %>
+                <% else %>
+                <% end %>
+              <% end %>
+
+	    <% end %>
 
           <% end %>
 
