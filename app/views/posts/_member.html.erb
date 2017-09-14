@@ -2,9 +2,9 @@
 
   <% if current_user.state_group_id == -1 || current_user.state_group_id == nil%>
   <% else%>
-    <h1>
+    <h3>
       <%= link_to 'Member', members_show_path  ,class: "memberlink"%>
-    </h1>
+    </h3>
 
     <ul class = "linklist">
       <% @group = Group.where("id = ?", current_user.state_group_id).first %>
