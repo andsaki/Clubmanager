@@ -469,7 +469,10 @@ ul.linklist li a:hover{
   color: darkgray;
 
 }
-
+.prolink{
+  color: dimgray;
+  text-decoration: none;
+}
 
 .memberlink{
   color: black;
@@ -527,6 +530,7 @@ ul.menu li:first-child {
 
 }
 
+
 h1 {
   font-size: 32px;
   color: dimgray;
@@ -534,7 +538,7 @@ h1 {
 }
 
 h2 {
-  font-size: 16px;
+  font-size: 18px;
   font-family: sans-serif;
 
 }
