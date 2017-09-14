@@ -32,6 +32,7 @@
     <% @user = User.where("id = ?", current_user.id).first %>
     <%= simple_format @user.comment %>
   </font></h2>
+  <br/><br/>
       <div class = "profile">
     <h2>
       所属団体
@@ -57,6 +58,7 @@
         <p><%= link_to @group.name, "/groups/out_top/#{@group.id}" ,class: "linkline"%></p>
       <% end %>
     </li>
-  
+
     <% end%>
   </div>
+  <br/><br/>

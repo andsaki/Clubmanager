@@ -279,7 +279,7 @@ ul.board li a:hover{
 
 .profile{
   padding: 0 120px 0 127px;
-  
+
 }
 .calender{
   margin-left: 305px;
@@ -491,11 +491,12 @@ h1 {
 
 h2 {
   font-size: 16px;
-  padding-bottom: 10px;
-  margin-bottom: 15px;
+  font-family: sans-serif;
 
 }
-
+h3 {
+  font-size: 25px;
+}
 ul > li {
   margin-bottom: 5px;
 }
@@ -523,9 +524,4 @@ textarea {
 .command {
   font-size: 12px;
   float: right;
-}
-
-h3 {
-  font-size: 14px;
-  padding-top: 25px;
 }
