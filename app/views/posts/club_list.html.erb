@@ -4,7 +4,7 @@
       Myclub
     </h1>
   </div>
-  <h1><font face = "sans-serif">
+  <h1><font  face = "sans-serif">
     管理団体
   </h1></font>
     <p><%= link_to "新規団体作成", "/groups/new" %></p>
@@ -34,6 +34,7 @@
       <% @member = Member.where("user_id = ?", current_user.id).where("p = ?", 1 ) %>
       <% @member.each do |p| %>
       <% @group = Group.where("id = ?", p.group_id).first%>
+      <ul>
       <li style = list-style:circle>
         <% if @group.id == current_user.state_group_id %>
           <p><%= link_to @group.name, "/groups/top/#{@group.id}" ,class: "statecolor" %></p>
@@ -53,6 +54,7 @@
           <p><%= link_to @group.name, "/groups/out_top/#{@group.id}" ,class: "linkline"%></p>
         <% end %>
       </li>
+    </ul>
       <% end%>
 
    <h1><font face = "sans-serif">
