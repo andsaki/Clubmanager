@@ -4,9 +4,9 @@
       Myclub
     </h1>
   </div>
-  <h1><font  face = "sans-serif">
+  <h3>
     管理団体
-  </h1></font>
+  </h3>
     <p><%= link_to "新規団体作成", "/groups/new" %></p>
     <ul class="linklist">
       <% @group = Group.where("master_id = ?", current_user.id) %>
@@ -15,7 +15,7 @@
         <% if p.id == current_user.state_group_id %>
           <p>
 	    <%= link_to p.name, "/groups/top/#{p.id}" ,class: "statecolor" %>
-	    <%= link_to "[編集]", "/members/applicater/#{p.id}" %>	  
+	    <%= link_to "[編集]", "/members/applicater/#{p.id}" %>
 	  </p>
         <% else %>
           <p>
@@ -27,9 +27,9 @@
       <% end %>
     </ul>
 
-  <h1><font face = "sans-serif">
+  <h3>
     所属団体
-  </h1></font>
+  </h3>
 
       <% @member = Member.where("user_id = ?", current_user.id).where("p = ?", 1 ) %>
       <% @member.each do |p| %>
@@ -57,9 +57,9 @@
     </ul>
       <% end%>
 
-   <h1><font face = "sans-serif">
+   <h3>
     申請中の団体
-  </h1></font>
+  </h3>
     <ul class="linklist">
       <% @member = Member.where("user_id = ?", current_user.id).where("p = ?", 0 ) %>
       <% @member.each do |p| %>
