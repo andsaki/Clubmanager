@@ -11,6 +11,15 @@
 <li>
 <%= link_to "#{f.name}", "/groups/out_top/#{f.id}" %>
 <%= link_to "[編集]", "/members/applicater/#{f.id}" %>
+
+<% @member = Member.where("group_id = ?", f.id).where("p = ?", 0) %>
+<% @i = 0%>
+<% @member.each do |c| %>
+<% @i = @i + 1 %>
+<% end %>
+<% if @i != 0 %>
+<p align="right">承認待ち: <%= @i %>人</p>
+<% end %>
 </li>
 <% end %>
 </ul>
