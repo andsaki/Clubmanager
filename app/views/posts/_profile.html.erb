@@ -27,14 +27,18 @@
     <h2>
       自己紹介
     </h2>
+    </div>
+    <h2 align = "center"><font size = 2>
     <% @user = User.where("id = ?", current_user.id).first %>
     <%= simple_format @user.comment %>
-
+  </font></h2>
+      <div class = "profile">
     <h2>
       所属団体
     </h2>
     <% @group = Group.where("master_id = ?", current_user.id) %>
     <% @group.each do |p| %>
+
     <li style = list-style:circle>
       <% if p.id == current_user.state_group_id %>
         <p><%= link_to p.name, "/groups/top/#{p.id}" ,class: "statecolor" %></p>
@@ -43,7 +47,6 @@
       <% end %>
     </li>
     <% end %>
-
     <% @member = Member.where("user_id = ?", current_user.id).where("p = ?", 1 ) %>
     <% @member.each do |p| %>
     <% @group = Group.where("id = ?", p.group_id).first%>
@@ -54,6 +57,6 @@
         <p><%= link_to @group.name, "/groups/out_top/#{@group.id}" ,class: "linkline"%></p>
       <% end %>
     </li>
+  
     <% end%>
-
-</div>
+  </div>
