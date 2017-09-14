@@ -23,7 +23,7 @@
 
 <% else %>
 
-<% if current_user.state_group_id == -1 || current_user.state_group_id != nil %>
+<% if current_user.state_group_id == -1 || current_user.state_group_id == nil %>
   <%= link_to "入場する", "/groups/top/#{@group.id}" ,class: "cross_line"%>
 <% else %>
   <% @g = Group.where("id = ?", current_user.state_group_id).first %>
