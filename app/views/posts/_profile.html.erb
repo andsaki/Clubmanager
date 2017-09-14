@@ -2,7 +2,6 @@
   <ul id = "fade-in2" class="dropmenu">
     <li><%= image_tag('edit_b.png', class: 'edit_b') %>
       <ul>
-        <li><%= link_to "Create","/groups/new"%></li>
         <li><%= link_to "Edit",edit_user_registration_path%></li>
         <li><%= link_to 'Logout', destroy_user_session_path, method: :delete%></li>
       </ul>
