@@ -1,6 +1,7 @@
 <section class = "column">
-<h2>「<%= @event.title %>」</h2>
-
+  <div class = "titleposi">
+<h1><%= @event.title %></h1>
+  </div>
 <% @group = Group.where("id = ?", @event.group_id).first%>
 <% if @group != nil then %>
 <p>団体名: 「<%= @group.name %>」</p>

@@ -77,11 +77,11 @@
               <% if (c.strftime('%m') == e.month) && (c.strftime('%d') == e.date) then %>
 
                 <% if e.title.length <= 9 %>
-                  <%= link_to "#{e.title}", "/events/show/#{e.id}" %><br />
+                  <%= link_to "#{e.title}", "/events/show/#{e.id}" ,class: "linkline3"%><br />
                 <% else %>
 	        <% @tmp = e.title.split(/\A(.{1,7})/, 2) %>
                 <% @title = @tmp[1] + "..." %>
-                <%= link_to @title, "/events/show/#{e.id}" %><br />
+                <%= link_to @title, "/events/show/#{e.id}" ,class: "linkline3"%><br />
                 <% end %>
 
               <% else %>
@@ -95,11 +95,11 @@
 	    <% @e.each do |e| %>
               <% if (c.strftime('%m') == e.month) && (c.strftime('%d') == e.date) then %>
                 <% if e.title.length <= 9 %>
-                  <%= link_to "#{e.title}", "/events/show/#{e.id}" %><br /><!-- 作成 -->
+                  <%= link_to "#{e.title}", "/events/show/#{e.id}" ,class: "linkline3"%><br /><!-- 作成 -->
                 <% else %>
                   <% @tmp = e.title.split(/\A(.{1,7})/, 2) %>
                   <% @title = @tmp[1] + "..." %>
-                  <%= link_to @title, "/events/show/#{e.id}" %><br />
+                  <%= link_to @title, "/events/show/#{e.id}" ,class: "linkline3"%><br />
                 <% end %>
               <% else %>
               <% end %>
@@ -113,11 +113,11 @@
 	      <% @m_g_e.each do |e| %>
                 <% if (c.strftime('%m') == e.month) && (c.strftime('%d') == e.date) then %>
                   <% if e.title.length <= 9 %>
-                    <%= link_to "#{e.title}", "/events/show/#{e.id}" %><br /><!-- 管理 -->
+                    <%= link_to "#{e.title}", "/events/show/#{e.id}" ,class: "linkline3"%><br /><!-- 管理 -->
                   <% else %>
                     <% @tmp = e.title.split(/\A(.{1,7})/, 2) %>
                     <% @title = @tmp[1] + "..." %>
-                    <%= link_to @title, "/events/show/#{e.id}" %><br />
+                    <%= link_to @title, "/events/show/#{e.id}" ,class: "linkline3"%><br />
                   <% end %>
                 <% else %>
                 <% end %>
@@ -133,11 +133,11 @@
 	      <% @mem_g_e.each do |e| %>
 	      <% if (c.strftime('%m') == e.month) && (c.strftime('%d') == e.date) then %>
 	        <% if e.title.length <= 9 %>
-                    <%= link_to "#{e.title}", "/events/show/#{e.id}" %><br /><!-- 所属 -->
+                    <%= link_to "#{e.title}", "/events/show/#{e.id}" ,class: "linkline3"%><br /><!-- 所属 -->
                   <% else %>
                     <% @tmp = e.title.split(/\A(.{1,7})/, 2) %>
                     <% @title = @tmp[1] + "..." %>
-                    <%= link_to @title, "/events/show/#{e.id}" %><br />
+                    <%= link_to @title, "/events/show/#{e.id}" ,class: "linkline3"%><br />
                   <% end %>
                 <% else %>
                 <% end %>

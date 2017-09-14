@@ -43,7 +43,7 @@
 
 		  <% @e = Event.where("group_id = ?", current_user.state_group_id).where("year = ?", c.strftime('%Y')).where("month = ?", c.strftime("%m")).where("date = ?", c.strftime("%d")) %>
 		  <% if @e != nil then %>
-		    <%= link_to "#{c.strftime('%-d')}", events_neoindex_path(:year => c.strftime('%Y'), :month => c.strftime("%-m"), :day => c.strftime("%-d")) %>
+		    <%= link_to "#{c.strftime('%-d')}", events_neoindex_path(:year => c.strftime('%Y'), :month => c.strftime("%-m"), :day => c.strftime("%-d")) ,class: "linkline3"%>
 		  <% else%>
 		  <% end %>
 
@@ -51,7 +51,7 @@
 
 		 <% @e = Event.where("user_id = ?", current_user.id).where("year = ?", c.strftime('%Y')).where("month = ?", c.strftime("%m")).where("date = ?", c.strftime("%d")) %>
 		 <% if @e != nil then %>
-		 
+
 		   <!--------------------------------------------->
                    <%= link_to "#{c.strftime('%-d')}", events_neoindex_path(:year => c.strftime('%Y'), :month => c.strftime("%-m"), :day => c.strftime("%-d")) %>
 		   <!--------------------------------------------->
