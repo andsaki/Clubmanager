@@ -1,6 +1,6 @@
 <div class = "contents">
   <div class = "titleposi">
-<h1>パスワードのリセット</h1>
+<h1>Reset password</h1>
   </div>
   <br/>
 <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
@@ -12,10 +12,9 @@
   </div>
   <br>
   <div class="actions">
-    <%= f.submit "パスワードリセット" %>
+    <%= f.submit "Reset Password!!" %>
   </div>
 <% end %>
-<br>
-<%= render "users/shared/links" %>
-<br>
+<br/>
+
 </div>

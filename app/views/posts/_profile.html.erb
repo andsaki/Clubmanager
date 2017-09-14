@@ -3,7 +3,6 @@
     <li><%= image_tag('edit_b.png', class: 'edit_b') %>
       <ul>
         <li><%= link_to "Manage","/groups/my_group"%></li>
-        <li><%= link_to "Mypage",current_user%></li>
         <li><%= link_to "Edit",edit_user_registration_path%></li>
         <li><%= link_to 'logout', destroy_user_session_path, method: :delete%></li>
       </ul>
