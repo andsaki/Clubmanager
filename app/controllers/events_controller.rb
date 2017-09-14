@@ -198,6 +198,7 @@ class EventsController < ApplicationController
              @post.user_id = current_user.id
              @post.group_id = current_user.state_group_id
              @post.save
+             #momomo
 
              redirect_to "/events/calender/0"
            else
