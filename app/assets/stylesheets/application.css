@@ -496,6 +496,14 @@ ul.linklist li a:hover{
 .linkline2:hover{
   color: darkgray;
 }
+.linkline3{
+
+  color: blue;
+  text-decoration: none;
+}
+.linkline3:hover{
+  color: darkgray;
+}
 
 .statecolor{
   color: deeppink;
