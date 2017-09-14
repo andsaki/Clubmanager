@@ -11,6 +11,9 @@ class GroupsController < ApplicationController
     @group.destroy
     @member = Member.where("group_id = ?", params[:id])
     @member.destroy_all
+    @user = User.where("state_group_id = ?", current_user.state_group_id).first
+    @user.state_group_id = -1
+    @user.save
     redirect_to "/groups/my_group"
     end
   end

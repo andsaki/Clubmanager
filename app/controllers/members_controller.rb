@@ -21,6 +21,10 @@ class MembersController < ApplicationController
      MemberMailer.no_approval_email(@no_member, @group).deliver
    end
 
+   @user = User.where("id = ?", current_user.id).first
+   @user.state_group_id = -1
+   @user.save
+
    redirect_to "/members/applicater/#{@group.id}"
   end
 

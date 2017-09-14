@@ -1,5 +1,5 @@
 class EventsController < ApplicationController
-  
+
   #ログイン者のみ表示
   before_action :authenticate_user!
 
@@ -147,7 +147,7 @@ class EventsController < ApplicationController
           end
 
         else #>>>>>>>>>> date = 0
- 
+
           if params[:event][:id] == nil then
           redirect_to "/events/new", flash: {about_error: @about_error, _title: params[:event][:title], date_error: @date_error, y: @year, m: @month, d: @date}
           else
@@ -189,6 +189,17 @@ class EventsController < ApplicationController
              @event.user_id = current_user.id
              @event.group_id = current_user.state_group_id
              @event.save
+
+             @post = Post.new
+             @post.title = "【イベント】#{params[:event][:title]}"
+             @post.body = params[:event][:title]
+             @post.username = current_user.username
+             @post.user_id = current_user.id
+             @post.group_id = current_user.state_group_id
+             @post.save
+
+
+
              redirect_to "/events/calender/0"
            else
            redirect_to "/events/new"
@@ -214,7 +225,7 @@ class EventsController < ApplicationController
 
 #        if Date.valid_date?(@year, @month, @date) then
 #          @event = Event.new
-#          if params[:event][:id] != nil then 
+#          if params[:event][:id] != nil then
 #            @event.id = params[:event][:id].to_i
 #          else
 #          end

@@ -22,7 +22,7 @@
 
       <div class = "logo_posi">
         <div class= "titlelogo">
-          <% if current_user.state_group_id != -1 %>
+          <% if (current_user.state_group_id != -1) %>
             <%= link_to image_tag('logo.png', class: 'logo'), posts_path %>
           <% else %>
             <%= link_to image_tag('logo.png', class: 'logo'), root_path %>
