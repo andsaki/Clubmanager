@@ -48,6 +48,7 @@ class GroupsController < ApplicationController
       @group = Group.where("id = ?", params[:group][:group_id]).first
       @group.name = params[:group][:name]
       @group.about = params[:group][:about]
+
       if @group.save
         redirect_to "/groups/my_group"
       else
