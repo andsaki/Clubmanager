@@ -4,8 +4,9 @@
 
 <% @group = Group.where("id = ?", current_user.state_group_id).first %>
 <div class = "titleposi">
-<h1><%= @group.name %></h1>
+  <h1><%= @group.name %></h1>
 </div>
+
 
   <h1>
     Information
