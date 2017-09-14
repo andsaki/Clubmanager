@@ -40,6 +40,8 @@ Rails.application.routes.draw do
   get "events/exit"
   get "events/neoindex"
 
+  get "posts/club_list"
+
 #  get 'posts/_calender' => 'events#all'
 
   devise_for :users

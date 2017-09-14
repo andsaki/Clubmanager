@@ -1,0 +1,36 @@
+<section class = "column">
+
+  <h1>
+    所属団体
+  </h1>
+    <ul class="linklist">
+      <% @group = Group.where("master_id = ?", current_user.id) %>
+      <% @group.each do |p| %>
+      <li>
+        <p><%= link_to p.name, "/groups/out_top/#{p.id}"%></p>
+      </li>
+      <% end %>
+
+      <% @member = Member.where("user_id = ?", current_user.id).where("p = ?", 1 ) %>
+      <% @member.each do |p| %>
+      <% @group = Group.where("id = ?", p.group_id).first%>
+      <li>
+        <p><%= link_to @group.name, "/groups/out_top/#{@group.id}" ,class: "linkline"%></p>
+      </li>
+      <% end%>
+    </ul>
+
+  <h1>
+    申請中
+  </h1>
+    <ul class="linklist">
+      <% @member = Member.where("user_id = ?", current_user.id).where("p = ?", 0 ) %>
+      <% @member.each do |p| %>
+      <% @group = Group.where("id = ?", p.group_id).first%>
+      <li>
+        <p><%= link_to @group.name, "/groups/out_top/#{@group.id}" ,class: "linkline"%></p>
+      </li>
+      <% end%>
+    </ul>
+
+</section>

@@ -53,6 +53,9 @@ class PostsController < ApplicationController
     redirect_to posts_path
   end
 
+  def club_list
+  end
+
 
   private
     def post_params
