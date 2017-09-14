@@ -317,7 +317,7 @@ ul.board li a:hover{
   clear: both;
 }
 .dropmenu li{
-  /*position: relative;*/
+  position: relative;
   width: 100%;
   float: left;
   margin: 0;
@@ -449,7 +449,16 @@ ul.linklist li a:hover{
 .linkline:hover{
   color: darkgray;
 }
-
+.statecolor{
+  color: deeppink;
+}
+.statecolor{
+  color: deeppink;
+  text-decoration: none;
+}
+.statecolor:hover{
+  color: darkgray;
+}
 ul.menu{
   margin: 50px 0px;
   padding: 5px 0;
