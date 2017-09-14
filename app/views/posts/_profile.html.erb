@@ -2,9 +2,9 @@
   <ul id = "fade-in2" class="dropmenu">
     <li><%= image_tag('edit_b.png', class: 'edit_b') %>
       <ul>
-        <li><%= link_to "Manage","/groups/my_group"%></li>
+        <li><%= link_to "Create","/groups/new"%></li>
         <li><%= link_to "Edit",edit_user_registration_path%></li>
-        <li><%= link_to 'logout', destroy_user_session_path, method: :delete%></li>
+        <li><%= link_to 'Logout', destroy_user_session_path, method: :delete%></li>
       </ul>
     </li>
   </ul>
@@ -35,7 +35,7 @@
   <br/><br/>
       <div class = "profile">
     <h2>
-      所属団体
+      団体一覧
     </h2>
     <% @group = Group.where("master_id = ?", current_user.id) %>
     <% @group.each do |p| %>

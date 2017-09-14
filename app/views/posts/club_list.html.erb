@@ -7,7 +7,7 @@
   <h3>
     管理団体
   </h3>
-    <p><%= link_to "新規団体作成", "/groups/new" %></p>
+
     <ul class="linklist">
       <% @group = Group.where("master_id = ?", current_user.id) %>
       <% @group.each do |p| %>
@@ -26,7 +26,7 @@
       </li>
       <% end %>
     </ul>
-
+  <%= link_to "新規団体作成", "/groups/new" ,class: "cross_line"%>
   <h3>
     所属団体
   </h3>
