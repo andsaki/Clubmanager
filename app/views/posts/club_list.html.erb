@@ -7,14 +7,21 @@
   <h1><font face = "sans-serif">
     管理団体
   </h1></font>
+    <p><%= link_to "新規団体作成", "/groups/new" %></p>
     <ul class="linklist">
       <% @group = Group.where("master_id = ?", current_user.id) %>
       <% @group.each do |p| %>
       <li style = list-style:circle>
         <% if p.id == current_user.state_group_id %>
-          <p><%= link_to p.name, "/groups/top/#{p.id}" ,class: "statecolor" %></p>
+          <p>
+	    <%= link_to p.name, "/groups/top/#{p.id}" ,class: "statecolor" %>
+	    <%= link_to "[編集]", "/members/applicater/#{p.id}" %>	  
+	  </p>
         <% else %>
-          <p><%= link_to p.name, "/groups/out_top/#{p.id}" ,class: "linkline"%></p>
+          <p>
+	    <%= link_to p.name, "/groups/out_top/#{p.id}" ,class: "linkline"%>
+	    <%= link_to "[編集]", "/members/applicater/#{p.id}" %>
+	  </p>
         <% end %>
       </li>
       <% end %>
@@ -23,6 +30,7 @@
   <h1><font face = "sans-serif">
     所属団体
   </h1></font>
+
       <% @member = Member.where("user_id = ?", current_user.id).where("p = ?", 1 ) %>
       <% @member.each do |p| %>
       <% @group = Group.where("id = ?", p.group_id).first%>
@@ -47,7 +55,7 @@
       </li>
       <% end%>
 
-  <h1><font face = "sans-serif">
+   <h1><font face = "sans-serif">
     申請中の団体
   </h1></font>
     <ul class="linklist">
