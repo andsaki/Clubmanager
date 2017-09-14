@@ -12,7 +12,7 @@
 
     <li>
       <font size = "5"><%= link_to "#{f.name}", "/groups/out_top/#{f.id}" %></font><br/>
-      管理者: <%= "#{f.master_name}" %>
+      管理者: <%= link_to "#{f.master_name}", "/users/#{f.master_id}" %>
     </li>
     <% end %>
   </ul>

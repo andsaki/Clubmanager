@@ -10,13 +10,13 @@
     </li>
   </ul>
 </div>
-  <br/>
-  <br/>
+  <br>
+  <br>
 
   <h1 align = "center">
-    Profile
+    <% @user = User.where("id = ?", current_user.id).first %>
+    <%= link_to @user.username ,current_user%>
   </h1>
-
 
   <div class = "profile">
     <% if current_user.image? %>
@@ -24,19 +24,16 @@
     <% else %>
       <%= link_to image_tag('apio.png', :size => '100x100'), current_user %>
     <% end %>
-    <br/>
-    <br/>
 
     <h2>
       自己紹介
     </h2>
     <% @user = User.where("id = ?", current_user.id).first %>
-    <%= @user.comment %>
-    <br/>
-    <br/>
-    <br/>
-    <br/>
-  <h2>所属団体</h2>
+    <%= simple_format @user.comment %>
+
+    <h2>
+      所属団体
+    </h2>
     <% @group = Group.where("master_id = ?", current_user.id) %>
     <% @group.each do |p| %>
     <li style = list-style:circle>
@@ -61,7 +58,3 @@
     <% end%>
 
 </div>
-<br/>
-<br/>
-<br/>
-<br/>
