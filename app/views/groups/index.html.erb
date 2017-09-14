@@ -1,2 +1,33 @@
+<section class="column">
 
-<%= render "group" %>
+  <div class = "titleposi">
+<h1>　Club List </h1>
+  </div>
+  <br/>
+  <br/>
+<div class = "li_box_scrollbar">
+
+  <!-- 検索機能実装 -->
+  <%= form_tag groups_index_path, :method => 'get' do %>
+    <p>
+      <%= text_field_tag :search %>
+      <%= submit_tag "Search", :name => nil %>
+    </p>
+  <% end %>
+
+  <% @group = Group.all %>
+  <ul class = "board">
+  <% @group.each do |f| %>
+
+    <li>
+      <font size = "5"><%= link_to "#{f.name}", "/groups/out_top/#{f.id}" %></font><br/>
+      <% @user = User.where("id = ?", f.master_id).first %>
+      管理者: <%= link_to "#{@user.username}", "/users/#{f.master_id}" %>
+    </li>
+    <% end %>
+  </ul>
+
+
+
+</div>
+</section>

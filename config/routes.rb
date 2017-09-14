@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   get 'members/index'
   get 'members/show'
 
-  get 'groups/index'
+  get 'groups/index' => "groups#index"
   get 'groups/show'
   get 'groups/new'
   post 'groups' => "groups#create"
