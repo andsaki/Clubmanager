@@ -34,10 +34,7 @@
           <li><%= link_to "Home",root_path%></li>
           <li><%= link_to "Calendar","/events/calender/0"%></li>
           <li><%= link_to "Mypage",current_user%></li>
-          <% if current_user.state_group_id == -1 %>
-          <% else%>
           <li><%= link_to "Club", "/posts/club_list" %></li>
-          <% end %>
         </ul>
       </div>
 

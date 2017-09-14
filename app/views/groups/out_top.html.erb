@@ -24,10 +24,14 @@
 <% else %>
 
 <% if current_user.state_group_id == -1 %>
-<%= link_to "入場する", "/groups/top/#{@group.id}" %>
+  <%= link_to "入場する", "/groups/top/#{@group.id}" %>
 <% else %>
-<% @g = Group.where("id = ?", current_user.state_group_id).first %>
-<%= link_to "入場する", "/groups/top/#{@group.id}", data:{confirm:"現在「#{@g.name}」にログインしています。ログアウトしますか?"}%>
+  <% @g = Group.where("id = ?", current_user.state_group_id).first %>
+  <% if @group.id == current_user.state_group_id %>
+    <%= link_to "入場する", "/groups/top/#{@group.id}" %>
+  <% else %>
+    <%= link_to "入場する", "/groups/top/#{@group.id}", data:{confirm:"現在「#{@g.name}」にログインしています。「#{@g.name}」をログアウトしますか?"}%>
+  <% end %>
 <% end %>
 
 <% end %>

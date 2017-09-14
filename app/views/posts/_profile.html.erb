@@ -35,19 +35,26 @@
     <br/>
     <br/>
   <h2>所属団体</h2>
-  <ul class="linklist">
     <% @group = Group.where("master_id = ?", current_user.id) %>
     <% @group.each do |p| %>
-    <li>
-      <p><%= link_to p.name, "/groups/out_top/#{p.id}"%></p>
+    <li style = list-style:circle>
+      <% if p.id == current_user.state_group_id %>
+        <p><%= link_to p.name, "/groups/top/#{p.id}" ,class: "statecolor" %></p>
+      <% else %>
+        <p><%= link_to p.name, "/groups/out_top/#{p.id}" ,class: "linkline"%></p>
+      <% end %>
     </li>
     <% end %>
 
     <% @member = Member.where("user_id = ?", current_user.id).where("p = ?", 1 ) %>
     <% @member.each do |p| %>
     <% @group = Group.where("id = ?", p.group_id).first%>
-    <li>
-      <p><%= link_to @group.name, "/groups/out_top/#{@group.id}" ,class: "linkline"%></p>
+    <li style = list-style:circle>
+      <% if @group.id == current_user.state_group_id %>
+        <p><%= link_to @group.name, "/groups/top/#{@group.id}" ,class: "statecolor" %></p>
+      <% else %>
+        <p><%= link_to @group.name, "/groups/out_top/#{@group.id}" ,class: "linkline"%></p>
+      <% end %>
     </li>
     <% end%>
 
