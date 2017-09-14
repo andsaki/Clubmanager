@@ -18,6 +18,14 @@
           <p>
 	    <%= link_to p.name, "/groups/top/#{p.id}" ,class: "statecolor" %>
 	    <%= link_to "[編集]", "/members/applicater/#{p.id}" %>
+	    <% @member = Member.where("group_id = ?", p.id) %>
+	    <% @i = 0 %>
+	    <% @member.each do |m| %>
+	    <% @i = @i + 1 %>
+	    <% end %>
+	    <% if @i != 0 %>
+	    （承認待ち: <%= @i %>人）
+	    <% end %>
 	  </p>
         <% else %>
           <p>
