@@ -1,9 +1,18 @@
 <section class = "column">
-<h3>新規団体作成</h3>
+  <h3>新規団体作成</h3>
 
-<%= form_for Group.new do |f| %>
-<p><%= f.text_field :name, :placeholder => "Group Name" %></p>
-<%= f.text_area :about, :placeholder => "About Group"%>
-<%= f.submit :value => "作成する" %>
-<% end %>
+  <%= form_for Group.new do |f| %>
+  <p>
+    <%= f.text_field :name, placeholder: 'Group Name' %>
+    <% if @group.errors.messages[:name].any? %>
+      <% @group.errors.full_messages.each do |message| %>
+        <span class="error"><%= message %></span>
+      <% end %>
+    <% end %>
+  </p>
+
+  <p><%= f.text_area :about, :placeholder => "About Group"%></p>
+
+  <%= f.submit :value => "作成する" %>
+  <% end %>
 </section>
