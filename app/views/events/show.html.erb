@@ -17,7 +17,7 @@
 <p>出席状況:
 <% @attend.each do |a| %>
   <% @i = @i + 1 %>
-  <% if a.username == current_user.username then %>
+  <% if a.user_id == current_user.id then %>
     <%= "出席" %>
     <% @f = @f + 1 %>
   <% else %>
