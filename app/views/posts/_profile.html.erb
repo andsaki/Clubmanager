@@ -28,39 +28,44 @@
     </h2>
     </div>
     <div class ="center">
-
     <% @user = User.where("id = ?", current_user.id).first %>
-    <%= simple_format @user.comment %>
+    <% if @user.comment.empty? %>
+      <%= link_to "自己紹介を書きましょう", user_root_path %>
+    <% else%>
+      <%= simple_format @user.comment %>
+    <% end %>
+    </div>
 
-</div>
-  <br/><br/>
-      <div class = "profile">
+    <br>
+  <div class = "profile">
     <h2>
       団体一覧
     </h2>
+
     <% @group = Group.where("master_id = ?", current_user.id) %>
     <% @group.each do |p| %>
-
     <li style = list-style:circle>
       <% if p.id == current_user.state_group_id %>
         <!--<p><%= link_to p.name, "/groups/top/#{p.id}" ,class: "statecolor" %></p>-->
-	<p><font color="hotpink"><%= p.name %>◀︎︎</font></p>
+	       <p><font color="hotpink"><%= p.name %>◀︎︎</font></p>
       <% else %>
         <p><%= link_to p.name, "/groups/out_top/#{p.id}" ,class: "linkline"%></p>
       <% end %>
     </li>
     <% end %>
+
     <% @member = Member.where("user_id = ?", current_user.id).where("p = ?", 1 ) %>
     <% @member.each do |p| %>
-    <% @group = Group.where("id = ?", p.group_id).first%>
-    <li style = list-style:circle>
-      <% if @group.id == current_user.state_group_id %>
-        <p><%= link_to @group.name, "/groups/top/#{@group.id}" ,class: "statecolor" %></p>
-      <% else %>
-        <p><%= link_to @group.name, "/groups/out_top/#{@group.id}" ,class: "linkline"%></p>
-      <% end %>
-    </li>
+      <% @group2 = Group.where("id = ?", p.group_id).first%>
+      <li style = list-style:circle>
+        <% if @group2.id == current_user.state_group_id %>
+          <p><%= link_to @group2.name, "/groups/top/#{@group2.id}" ,class: "statecolor" %></p>
+        <% else %>
+          <p><%= link_to @group2.name, "/groups/out_top/#{@group2.id}" ,class: "linkline"%></p>
+        <% end %>
+      </li>
+      <% end%>
 
-    <% end%>
+    <br>
+    <br>
   </div>
-  <br/><br/>
