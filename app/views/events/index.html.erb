@@ -1,4 +1,7 @@
-<h2><%= @year %>年<%= @month %>月<%= @day %>日のイベント</h2>
+<section class = "column">
+  <div class = "titleposi">
+<h1><%= @year %>年<%= @month %>月<%= @day %>日のイベント</h1>
+</div>
 
 <% if current_user.state_group_id != -1 then %>
 <% @event = Event.where("group_id = ?", current_user.state_group_id) %>
@@ -8,12 +11,15 @@
 
 <% @event.each do |e|%>
 <% if ( (e.year.to_i == @year.to_i) && (e.month.to_i == @month.to_i) && (e.date.to_i == @day.to_i) ) then %>
-<h4>「<%= link_to "#{e.title}", "/events/show/#{e.id}" %>」</h4>
+<h3 align = "center"><%= link_to "#{e.title}", "/events/show/#{e.id}" ,class: "linkline3"%></h3>
+<h4 align = "center">
 <p><%= simple_format(e.about) %><p>
 <% if e.user_id == current_user.id then %>
 <p>
-<%= link_to "[削除]", "/events/delete/#{e.id}", data: { confirm: "「#{e.title}」を削除しますか?"} %>
-<%= link_to "[編集]", "/events/edit/#{e.id}" %>
+<br><br><br>
+<%= link_to link_to image_tag("edit_bb.png",class: "edit_bb"), "/events/edit/#{e.id}" %>
+<br><br><br>
+<%= link_to "このイベントを削除する", "/events/delete/#{e.id}", data: { confirm: "「#{e.title}」を削除しますか?"},class: "cross_line" %>
 </p>
 <% else %>
 <p>[削除・編集できません]</p>
@@ -21,3 +27,5 @@
 <% else%>
 <% end %>
 <% end %>
+</h4>
+</section>
