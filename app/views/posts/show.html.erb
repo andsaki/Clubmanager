@@ -7,17 +7,18 @@
   <!--最終更新：<%= time_ago_in_words(@post.created_at) %>
   <br>
   -->
-  作成：<%= @post.created_at.strftime('%Y/%m/%d %H:%M') %> Created at <%= link_to @post.username, "/users/#{@post.user_id}" %>
+  作成：<%= @post.created_at.strftime('%Y/%m/%d %H:%M') %> Created at <%= link_to @post.username, "/users/#{@post.user_id}" ,class: "linkline"%>
   <br>
   更新：<%= @post.updated_at.strftime('%Y/%m/%d %H:%M') %>
 
   <% if (@post.user_id == current_user.id) %>
-  <%= link_to '[編集]', edit_post_path(@post), class: 'command' %>
+  <%= link_to '[編集]', edit_post_path(@post), class: 'command' ,class: "linkline"%>
   <%= link_to '[削除]',
   post_path(@post),
   method: :delete,
   class: 'command',
-    data: { confirm: 'Sure?' }
+    data: { confirm: 'Sure?' },
+    class:"linkline"
   %>
   <% end %>
 
