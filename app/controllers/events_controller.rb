@@ -193,7 +193,7 @@ class EventsController < ApplicationController
              #さらにポストに投稿
              @post = Post.new
              @post.title = "【イベント】#{params[:event][:title]}"
-             @post.body = params[:event][:title] + "<p><a href='/events/show/#{@event.id}'>詳細を見る</a></p>"
+             @post.body = params[:event][:about] + "<p><a href='/events/show/#{@event.id}'>詳細を見る</a></p>"
              @post.username = current_user.username
              @post.user_id = current_user.id
              @post.group_id = current_user.state_group_id
