@@ -14,9 +14,9 @@ class MessagesController < ApplicationController
     if @message.save
       MemberMailer.direct_email(current_user, @message).deliver
       @message.destroy
-      redirect_to "/users/#{@message.user_id}", notice: "メッセージを送信しました。"
+      redirect_to "/users/#{@message.user_id}", flash: {message: "メッセージを送信しました"}
     else
-      redirect_to "/users/#{@message.user_id}", notice: "メッセージを入力して下さい。"
+      redirect_to "/users/#{@message.user_id}", flash: {message_error: "メッセージを入力して下さい"}
     end
 
   end

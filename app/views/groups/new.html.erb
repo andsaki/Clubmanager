@@ -5,10 +5,8 @@
   <%= form_for Group.new do |f| %>
   <p>
     <%= f.text_field :name, placeholder: 'Group Name' %>
-    <% if @group.errors.messages[:name].any? %>
-      <% @group.errors.full_messages.each do |message| %>
-        <span class="error"><%= message %></span>
-      <% end %>
+    <% if flash[:name_error] %>
+      <font color="red"><%= flash[:name_error]%></font>
     <% end %>
   </p>
 
