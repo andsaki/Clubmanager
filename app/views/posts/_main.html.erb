@@ -24,7 +24,7 @@
       <p>
         <ul class = "board">
             <% @posts.each do |post| %>
-            <li>
+            <li >
               <%= post.updated_at.strftime('%Y/%m/%d %H:%M') %>
               <br>
               <font size = "5"><%= link_to post.title, post_path(post) %></font>
