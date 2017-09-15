@@ -81,8 +81,13 @@
 <% end %>
 
 <h3>アカウントの削除</h3>
+<% @g = Group.where("master_id = ?", current_user.id).first %>
+<% if  @g == nil %>
+  <p>一度削除したアカウントは復元することができません <%= button_to "アカウントを削除する", registration_path(resource_name), data: { confirm: "アカウントを削除します。本当によろしいですか？" }, method: :delete %></p>
+<%else%>
+  <p>アカウントを削除するには管理団体を全て削除して下さい</p>
+<%end%>
 
-<p>一度削除したアカウントは復元することができません <%= button_to "アカウントを削除する", registration_path(resource_name), data: { confirm: "アカウントを削除します。本当によろしいですか？" }, method: :delete %></p>
 <br>
 <br>
 
