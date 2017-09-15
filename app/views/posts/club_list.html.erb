@@ -9,28 +9,29 @@
   <h3>
     管理団体
   </h3>
-    <ul >
+
+    <ul>
       <% @group = Group.where("master_id = ?", current_user.id) %>
-      <% @group.each do |p| %>
-      <li style = list-style:circle>
-        <% if p.id == current_user.state_group_id %>
-          <!--<p>-->
-	    <%= link_to p.name, "/members/applicater/#{p.id}",class: "statecolor" %>
-	  <!--</p>-->
-        <% else %>
-          <!--<p>-->
-	    <%= link_to p.name,"/members/applicater/#{p.id}" ,class: "linkline"%>
-	  <!--</p>-->
+      <% if @group.empty? %>
+        <p>管理団体はありません</p>
+      <% else %>
+        <% @group.each do |p| %>
+        <li style = list-style:circle>
+          <% if p.id == current_user.state_group_id %>
+  	    <%= link_to p.name, "/members/applicater/#{p.id}",class: "statecolor" %>
+          <% else %>
+  	    <%= link_to p.name,"/members/applicater/#{p.id}" ,class: "linkline"%>
+          <% end %>
+          <% @member = Member.where("group_id = ?", p.id).where("p = ?", 0) %>
+          <% @i = 0 %>
+          <% @member.each do |m| %>
+          <% @i = @i + 1 %>
+          <% end %>
+          <% if @i != 0 %>
+           （承認待ち: <%= @i %>人）
+          <% end %>
+        </li>
         <% end %>
-        <% @member = Member.where("group_id = ?", p.id).where("p = ?", 0) %>
-        <% @i = 0 %>
-        <% @member.each do |m| %>
-        <% @i = @i + 1 %>
-        <% end %>
-        <% if @i != 0 %>
-         （承認待ち: <%= @i %>人）
-        <% end %>
-      </li>
       <% end %>
     </ul>
 
@@ -38,42 +39,48 @@
     所属団体
   </h3>
 
+    <ul>
       <% @member = Member.where("user_id = ?", current_user.id).where("p = ?", 1 ) %>
-      <% @member.each do |p| %>
-      <% @group = Group.where("id = ?", p.group_id).first%>
-      <ul>
-      <li style = list-style:circle>
-        <% if @group.id == current_user.state_group_id %>
-          <p><%= link_to @group.name, "/groups/top/#{@group.id}" ,class: "statecolor" %></p>
+      <% if @member.empty? %>
+        <p>所属団体はありません</p>
+      <% else %>
+        <% @member.each do |p| %>
+        <% @group = Group.where("id = ?", p.group_id).first%>
+        <li style = list-style:circle>
+          <% if @group.id == current_user.state_group_id %>
+            <p><%= link_to @group.name, "/groups/top/#{@group.id}" ,class: "statecolor" %></p>
 
-            <% @tmp = Group.where("id = ?", current_user.state_group_id).first %>
-            <% if @tmp != nil && @tmp.master_id == current_user.id then %>
-            <% else %>
-            <% if current_user.state_group_id != -1 then %>
-            <%= link_to "退会", "/members/retire", data:{confirm:"本当に「#{@tmp.name}」を退会しますか?"},class: "linkline2"%>
-            <% else %>
-            <% end %>
-            <% end %>
-
-
-        <% else %>
-          <p><%= link_to @group.name, "/groups/out_top/#{@group.id}" ,class: "linkline"%></p>
-        <% end %>
-      </li>
+              <% @tmp = Group.where("id = ?", current_user.state_group_id).first %>
+              <% if @tmp != nil && @tmp.master_id == current_user.id then %>
+              <% else %>
+              <% if current_user.state_group_id != -1 then %>
+              <%= link_to "退会", "/members/retire", data:{confirm:"本当に「#{@tmp.name}」を退会しますか?"},class: "linkline2"%>
+              <% else %>
+              <% end %>
+              <% end %>
+          <% else %>
+            <p><%= link_to @group.name, "/groups/out_top/#{@group.id}" ,class: "linkline"%></p>
+          <% end %>
+        </li>
+        <% end%>
+      <% end %>
     </ul>
-      <% end%>
 
    <h3>
     申請中の団体
   </h3>
     <ul class="linklist">
       <% @member = Member.where("user_id = ?", current_user.id).where("p = ?", 0 ) %>
-      <% @member.each do |p| %>
-      <% @group = Group.where("id = ?", p.group_id).first%>
-      <li>
-        <p><%= link_to @group.name, "/groups/out_top/#{@group.id}" ,class: "linkline"%></p>
-      </li>
-      <% end%>
+      <% if @member.empty? %>
+        <p>申請中の団体はありません</p>
+      <% else %>
+        <% @member.each do |p| %>
+        <% @group = Group.where("id = ?", p.group_id).first%>
+        <li>
+          <p><%= link_to @group.name, "/groups/out_top/#{@group.id}" ,class: "linkline"%></p>
+        </li>
+        <% end%>
+      <% end %>
     </ul>
 
 </section>
