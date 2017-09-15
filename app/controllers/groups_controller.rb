@@ -42,7 +42,6 @@ class GroupsController < ApplicationController
   end
 
   def create
-    @name_error = "団体名が入力されていません"
 
     if params[:group][:group_id] != nil then
       @group = Group.where("id = ?", params[:group][:group_id]).first
@@ -52,7 +51,7 @@ class GroupsController < ApplicationController
       if @group.save
         redirect_to "/groups/my_group"
       else
-        redirect_to "/members/applicater/#{@group.id}", flash: {name_error: @name_error}
+        redirect_to "/members/applicater/#{@group.id}", flash: {name_error: "団体名が入力されていません"}
       end
     elsif params[:group][:group_id] == nil then
        @group = Group.new
@@ -63,7 +62,7 @@ class GroupsController < ApplicationController
        if @group.save
          redirect_to "/groups/my_group"
        else
-         render "new"
+         redirect_to "/groups/new", flash: {name_error: "団体名が入力されていません"}
        end
     end
   end
