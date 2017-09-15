@@ -4,7 +4,8 @@ class PostsController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @posts = Post.all.order(updated_at: 'desc')
+    @posts = Post.search(params[:search]).order(updated_at: 'desc').where("group_id = ?", current_user.state_group_id)
+    @tmp = params[:search]
   end
 
   def show
