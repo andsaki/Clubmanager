@@ -70,6 +70,7 @@ ja:
         password_confirmation: "パスワード確認"
         email: "メールアドレス"
         remember_me: "パスワードを記憶する"
+        sex: "性別"
         age: "年齢"
         location: "所在地"
         comment: "自己紹介"

@@ -108,6 +108,7 @@ ActiveRecord::Schema.define(version: 20170914102115) do
     t.datetime "updated_at", null: false
     t.string "username", default: "", null: false
     t.integer "age"
+    t.text "sex", default: ""
     t.string "location", default: ""
     t.text "comment", default: ""
     t.string "image"

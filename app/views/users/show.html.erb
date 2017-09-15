@@ -20,10 +20,11 @@
   <%= link_to image_tag('apio.png', :size => '100x100') %>
 <% end %>
 
-<h2>誕生日:</h2> <%= @user.month %>/<%= @user.day %>
-<h2>年齢:</h2> <%= @user.age %>
-<h2>所在地:</h2> <%= @user.location %>
-<h2>自己紹介:</h2> <%= simple_format(@user.comment) %>
+<h2>性別: <%= @user.sex %></h2>
+<h2>誕生日: <%= @user.month %>/<%= @user.day %></h2>
+<h2>年齢: <%= @user.age %></h2>
+<h2>所在地: <%= @user.location %></h2>
+<h2>自己紹介: <%= simple_format(@user.comment) %></h2>
 
 <br>
 <br>
