@@ -22,16 +22,16 @@
   <ul>
     <% @post.comments.each do |comment| %>
     <li>
-      <%= comment.created_at.strftime('%Y/%m/%d %H:%M') %> Created at <%= link_to comment.username, "/users/#{comment.user_id}" %>
+      <%= comment.created_at.strftime('%Y/%m/%d %H:%M') %> Created at <%= link_to comment.username, "/users/#{comment.user_id}" ,class: "linkline"%>
       <br>
       内容：<%= comment.body %>
-      <% if comment.user_id == current_user.id%>
-        <%= link_to '[x]',
-          post_comment_path(@post, comment),
-          method: :delete,
-          class: 'command',
-          data: { confirm: 'Sure?' } %>
-      <% end%>
+      <div class = "right">
+      <%= link_to '[X]',
+        post_comment_path(@post, comment),
+        method: :delete,
+        class: 'command',
+        data: { confirm: 'Sure?' } ,class: "linkline"%>
+        <div>
     </li>
     <% end %>
   </ul>

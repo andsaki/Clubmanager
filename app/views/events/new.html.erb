@@ -1,6 +1,7 @@
 <section class = "column">
+  <div class = "titleposi">
 <h3>Add New Event</h3>
-
+  </div>
 <% @event = Event.new %>
 <%= form_for @event do |f| %>
 <!-- Event.new -->
@@ -56,4 +57,5 @@
 
   <%= f.submit %>
 <% end %>
+<br>
 </section>
