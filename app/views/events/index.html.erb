@@ -20,9 +20,6 @@
 <%= link_to link_to image_tag("edit_bb.png",class: "edit_bb"), "/events/edit/#{e.id}" %>
 <br><br><br>
 <%= link_to "このイベントを削除する", "/events/delete/#{e.id}", data: { confirm: "「#{e.title}」を削除しますか?"},class: "cross_line" %>
-</p>
-<% else %>
-<p>[削除・編集できません]</p>
 <% end %>
 <% else%>
 <% end %>

@@ -48,10 +48,12 @@
 <br><br>
 <% if @f == 0 then %>
 <%= link_to "出席する", "/events/attend/#{@event.id}.to_i" ,class: "button" %>
+<br>
 
 <% else%>
 
 <%= link_to "欠席する", "/events/absence/#{@event.id}.to_i" ,class: "button"%>
+<br>
 <% end %>
 <% if @event.user_id == current_user.id then %>
 <br><br><br>
