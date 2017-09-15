@@ -8,7 +8,6 @@
   <table align="center" frame="border" rules="all">
     <caption>
     <ul class = "menu">
-
       <li><%= link_to "#{Date.today.months_ago(6).strftime('%-m')}月","-6",class: "linkline"%></li>
       <li><%= link_to "#{Date.today.months_ago(5).strftime('%-m')}月","-5",class: "linkline"%></li>
       <li><%= link_to "#{Date.today.months_ago(4).strftime('%-m')}月","-4",class: "linkline"%></li>
@@ -21,7 +20,6 @@
       <li><%= link_to "#{Date.today.months_since(3).strftime('%-m')}月","3",class: "linkline"%></li>
       <li><%= link_to "#{Date.today.months_since(4).strftime('%-m')}月","4",class: "linkline"%></li>
       <li><%= link_to "#{Date.today.months_since(5).strftime('%-m')}月","5",class: "linkline"%></li>
-
     </ul>
     <h1><%= today.strftime("%Y年%-m月") %></h1>
     <%= link_to 'Add New Event!', '/events/new',class: "link_btn" %>
@@ -126,7 +124,7 @@
 	    <% end %>
 
 	    <!-- 自分が所属する団体のイベント -->
-	    <% @m = Member.where("user_id = ?", current_user.id) %>
+	    <% @m = Member.where("user_id = ?", current_user.id).where("p = ?", 1) %>
 	    <% @m.each do |m| %>
 
 	      <% @mem_g_e = Event.where("group_id = ?", m.group_id) %>
