@@ -43,7 +43,8 @@
 
     <li style = list-style:circle>
       <% if p.id == current_user.state_group_id %>
-        <p><%= link_to p.name, "/groups/top/#{p.id}" ,class: "statecolor" %></p>
+        <!--<p><%= link_to p.name, "/groups/top/#{p.id}" ,class: "statecolor" %></p>-->
+	<p><font color="hotpink"><%= p.name %>◀︎︎</font></p>
       <% else %>
         <p><%= link_to p.name, "/groups/out_top/#{p.id}" ,class: "linkline"%></p>
       <% end %>

@@ -1,3 +1,29 @@
+<!--
+
+<% if request.referer == "http://localhost:3000/groups/out_top/#{current_user.state_group_id}" %>
+
+  <% @group = Group.where("id = ?", current_user.state_group_id).first %>
+  <% if @group.master_id == current_user.id %>
+
+    <% @member = Member.where("group_id = ?", current_user.state_group_id).where("p = ?", 0) %>
+    <% @i = 0 %>
+    <% @member.each do |m| %>
+    <% @i = @i + 1 %>
+    <% end %>    
+
+    <% if @i != 0 %>
+      <script type="text/javascript">
+        var username = ""
+        alert(username + "管理者様へ\n申請が来ています");
+      </script>
+    <% end %>
+
+  <% end %>
+
+<% end %>
+
+-->
+
 <% today = Date.today%>
 <% @events = Event.where("group_id = ?", current_user.state_group_id) %>
 

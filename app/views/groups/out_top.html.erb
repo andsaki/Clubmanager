@@ -30,7 +30,7 @@
   <% if @group.id == current_user.state_group_id %>
     <%= link_to "入場する", "/groups/top/#{@group.id}" ,class: "cross_line"%>
   <% else %>
-    <%= link_to "入場する", "/groups/top/#{@group.id}", data:{confirm:"現在「#{@g.name}」にログインしています。「#{@g.name}」をログアウトしますか?"},class: "cross_line"%>
+    <%= link_to "入場する", "/groups/top/#{@group.id}", data:{confirm:"現在「#{@g.name}」にログインしています。\n「#{@g.name}」をログアウトしますか?"},class: "cross_line"%>
   <% end %>
 <% end %>
 
