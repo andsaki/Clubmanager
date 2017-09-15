@@ -20,6 +20,7 @@
   <% @member = Member.where("group_id = ?", params[:id]).where("p = ?", 0) %>
   <% @member.each do |f| %>
   <li style = list-style:circle>
+    
     <%= link_to f.user_name, "/users/#{f.user_id}" ,class: "linkline"%>
     <%= link_to "[承認]", "/members/permit/#{params[:id]}&#{f.id}", data:{confirm: "「#{f.user_name}」さんの申請を承認しますか?"} ,class: "linkline"%>
     <%= link_to "[拒否]", "/members/delete/#{params[:id]}&#{f.id}", data:{confirm: "「#{f.user_name}」さんの申請を拒否しますか?"} ,class: "linkline"%>
