@@ -31,7 +31,7 @@
     <div class ="center">
     <% @user = User.where("id = ?", current_user.id).first %>
     <% if @user.comment.empty? %>
-      <%= link_to "自己紹介を書きましょう", user_root_path %>
+      <%= link_to "自己紹介を書きましょう", user_root_path ,class: "linkline"%>
     <% else%>
       <%= simple_format @user.comment %>
     <% end %>
