@@ -508,6 +508,14 @@ ul.linklist li a:hover{
 .linkline3:hover{
   color: darkgray;
 }
+.linkline4{
+
+  color: darkorange;
+  text-decoration: none;
+}
+.linkline4:hover{
+  color: darkgray;
+}
 
 .statecolor{
   color: deeppink;
@@ -578,7 +586,7 @@ ul.menu li:first-child {
 h1 {
   font-size: 32px;
   color: dimgray;
-  font-family: "Gulim", sans-serif;
+  font-family: sans-serif;
 }
 
 h2 {

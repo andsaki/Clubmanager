@@ -71,7 +71,10 @@
 
 	  <% if current_user.state_group_id != -1 then %><!-- 団体にログインしている状態 -->
 
-            <% @events.each do |e| %>
+	  <!-- 一ヶ月分のイベントだけ取り出す -->
+	  <% @ev = Event.where("group_id = ?", current_user.state_group_id).where("month = ?", today.strftime('%m'))%>
+
+            <% @ev.each do |e| %>
               <% if (c.strftime('%m') == e.month) && (c.strftime('%d') == e.date) then %>
 
                 <% if e.title.length <= 9 %>
@@ -89,7 +92,7 @@
 	  <% else %><!-- 団体にログインしていない状態 -->
 
 	    <!-- 自分がログアウト中に作成したイベント -->
-            <% @e = Event.where("user_id = ?", current_user.id).where("group_id = ?", -1) %>
+            <% @e = Event.where("user_id = ?", current_user.id).where("group_id = ?", -1).where("month = ?", today.strftime('%m')) %>
 	    <% @e.each do |e| %>
               <% if (c.strftime('%m') == e.month) && (c.strftime('%d') == e.date) then %>
                 <% if e.title.length <= 9 %>
@@ -107,7 +110,7 @@
 	    <% @m_g = Group.where("master_id = ?", current_user.id) %>
 	    <% @m_g.each do |g| %>
 
-	      <% @m_g_e = Event.where("group_id = ?", g.id) %>
+	      <% @m_g_e = Event.where("group_id = ?", g.id).where("month = ?", today.strftime('%m')) %>
 	      <% @m_g_e.each do |e| %>
                 <% if (c.strftime('%m') == e.month) && (c.strftime('%d') == e.date) then %>
                   <% if e.title.length <= 9 %>
@@ -127,7 +130,7 @@
 	    <% @m = Member.where("user_id = ?", current_user.id).where("p = ?", 1) %>
 	    <% @m.each do |m| %>
 
-	      <% @mem_g_e = Event.where("group_id = ?", m.group_id) %>
+	      <% @mem_g_e = Event.where("group_id = ?", m.group_id).where("month = ?", today.strftime('%m')) %>
 	      <% @mem_g_e.each do |e| %>
 	      <% if (c.strftime('%m') == e.month) && (c.strftime('%d') == e.date) then %>
 	        <% if e.title.length <= 9 %>
