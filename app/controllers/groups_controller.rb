@@ -32,7 +32,7 @@ class GroupsController < ApplicationController
   end
 
   def index
-    @groups = Group.search(params[:search])
+    @groups = Group.search(params[:search]).order(created_at: 'desc')
     @tmp = params[:search]
   end
 
