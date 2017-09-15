@@ -14,7 +14,7 @@ class GroupsController < ApplicationController
     @user = User.where("state_group_id = ?", current_user.state_group_id).first
     @user.state_group_id = -1
     @user.save
-    redirect_to "/groups/my_group"
+    redirect_to "/posts/club_list"
     end
   end
 
@@ -51,7 +51,7 @@ class GroupsController < ApplicationController
       @group.about = params[:group][:about]
 
       if @group.save
-        redirect_to "/groups/my_group"
+        redirect_to "/posts/club_list"
       else
         redirect_to "/members/applicater/#{@group.id}", flash: {name_error: "団体名が入力されていません"}
       end
@@ -62,7 +62,7 @@ class GroupsController < ApplicationController
        @group.master_name = current_user.username
        @group.about = params[:group][:about]
        if @group.save
-         redirect_to "/groups/my_group"
+         redirect_to "/posts/club_list"
        else
          redirect_to "/groups/new", flash: {name_error: "団体名が入力されていません"}
        end
