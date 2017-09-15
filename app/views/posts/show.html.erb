@@ -3,23 +3,17 @@
 
   <h1><%= @post.title %></h1>
 </div>
-  <h2><%= simple_format @post.body %></h2>
+  <h3><%= simple_format @post.body %></h3>
   <!--最終更新：<%= time_ago_in_words(@post.created_at) %>
   <br>
   -->
   作成：<%= @post.created_at.strftime('%Y/%m/%d %H:%M') %> Created at <%= link_to @post.username, "/users/#{@post.user_id}" ,class: "linkline"%>
   <br>
   更新：<%= @post.updated_at.strftime('%Y/%m/%d %H:%M') %>
-
+  <br><br><br>
   <% if (@post.user_id == current_user.id) %>
-  <%= link_to '[編集]', edit_post_path(@post), class: 'command' ,class: "linkline"%>
-  <%= link_to '[削除]',
-  post_path(@post),
-  method: :delete,
-  class: 'command',
-    data: { confirm: 'Sure?' },
-    class:"linkline"
-  %>
+  <%= link_to image_tag('edit_bb.png', class: 'edit_bb'), edit_post_path(@post)%>
+
   <% end %>
 
   <!-- コメントの表示 -->
@@ -49,4 +43,15 @@
     <%= f.submit value = "コメント" %>
   </p>
   <% end %>
+  <br>
+  <% if (@post.user_id == current_user.id) %>
+  <h4 align = "center"><%= link_to 'この記事を削除する',
+  post_path(@post),
+  method: :delete,
+  class: 'command',
+    data: { confirm: 'Sure?' },
+    class:"cross_line"
+  %></h4>
+
+  <%end%>
 </section>
