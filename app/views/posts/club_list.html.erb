@@ -9,7 +9,6 @@
   <h3>
     管理団体
   </h3>
-
     <ul >
       <% @group = Group.where("master_id = ?", current_user.id) %>
       <% @group.each do |p| %>
@@ -34,7 +33,6 @@
       </li>
       <% end %>
     </ul>
-    <br/>
 
   <h3>
     所属団体
