@@ -16,7 +16,6 @@
   <div class = "box_scrollbar">
       <p>
         <ul class = "board">
-
           <% @posts = Post.where("group_id = ?", current_user.state_group_id).order(updated_at: 'desc') %>
             <% @posts.each do |post| %>
             <li>

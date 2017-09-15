@@ -1,11 +1,11 @@
 class Group < ApplicationRecord
   validates :name, presence: true
 
-  def self.search(search) #self.でクラスメソッドとしている
-    if search # Controllerから渡されたパラメータが!= nilの場合は、titleカラムを部分一致検索
+  def self.search(search)
+    if search.present?
       Group.where(['name LIKE ?', "%#{search}%"])
     else
-      Group.all #全て表示。
+      Group.all
     end
   end
 

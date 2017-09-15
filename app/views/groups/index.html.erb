@@ -1,23 +1,23 @@
 <section class="column">
 
   <div class = "titleposi">
-<h1>　Club List </h1>
+    <h1>　Club List </h1>
   </div>
-  <br/>
-  <br/>
-<div class = "li_box_scrollbar">
+
+  <div class = "li_box_scrollbar">
 
   <!-- 検索機能実装 -->
+
   <%= form_tag groups_index_path, :method => 'get' do %>
     <p>
-      <%= text_field_tag :search %>
+      <%= text_field_tag :search , @tmp %>
       <%= submit_tag "Search", :name => nil %>
     </p>
   <% end %>
 
-  <% @group = Group.all %>
   <ul class = "board">
-  <% @group.each do |f| %>
+
+  <% @groups.each do |f| %>
 
     <li>
       <font size = "5"><%= link_to "#{f.name}", "/groups/out_top/#{f.id}" %></font><br/>
@@ -26,8 +26,6 @@
     </li>
     <% end %>
   </ul>
-
-
 
 </div>
 </section>
