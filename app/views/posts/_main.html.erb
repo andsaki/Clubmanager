@@ -33,3 +33,31 @@
 
 <br/>
 </section>
+
+<!-- 団体への申請者の有無をお知らせ -->
+<!-- ページ移動の際にタイムラグなどの若干のバグあり -->
+<!-------------------------------------->
+
+<% if current_user.id != -1 %>
+  <% if request.referer == "http://localhost:3000/groups/out_top/#{current_user.state_group_id}" %>
+
+    <% @group = Group.where("id = ?", current_user.state_group_id).first %>
+    <% if @group.master_id == current_user.id %>
+
+      <% @member = Member.where("group_id = ?", current_user.state_group_id).where("p = ?", 0) %>
+      <% @i = 0 %>
+      <% @member.each do |m| %>
+        <% @i = @i + 1 %>
+      <% end %>
+      <% if @i != 0 %>
+        <script type="text/javascript">
+          alert("管理者様へ" + "\n" + "団体への参加申請が届いています");
+        </script>
+      <% end %>
+
+    <% end %>
+
+  <% end %>
+<% end %>
+
+<!-------------------------------------->

@@ -23,7 +23,7 @@
 	    <%= link_to p.name,"/members/applicater/#{p.id}" ,class: "linkline"%>
 	  <!--</p>-->
         <% end %>
-        <% @member = Member.where("group_id = ?", p.id) %>
+        <% @member = Member.where("group_id = ?", p.id).where("p = ?", 0) %>
         <% @i = 0 %>
         <% @member.each do |m| %>
         <% @i = @i + 1 %>
