@@ -328,6 +328,10 @@ ul.board li a:hover{
   width: 20px;
   height: 20px;
 }
+.edit_bb{
+  width: 20px;
+  height: 20px;
+}
 
 .dropposi{
 
@@ -536,6 +540,38 @@ ul.menu li:first-child {
   padding-left: 0;
   border-left: 0;
 
+}
+.button{
+    display: inline-block;
+    position: relative;
+    padding: 0.5em 1em;
+    text-decoration: none;
+    color: #000;
+    transition: .4s;
+}
+.button:hover {
+    color:#ff7f7f;
+}
+.button:before,.button:after{
+  position: absolute;
+  top: 0;
+  content:'';
+  width: 8px;
+  height: 100%;
+  display: inline-block;
+}
+.button:before{
+  border-left: solid 1px #ff7f7f;
+  border-top: solid 1px #ff7f7f;
+  border-bottom: solid 1px #ff7f7f;
+  left: 0;
+}
+.button:after{
+  content: '';
+  border-top: solid 1px #ff7f7f;
+  border-right: solid 1px #ff7f7f;
+  border-bottom: solid 1px #ff7f7f;
+  right: 0;
 }
 
 

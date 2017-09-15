@@ -4,18 +4,18 @@
   </div>
 <% @group = Group.where("id = ?", @event.group_id).first%>
 <% if @group != nil then %>
-<p>団体名: 「<%= @group.name %>」</p>
+<h2>団体名: </h2><%= @group.name %>
 <% end %>
 
-<p>日時: <%= @event.year %>/<%= @event.month %>/<%= @event.date %></p>
-<p>本文: <%= simple_format(@event.about) %></p>
+<h2>日時: </h2><%= @event.year %>/<%= @event.month %>/<%= @event.date %>
+<h2>本文:</h2> <%= simple_format(@event.about) %>
 
 <% @user = User.where("id = ?", @event.user_id).first %>
-<p>投稿者: <%= link_to @user.username, "/users/#{@event.user_id}" %></p>
+<h2>投稿者: </h2><%= link_to @user.username, "/users/#{@event.user_id}" ,class: "linkline"%>
 
 <% @i = 0 %>
 <% @f = 0 %>
-<p>出席状況:
+<h2>出席状況:</h2>
 <% @attend.each do |a| %>
   <% @i = @i + 1 %>
   <% if a.user_id == current_user.id then %>
@@ -30,12 +30,12 @@
 <% else %>
 <% end %>
 
-</p>
-<p>出席者数: <%= @i %>人</p>
+
+<h2>出席者数:</h2> <%= @i %>人
 
 <% if @group != nil then %>
 <% if @group.master_id == current_user.id || @event.user_id == current_user.id %>
-<p>出席者:</p>
+<h2>出席者:</h2>
 <ul>
 <% @attend.each do |a| %>
 
@@ -45,20 +45,24 @@
 </ul>
 <% end %>
 <% end %>
-
+<br><br>
 <% if @f == 0 then %>
-<%= link_to "[出席]", "/events/attend/#{@event.id}.to_i" %>
-[欠席]
+<%= link_to "出席する", "/events/attend/#{@event.id}.to_i" ,class: "button" %>
+
 <% else%>
-[出席]
-<%= link_to "[欠席]", "/events/absence/#{@event.id}.to_i" %>
+
+<%= link_to "欠席する", "/events/absence/#{@event.id}.to_i" ,class: "button"%>
 <% end %>
 <% if @event.user_id == current_user.id then %>
-<p>
-<%= link_to "[削除]", "/events/delete/#{@event.id}", data: { confirm: "「#{@event.title}」を削除しますか?"} %>
-<%= link_to "[編集]", "/events/edit/#{@event.id}" %>
-</p>
-<% else %>
-<p>[削除・編集できません]</p>
+<br><br><br>
+<%= link_to image_tag("edit_bb.png",class: "edit_bb"), "/events/edit/#{@event.id}" %>
+<br><br><br>
+<h4 align = "center">
+<%= link_to "このイベントを削除する", "/events/delete/#{@event.id}", data: { confirm: "「#{@event.title}」を削除しますか?"},class: "cross_line", align: "center" %>
+</h4>
+
+
+
 <% end %>
+<br>
 </section>
