@@ -44,7 +44,7 @@
 <!-------------------------------------->
 
 <% if current_user.id != -1 %>
-  <% if request.referer == "http://localhost:3000/groups/out_top/#{current_user.state_group_id}" %>
+  <% if request.referer == "http://192.168.20.229:3000/groups/out_top/#{current_user.state_group_id}" %>
 
     <% @group = Group.where("id = ?", current_user.state_group_id).first %>
     <% if @group.master_id == current_user.id %>
